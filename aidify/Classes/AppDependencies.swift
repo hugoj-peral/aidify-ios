@@ -15,7 +15,6 @@ class AppDependencies {
             fatalError("Error no window")
         }
         
-        let viewController = ViewController()
-        window.rootViewController = viewController
+        LoginWireFrame.presentLoginModule(fromWindow: window)
     }
 }
