@@ -1,6 +1,9 @@
 //
-// Created by VIPER
-// Copyright (c) 2016 VIPER. All rights reserved.
+//  LoginProtocols.swift
+//  aidify
+//
+//  Created by Hugo Peral on 24/3/16.
+//  Copyright © 2016 aidify. All rights reserved.
 //
 
 import Foundation
@@ -11,6 +14,12 @@ protocol LoginViewProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> VIEW
     */
+    func loadCompanyLookNFeel()
+    func loadLoginLookNFeel()
+    func loadFailureLookNFeel()
+    func loadSuccessLookNFeel()
+    func showRequestMode()
+    func hideRequestMode()
 }
 
 protocol LoginWireFrameProtocol: class

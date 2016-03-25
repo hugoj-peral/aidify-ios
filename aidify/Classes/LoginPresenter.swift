@@ -1,6 +1,9 @@
 //
-// Created by VIPER
-// Copyright (c) 2016 VIPER. All rights reserved.
+//  LoginPresenter.swift
+//  aidify
+//
+//  Created by Hugo Peral on 24/3/16.
+//  Copyright © 2016 aidify. All rights reserved.
 //
 
 import Foundation

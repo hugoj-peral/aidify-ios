@@ -1,5 +1,5 @@
 //
-//  BrandFont.swift
+//  AIDFont.swift
 //  aidify
 //
 //  Created by Hugo Peral on 20/3/16.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-enum BrandFont: String {
+enum AIDFont: String {
     case Header
     case Title
     case Subtitle
 }
 
-protocol BrandFontRepresentation {
+protocol AIDFontRepresentation {
     func font() -> UIFont
 }
 
-extension BrandFont : BrandFontRepresentation {
+extension AIDFont : AIDFontRepresentation {
     func font() -> UIFont {
         switch self {
         case .Header: return UIFont(name: "AllerDisplay", size: 24)!

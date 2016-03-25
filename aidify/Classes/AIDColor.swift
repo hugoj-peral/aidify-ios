@@ -1,5 +1,5 @@
 //
-//  Color.swift
+//  AIDColor.swift
 //  aidify
 //
 //  Created by Hugo Peral on 20/3/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum BrandColor: String {
+enum AIDColor: String {
     case Black
     case Green
     case Orange
@@ -18,11 +18,11 @@ enum BrandColor: String {
     case Purple
 }
 
-protocol BrandColorRepresentation {
+protocol AIDColorRepresentation {
     func color() -> UIColor
 }
 
-extension BrandColor : BrandColorRepresentation {
+extension AIDColor : AIDColorRepresentation {
     func color() -> UIColor {
         switch self {
         case .Black: return UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1.0)

@@ -14,7 +14,7 @@ class AppDependencies {
         guard let window = window else {
             fatalError("Error no window")
         }
-        
+        //TODO: We need root wireframe
         LoginWireFrame.presentLoginModule(fromWindow: window)
     }
 }

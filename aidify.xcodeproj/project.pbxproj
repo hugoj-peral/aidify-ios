@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A4011541C9EFD880038BC2D /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011531C9EFD880038BC2D /* BrandColor.swift */; };
-		9A4011561C9F00F80038BC2D /* BrandFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011551C9F00F80038BC2D /* BrandFont.swift */; };
+		9A4011541C9EFD880038BC2D /* AIDColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011531C9EFD880038BC2D /* AIDColor.swift */; };
+		9A4011561C9F00F80038BC2D /* AIDFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011551C9F00F80038BC2D /* AIDFont.swift */; };
 		9A40115B1C9F0C0D0038BC2D /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A4011581C9F0C0D0038BC2D /* AllerDisplay.ttf */; };
 		9A40115C1C9F0C0D0038BC2D /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A4011591C9F0C0D0038BC2D /* Raleway-Light.ttf */; };
 		9A40115D1C9F0C0D0038BC2D /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A40115A1C9F0C0D0038BC2D /* Raleway-Medium.ttf */; };
@@ -26,6 +26,9 @@
 		9A92D4F01CA4499100AEB182 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92D4EF1CA4499100AEB182 /* LoginView.swift */; };
 		9A92D4F31CA449C100AEB182 /* LoginWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92D4F21CA449C100AEB182 /* LoginWireFrame.swift */; };
 		9A92D4F61CA44CB900AEB182 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A92D4F41CA44CB900AEB182 /* LoginView.xib */; };
+		9A92D4F91CA4689C00AEB182 /* AIDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */; };
+		9ADB63641CA54DE100BCC7FF /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADB63631CA53B4500BCC7FF /* Raleway-Bold.ttf */; };
+		9ADB63661CA5535C00BCC7FF /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADB63651CA5535400BCC7FF /* Raleway-Regular.ttf */; };
 		9AFD61051CA408F600E1CC32 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD61021CA408F600E1CC32 /* APIClient.swift */; };
 		9AFD61061CA408F600E1CC32 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD61031CA408F600E1CC32 /* JSONDecodable.swift */; };
 		9AFD61071CA408F600E1CC32 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD61041CA408F600E1CC32 /* Resource.swift */; };
@@ -42,8 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A4011531C9EFD880038BC2D /* BrandColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandColor.swift; path = ../Classes/BrandColor.swift; sourceTree = "<group>"; };
-		9A4011551C9F00F80038BC2D /* BrandFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandFont.swift; path = ../Classes/BrandFont.swift; sourceTree = "<group>"; };
+		9A4011531C9EFD880038BC2D /* AIDColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDColor.swift; sourceTree = "<group>"; };
+		9A4011551C9F00F80038BC2D /* AIDFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDFont.swift; sourceTree = "<group>"; };
 		9A4011581C9F0C0D0038BC2D /* AllerDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AllerDisplay.ttf; sourceTree = "<group>"; };
 		9A4011591C9F0C0D0038BC2D /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
 		9A40115A1C9F0C0D0038BC2D /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
@@ -65,6 +68,9 @@
 		9A92D4EF1CA4499100AEB182 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9A92D4F21CA449C100AEB182 /* LoginWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWireFrame.swift; sourceTree = "<group>"; };
 		9A92D4F51CA44CB900AEB182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginView.xib; sourceTree = "<group>"; };
+		9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDTextField.swift; path = Classes/AIDTextField.swift; sourceTree = "<group>"; };
+		9ADB63631CA53B4500BCC7FF /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		9ADB63651CA5535400BCC7FF /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		9AFD61021CA408F600E1CC32 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Classes/APIClient.swift; sourceTree = "<group>"; };
 		9AFD61031CA408F600E1CC32 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Classes/JSONDecodable.swift; sourceTree = "<group>"; };
 		9AFD61041CA408F600E1CC32 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Classes/Resource.swift; sourceTree = "<group>"; };
@@ -91,8 +97,8 @@
 		9A4011521C9EFD720038BC2D /* Brand */ = {
 			isa = PBXGroup;
 			children = (
-				9A4011531C9EFD880038BC2D /* BrandColor.swift */,
-				9A4011551C9F00F80038BC2D /* BrandFont.swift */,
+				9A4011531C9EFD880038BC2D /* AIDColor.swift */,
+				9A4011551C9F00F80038BC2D /* AIDFont.swift */,
 			);
 			name = Brand;
 			path = Classes;
@@ -102,8 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				9A4011581C9F0C0D0038BC2D /* AllerDisplay.ttf */,
+				9ADB63651CA5535400BCC7FF /* Raleway-Regular.ttf */,
 				9A4011591C9F0C0D0038BC2D /* Raleway-Light.ttf */,
 				9A40115A1C9F0C0D0038BC2D /* Raleway-Medium.ttf */,
+				9ADB63631CA53B4500BCC7FF /* Raleway-Bold.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -131,12 +139,13 @@
 			children = (
 				9AFD60FF1CA408D800E1CC32 /* API */,
 				9A4011521C9EFD720038BC2D /* Brand */,
+				9A92D4F71CA4682300AEB182 /* Components */,
 				9A92D4DA1CA448B100AEB182 /* Modules */,
+				9A6B1AFE1C9DCF6A006D7A7C /* Assets.xcassets */,
 				9A6B1ADE1C9DC36A006D7A7C /* AppDelegate.swift */,
 				9A40115E1C9F11BC0038BC2D /* AppDependencies.swift */,
-				9A6B1AFE1C9DCF6A006D7A7C /* Assets.xcassets */,
-				9A6B1AE71C9DC36A006D7A7C /* LaunchScreen.storyboard */,
 				9A6B1AEA1C9DC36A006D7A7C /* Info.plist */,
+				9A6B1AE71C9DC36A006D7A7C /* LaunchScreen.storyboard */,
 				9A4011571C9F0A7C0038BC2D /* Resources */,
 			);
 			path = aidify;
@@ -240,6 +249,14 @@
 			name = WireFrame;
 			sourceTree = "<group>";
 		};
+		9A92D4F71CA4682300AEB182 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		9AFD60FF1CA408D800E1CC32 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,8 +356,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ADB63641CA54DE100BCC7FF /* Raleway-Bold.ttf in Resources */,
 				9A6B1AE91C9DC36A006D7A7C /* LaunchScreen.storyboard in Resources */,
 				9A40115D1C9F0C0D0038BC2D /* Raleway-Medium.ttf in Resources */,
+				9ADB63661CA5535C00BCC7FF /* Raleway-Regular.ttf in Resources */,
 				9A40115C1C9F0C0D0038BC2D /* Raleway-Light.ttf in Resources */,
 				9A92D4F61CA44CB900AEB182 /* LoginView.xib in Resources */,
 				9A6B1AFF1C9DCF6A006D7A7C /* Assets.xcassets in Resources */,
@@ -366,15 +385,16 @@
 				9A92D4ED1CA4497800AEB182 /* LoginProtocols.swift in Sources */,
 				9A92D4E61CA4494600AEB182 /* LoginInteractor.swift in Sources */,
 				9A92D4F01CA4499100AEB182 /* LoginView.swift in Sources */,
+				9A92D4F91CA4689C00AEB182 /* AIDTextField.swift in Sources */,
 				9A92D4E71CA4494600AEB182 /* LoginItem.swift in Sources */,
-				9A4011561C9F00F80038BC2D /* BrandFont.swift in Sources */,
+				9A4011561C9F00F80038BC2D /* AIDFont.swift in Sources */,
 				9AFD61071CA408F600E1CC32 /* Resource.swift in Sources */,
 				9AFD61061CA408F600E1CC32 /* JSONDecodable.swift in Sources */,
 				9A6B1ADF1C9DC36A006D7A7C /* AppDelegate.swift in Sources */,
 				9A92D4F31CA449C100AEB182 /* LoginWireFrame.swift in Sources */,
 				9A92D4EA1CA4495D00AEB182 /* LoginPresenter.swift in Sources */,
 				9A40115F1C9F11BC0038BC2D /* AppDependencies.swift in Sources */,
-				9A4011541C9EFD880038BC2D /* BrandColor.swift in Sources */,
+				9A4011541C9EFD880038BC2D /* AIDColor.swift in Sources */,
 				9AFD61051CA408F600E1CC32 /* APIClient.swift in Sources */,
 				9A92D4E21CA4492500AEB182 /* LoginLocalDataManager.swift in Sources */,
 			);

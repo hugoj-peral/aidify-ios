@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         appDependencies.installRootViewControllerIntoWindow(window)
         window?.makeKeyAndVisible()
-                
+        
         return true
     }
 
