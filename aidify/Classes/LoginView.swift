@@ -85,7 +85,11 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if (textField == self.usernameField) {
+            self.passAndCoField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
         self.presenter?.nextLookNFeel()
         return true
     }
