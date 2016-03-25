@@ -38,6 +38,11 @@ protocol LoginPresenterProtocol: class
     /**
     * Add here your methods for communication VIEW -> PRESENTER
     */
+    
+    func initialLookNFeel()
+    func nextLookNFeel()
+    func setPassAndCoText(text:String?)
+    func setUserName(text:String?)
 }
 
 protocol LoginInteractorOutputProtocol: class

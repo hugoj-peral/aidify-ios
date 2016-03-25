@@ -39,7 +39,10 @@
                     <rect key="frame" x="20" y="163" width="560" height="29"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="pbq-J3-ORy"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-hA-w2m">
                     <rect key="frame" x="248" y="202" width="104" height="29"/>
@@ -52,6 +55,9 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="nJk-gJ-Gv1"/>
+                    </connections>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="G8r-U9-lJj">
                     <rect key="frame" x="264" y="559" width="73" height="23"/>

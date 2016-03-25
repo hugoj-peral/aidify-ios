@@ -10,7 +10,7 @@ import Foundation
 
 struct LoginItem
 {
-    /**
-    *  Attributes here
-    */
+    var company: String?
+    var username: String?
+    var password: String?
 }

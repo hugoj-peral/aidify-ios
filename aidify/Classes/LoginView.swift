@@ -19,7 +19,7 @@ class LoginView: UIViewController, LoginViewProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCompanyLookNFeel()
+        self.presenter?.initialLookNFeel()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -34,6 +34,7 @@ class LoginView: UIViewController, LoginViewProtocol
         self.username.hidden = true
         self.usernameField.hidden = true
         self.passAndCo.text = "company"
+        self.passAndCoField.text = nil;
         self.passAndCoField.placeholder = "your company"
         self.passAndCoField.secureTextEntry = false
     }
@@ -43,6 +44,7 @@ class LoginView: UIViewController, LoginViewProtocol
         self.username.hidden = false
         self.usernameField.hidden = false
         self.passAndCo.text = "password"
+        self.passAndCoField.text = nil
         self.passAndCoField.placeholder = "your password"
         self.passAndCoField.secureTextEntry = true
     }
@@ -69,5 +71,22 @@ extension LoginView {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+}
+
+extension LoginView: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if (textField == self.passAndCoField) {
+            self.presenter?.setPassAndCoText(textField.text)
+        } else if(textField == self.usernameField) {
+            self.presenter?.setUserName(textField.text)
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.presenter?.nextLookNFeel()
+        return true
     }
 }
