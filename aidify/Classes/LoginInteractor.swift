@@ -15,4 +15,13 @@ class LoginInteractor: LoginInteractorInputProtocol
     var localDatamanager: LoginLocalDataManagerInputProtocol?
     
     init() {}
+    
+    func loginWith(loginItem loginItem: LoginItem) {
+        
+        if let username = loginItem.username, password = loginItem.password {
+            self.APIDataManager?.githubLoginWith(usermane: username, password: password)
+        } else {
+            print("Error: username or password empty")
+        }
+    }
 }

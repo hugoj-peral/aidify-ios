@@ -75,7 +75,7 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
     func performLogin(){
         if(self.shouldPerformLogin()) {
             self.view?.showRequestMode()
-            //TODO: API Call
+            self.interactor?.loginWith(loginItem: self.loginItem)
         }
     }
 }

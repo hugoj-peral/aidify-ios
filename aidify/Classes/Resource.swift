@@ -10,12 +10,34 @@ import Foundation
 
 enum Method: String {
     case GET
+    case POST
+    case PUT
+}
+
+enum Auth {
+    case None
+    case Basic(user: String, pass: String)
+}
+
+extension Auth: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .None:
+            return ""
+        case let .Basic(user, pass):
+            let loginString = NSString(format: "%@:%@", user, pass)
+            let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+            let base64LoginString = loginData.base64EncodedStringWithOptions([])
+            return "Basic \(base64LoginString)"
+        }
+    }
 }
 
 protocol Resource {
     var method: Method { get }
     var path: String { get }
-    var parameters: [String: String] { get }
+    var parameters: [String: AnyObject] { get }
+    var auth: Auth { get }
 }
 
 extension Resource {
@@ -24,9 +46,35 @@ extension Resource {
         return .GET
     }
     
+    var auth: Auth {
+        return .None
+    }
+    
     func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest {
         let URL = baseURL.URLByAppendingPathComponent(path)
         
+        var request: NSMutableURLRequest
+        
+        switch method {
+        case .GET:
+            request = getRequestWithBaseURL(URL)
+        case .POST, .PUT:
+            request = postRequestWithBaseURL(URL)
+        }
+        
+        request.HTTPMethod = method.rawValue
+        
+        switch auth {
+        case .None:
+            break;
+        default:
+            request.addValue(auth.description, forHTTPHeaderField: "Authorization")
+        }
+        
+        return request
+    }
+    
+    private func getRequestWithBaseURL(URL: NSURL) -> NSMutableURLRequest {
         // NSURLComponents can fail due to programming errors, so
         // prefer crashing than returning an optional
         
@@ -42,8 +90,15 @@ extension Resource {
             fatalError("Unable to retrieve final URL")
         }
         
-        let request = NSMutableURLRequest(URL: finalURL)
-        request.HTTPMethod = method.rawValue
+        return NSMutableURLRequest(URL: finalURL)
+    }
+    
+    private func postRequestWithBaseURL(URL: NSURL) -> NSMutableURLRequest {
+        let request = NSMutableURLRequest(URL: URL)
+        
+        if let jsonData = try? NSJSONSerialization.dataWithJSONObject(parameters, options: []){
+            request.HTTPBody = jsonData
+        }
         
         return request
     }

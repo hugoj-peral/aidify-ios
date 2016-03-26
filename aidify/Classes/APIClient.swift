@@ -64,6 +64,29 @@ final class APIClient {
         })
     }
     
+    func object<T: JSONDecodable>(resource: Resource, completion: (APIClientResult<T, APIClientError>) -> Void) -> NSURLSessionDataTask {
+        
+        
+        return data(resource, completion: { result in
+            var clientResult: APIClientResult<T, APIClientError>;
+            
+            switch result {
+            case let .Success(data):
+                if let object: T = decode(data) {
+                    clientResult = APIClientResult.Success(object)
+                } else {
+                    clientResult = APIClientResult.Failure(APIClientError.CouldNotDecodeJSON)
+                }                
+            case let .Failure(error):
+                clientResult = APIClientResult.Failure(error)
+            }
+            
+            dispatch_async(self.queue, {
+                completion(clientResult)
+            })
+        })
+    }
+    
     // MARK: - Private
     
     private let baseURL: NSURL

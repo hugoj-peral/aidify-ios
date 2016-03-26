@@ -10,6 +10,12 @@ import Foundation
 
 class LoginAPIDataManager: LoginAPIDataManagerInputProtocol
 {
-    //TODO: scopes to request: repo:status, public_repo, user:email and read:org
     init() {}
+    
+    func githubLoginWith(usermane username: String, password: String) {
+        let clientAPI = APIClient.githubAPIClient()
+        clientAPI.authorizationWithName(username, password: password, completion: { (result: APIClientResult<AuthorizationGithub, APIClientError>) -> Void in
+            print(result)
+        })
+    }
 }

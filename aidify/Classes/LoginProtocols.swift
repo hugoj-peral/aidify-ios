@@ -60,6 +60,7 @@ protocol LoginInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+    func loginWith(loginItem loginItem: LoginItem)
 }
 
 protocol LoginDataManagerInputProtocol: class
@@ -74,6 +75,7 @@ protocol LoginAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
+    func githubLoginWith(usermane username: String, password: String)
 }
 
 protocol LoginLocalDataManagerInputProtocol: class

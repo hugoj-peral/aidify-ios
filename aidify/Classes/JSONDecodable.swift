@@ -31,3 +31,13 @@ func decode<T:JSONDecodable>(data: NSData) -> [T]? {
     
     return objects
 }
+
+func decode<T:JSONDecodable>(data: NSData) -> T? {
+    guard let JSONObject = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
+        dictionary = JSONObject as? JSONDictionary,
+        object: T = decode(dictionary) else {
+            return nil
+    }
+    
+    return object
+}
