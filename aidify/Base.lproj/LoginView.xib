@@ -59,9 +59,6 @@
                         <outlet property="delegate" destination="-1" id="nJk-gJ-Gv1"/>
                     </connections>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="G8r-U9-lJj">
-                    <rect key="frame" x="264" y="559" width="73" height="23"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -71,23 +68,12 @@
                 <constraint firstItem="bNd-Ud-CLZ" firstAttribute="top" secondItem="qht-oo-rwn" secondAttribute="bottom" constant="8" id="9R3-4o-pgf"/>
                 <constraint firstItem="qht-oo-rwn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="126" id="EK0-gw-NKe"/>
                 <constraint firstAttribute="trailing" secondItem="bNd-Ud-CLZ" secondAttribute="trailing" constant="20" id="LgM-NC-021"/>
-                <constraint firstAttribute="bottom" secondItem="G8r-U9-lJj" secondAttribute="bottom" constant="18" id="Lqz-Iu-2MR"/>
                 <constraint firstItem="n0S-hA-w2m" firstAttribute="top" secondItem="bNd-Ud-CLZ" secondAttribute="bottom" constant="10" id="Q7X-Hp-dI9"/>
                 <constraint firstAttribute="trailing" secondItem="mgY-Yv-Kqn" secondAttribute="trailing" constant="20" id="eEb-sW-Fyv"/>
-                <constraint firstItem="G8r-U9-lJj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="epg-yh-kbc"/>
-                <constraint firstItem="n0S-hA-w2m" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="202" id="sLY-GQ-HyY"/>
                 <constraint firstItem="n0S-hA-w2m" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tPM-qe-zwj"/>
                 <constraint firstItem="mgY-Yv-Kqn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="vq4-fe-Fh1"/>
                 <constraint firstItem="bNd-Ud-CLZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yFS-YU-gZ4"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="sLY-GQ-HyY"/>
-                </mask>
-            </variation>
         </view>
     </objects>
-    <resources>
-        <image name="footer_logo" width="73" height="23"/>
-    </resources>
 </document>

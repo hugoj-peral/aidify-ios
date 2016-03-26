@@ -14,10 +14,14 @@ enum Method: String {
     case PUT
 }
 
-enum Auth {
+enum Auth: Equatable {
     case None
     case Basic(user: String, pass: String)
 }
+func ==(lhs: Auth, rhs: Auth) -> Bool {
+    return String(lhs) == String(rhs)
+}
+
 
 extension Auth: CustomStringConvertible {
     var description: String {
@@ -64,10 +68,7 @@ extension Resource {
         
         request.HTTPMethod = method.rawValue
         
-        switch auth {
-        case .None:
-            break;
-        default:
+        if auth != .None {
             request.addValue(auth.description, forHTTPHeaderField: "Authorization")
         }
         

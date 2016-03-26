@@ -29,6 +29,8 @@
 		9A92D4F31CA449C100AEB182 /* LoginWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92D4F21CA449C100AEB182 /* LoginWireFrame.swift */; };
 		9A92D4F61CA44CB900AEB182 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A92D4F41CA44CB900AEB182 /* LoginView.xib */; };
 		9A92D4F91CA4689C00AEB182 /* AIDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */; };
+		9ADA5B131CA6BC2200C4B285 /* AIDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA5B121CA6BC2200C4B285 /* AIDProgressView.swift */; };
+		9ADA5B181CA6FB2D00C4B285 /* AIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA5B171CA6FB2D00C4B285 /* AIDViewController.swift */; };
 		9ADB63641CA54DE100BCC7FF /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADB63631CA53B4500BCC7FF /* Raleway-Bold.ttf */; };
 		9ADB63661CA5535C00BCC7FF /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADB63651CA5535400BCC7FF /* Raleway-Regular.ttf */; };
 		9ADB636B1CA5CD4000BCC7FF /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB636A1CA5CD4000BCC7FF /* GithubAPI.swift */; };
@@ -74,6 +76,8 @@
 		9A92D4F21CA449C100AEB182 /* LoginWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWireFrame.swift; sourceTree = "<group>"; };
 		9A92D4F51CA44CB900AEB182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginView.xib; sourceTree = "<group>"; };
 		9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDTextField.swift; path = Classes/AIDTextField.swift; sourceTree = "<group>"; };
+		9ADA5B121CA6BC2200C4B285 /* AIDProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDProgressView.swift; path = Classes/AIDProgressView.swift; sourceTree = "<group>"; };
+		9ADA5B171CA6FB2D00C4B285 /* AIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDViewController.swift; path = Classes/AIDViewController.swift; sourceTree = "<group>"; };
 		9ADB63631CA53B4500BCC7FF /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		9ADB63651CA5535400BCC7FF /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		9ADB636A1CA5CD4000BCC7FF /* GithubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GithubAPI.swift; path = Classes/GithubAPI.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */,
+				9ADA5B121CA6BC2200C4B285 /* AIDProgressView.swift */,
+				9ADA5B171CA6FB2D00C4B285 /* AIDViewController.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				9A4011561C9F00F80038BC2D /* AIDFont.swift in Sources */,
 				9AFD61071CA408F600E1CC32 /* Resource.swift in Sources */,
 				9AFD61061CA408F600E1CC32 /* JSONDecodable.swift in Sources */,
+				9ADA5B181CA6FB2D00C4B285 /* AIDViewController.swift in Sources */,
 				9A6B1ADF1C9DC36A006D7A7C /* AppDelegate.swift in Sources */,
 				9ADB636B1CA5CD4000BCC7FF /* GithubAPI.swift in Sources */,
 				9A92D4F31CA449C100AEB182 /* LoginWireFrame.swift in Sources */,
@@ -416,6 +423,7 @@
 				9A4011541C9EFD880038BC2D /* AIDColor.swift in Sources */,
 				9A7431321CA67FD500982579 /* AppGithub.swift in Sources */,
 				9AFD61051CA408F600E1CC32 /* APIClient.swift in Sources */,
+				9ADA5B131CA6BC2200C4B285 /* AIDProgressView.swift in Sources */,
 				9A92D4E21CA4492500AEB182 /* LoginLocalDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

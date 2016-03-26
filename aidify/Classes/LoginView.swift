@@ -9,21 +9,25 @@
 import Foundation
 import UIKit
 
-class LoginView: UIViewController, LoginViewProtocol
+class LoginView: AIDViewController, LoginViewProtocol
 {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var usernameField: AIDTextField!
     @IBOutlet weak var passAndCo: UILabel!
     @IBOutlet weak var passAndCoField: AIDTextField!
     
+    lazy var progressView: AIDProgressView = {
+        var frame = self.statusBarFrame()
+        frame.origin.y = frame.size.height
+        frame.size.height = 4.0
+        let progressView = AIDProgressView(frame: frame)
+        return progressView
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.initialLookNFeel()
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
     }
     
     //MARK: LoginViewProtocol
@@ -58,11 +62,14 @@ class LoginView: UIViewController, LoginViewProtocol
     }
     
     func showRequestMode() {
-        
+        progressView.progress = 0.0
+        view.addSubview(progressView)
+        progressView.simulateProgress()
     }
     
     func hideRequestMode() {
-        
+        progressView.progress = 1.0
+        progressView.removeFromSuperview()
     }
 }
 
