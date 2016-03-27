@@ -11,10 +11,10 @@ import UIKit
 
 class LoginView: AIDViewController, LoginViewProtocol
 {
-    @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var usernameField: AIDTextField!
-    @IBOutlet weak var passAndCo: UILabel!
-    @IBOutlet weak var passAndCoField: AIDTextField!
+    @IBOutlet weak var companyField: AIDTextField!
+    @IBOutlet weak var usernameAndCo: UILabel!
+    @IBOutlet weak var usernameAndCoField: AIDTextField!
+    @IBOutlet weak var usernameAndCoHeight: NSLayoutConstraint!
     
     lazy var progressView: AIDProgressView = {
         var frame = self.statusBarFrame()
@@ -34,31 +34,39 @@ class LoginView: AIDViewController, LoginViewProtocol
     var presenter: LoginPresenterProtocol?
     
     func loadCompanyLookNFeel() {
-        view.backgroundColor = AIDColor.Purple.color()
-        self.username.hidden = true
-        self.usernameField.hidden = true
-        self.passAndCo.text = "company"
-        self.passAndCoField.text = nil;
-        self.passAndCoField.placeholder = "your company"
-        self.passAndCoField.secureTextEntry = false
+        UIView .animateWithDuration(0.4) { () -> Void in
+            self.view.backgroundColor = AIDColor.Purple.color()
+            self.statusBarColor = AIDColor.DarkPurple.color()
+            self.companyField.hidden = true
+            self.usernameAndCo.text = "company"
+            self.usernameAndCoField.text = nil;
+            self.usernameAndCoField.placeholder = "your company"
+        }
     }
     
     func loadLoginLookNFeel() {
-        view.backgroundColor = AIDColor.Blue.color()
-        self.username.hidden = false
-        self.usernameField.hidden = false
-        self.passAndCo.text = "password"
-        self.passAndCoField.text = nil
-        self.passAndCoField.placeholder = "your password"
-        self.passAndCoField.secureTextEntry = true
+        UIView .animateWithDuration(0.4) { () -> Void in
+            self.view.backgroundColor = AIDColor.Blue.color()
+            self.statusBarColor = AIDColor.DarkBlue.color()
+            self.companyField.hidden = true
+            self.usernameAndCo.text = "username"
+            self.usernameAndCoField.text = nil
+            self.usernameAndCoField.placeholder = "your username"
+        }
     }
     
     func loadFailureLookNFeel() {
-        view.backgroundColor = AIDColor.Pink.color()
+        UIView .animateWithDuration(0.4) { () -> Void in
+            self.view.backgroundColor = AIDColor.Pink.color()
+            self.statusBarColor = AIDColor.DarkPink.color()
+        }
     }
     
     func loadSuccessLookNFeel() {
-        view.backgroundColor = AIDColor.Green.color()
+        UIView .animateWithDuration(0.4) { () -> Void in
+            self.view.backgroundColor = AIDColor.Green.color()
+            self.statusBarColor = AIDColor.DarkGreen.color()
+        }
     }
     
     func showRequestMode() {
@@ -69,7 +77,12 @@ class LoginView: AIDViewController, LoginViewProtocol
     
     func hideRequestMode() {
         progressView.progress = 1.0
-        progressView.removeFromSuperview()
+        let delayInSeconds = 0.5
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, (Int64)(delayInSeconds * Double(NSEC_PER_SEC)))
+        dispatch_after(popTime, dispatch_get_main_queue()) {[weak self]() -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.progressView.removeFromSuperview()
+        }
     }
 }
 
@@ -84,16 +97,16 @@ extension LoginView {
 extension LoginView: UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
-        if (textField == self.passAndCoField) {
-            self.presenter?.setPassAndCoText(textField.text)
-        } else if(textField == self.usernameField) {
-            self.presenter?.setUserName(textField.text)
+        if (textField == self.usernameAndCoField) {
+            self.presenter?.setUsernameAndCoText(textField.text)
+        } else if(textField == self.companyField) {
+            self.presenter?.setCompany(textField.text)
         }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if (textField == self.usernameField) {
-            self.passAndCoField.becomeFirstResponder()
+        if (textField == self.companyField) {
+            self.usernameAndCoField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
         }

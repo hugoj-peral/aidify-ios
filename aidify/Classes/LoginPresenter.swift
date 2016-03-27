@@ -26,28 +26,42 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
     
     func nextLookNFeel() {
         switch self.look {
-        case .Company: self.showUsernameAndPassword()
+        case .Company: self.showUsername()
         case .Login: self.performLogin()
+        case .Error: self.performLogin()
+//        case .Success: //dismiss and show profile
         default: break
         }
     }
     
-    func setPassAndCoText(text:String?) {
+    func setUsernameAndCoText(text:String?) {
         switch self.look {
         case .Company: loginItem.company = text
-        default: loginItem.password = text
+        default: loginItem.username = text
         }
     }
     
-    func setUserName(text:String?) {
-        loginItem.username = text
+    func setCompany(text:String?) {
+        loginItem.company = text
+    }
+    
+    func loginSuccess() {
+        self.look = .Success
+        self.view?.hideRequestMode()
+        self.view?.loadSuccessLookNFeel()
+    }
+    
+    func loginFailed() {
+        self.look = .Error
+        self.view?.hideRequestMode()
+        self.view?.loadFailureLookNFeel()
     }
     
     //MARK: Private
     private var look: LoginLookNFeel = .Company
     private var loginItem = LoginItem()
     
-    func shouldShowUsernameAndPassword() -> Bool {
+    func shouldShowUsername() -> Bool {
         if let company = self.loginItem.company {
             if (company != "") {
                 return true
@@ -56,16 +70,16 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
         return false
     }
     
-    func showUsernameAndPassword() {
-        if(self.shouldShowUsernameAndPassword()) {
+    func showUsername() {
+        if(self.shouldShowUsername()) {
             self.look = .Login
             self.view?.loadLoginLookNFeel()
         }
     }
     
     func shouldPerformLogin() -> Bool {
-        if let username = self.loginItem.username, password = self.loginItem.password {
-            if(username != "" && password != "") {
+        if let username = self.loginItem.username, company = self.loginItem.company {
+            if(username != "" && company != "") {
                 return true
             }
         }

@@ -12,5 +12,4 @@ struct LoginItem
 {
     var company: String?
     var username: String?
-    var password: String?
 }

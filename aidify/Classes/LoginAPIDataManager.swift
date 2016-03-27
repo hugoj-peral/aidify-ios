@@ -12,10 +12,11 @@ class LoginAPIDataManager: LoginAPIDataManagerInputProtocol
 {
     init() {}
     
-    func githubLoginWith(usermane username: String, password: String) {
-        let clientAPI = APIClient.githubAPIClient()
-        clientAPI.authorizationWithName(username, password: password, completion: { (result: APIClientResult<AuthorizationGithub, APIClientError>) -> Void in
-            print(result)
-        })
+    func loginWith(usermane username: String, company: String, completion: (Bool) -> Void) {
+        let delayInSeconds: UInt64 = 1
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, (Int64)(delayInSeconds * NSEC_PER_SEC))
+        dispatch_after(popTime, dispatch_get_main_queue()) {() -> Void in
+            completion((Int)(arc4random() % 2) != 0)
+        }
     }
 }

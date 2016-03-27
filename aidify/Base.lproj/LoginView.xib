@@ -11,16 +11,15 @@
         </mutableArray>
         <mutableArray key="Raleway-Regular.ttf">
             <string>Raleway-Regular</string>
-            <string>Raleway-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="aidify" customModuleProvider="target">
             <connections>
-                <outlet property="passAndCo" destination="n0S-hA-w2m" id="bc0-Ut-GUG"/>
-                <outlet property="passAndCoField" destination="mgY-Yv-Kqn" id="a3q-Bn-Yaf"/>
-                <outlet property="username" destination="qht-oo-rwn" id="CBB-Uj-xXz"/>
-                <outlet property="usernameField" destination="bNd-Ud-CLZ" id="ubd-7E-uHA"/>
+                <outlet property="companyField" destination="bNd-Ud-CLZ" id="8gf-zD-qnb"/>
+                <outlet property="usernameAndCo" destination="n0S-hA-w2m" id="BQ0-yO-HiZ"/>
+                <outlet property="usernameAndCoField" destination="mgY-Yv-Kqn" id="eOg-EB-AgO"/>
+                <outlet property="usernameAndCoHeight" destination="gUk-jS-zFw" id="dBW-hf-qoR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="N1b-kC-pAM"/>
             </connections>
         </placeholder>
@@ -29,13 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qht-oo-rwn">
-                    <rect key="frame" x="244" y="126" width="112" height="29"/>
-                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNd-Ud-CLZ" customClass="AIDTextField" customModule="aidify" customModuleProvider="target">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNd-Ud-CLZ" customClass="AIDTextField" customModule="aidify" customModuleProvider="target">
                     <rect key="frame" x="20" y="163" width="560" height="29"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
@@ -44,13 +37,16 @@
                         <outlet property="delegate" destination="-1" id="pbq-J3-ORy"/>
                     </connections>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-hA-w2m">
-                    <rect key="frame" x="248" y="202" width="104" height="29"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-hA-w2m">
+                    <rect key="frame" x="244" y="202" width="112" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="gUk-jS-zFw"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-Yv-Kqn" customClass="AIDTextField" customModule="aidify" customModuleProvider="target">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-Yv-Kqn" customClass="AIDTextField" customModule="aidify" customModuleProvider="target">
                     <rect key="frame" x="20" y="239" width="560" height="29"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
@@ -62,13 +58,11 @@
             </subviews>
             <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="qht-oo-rwn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2b7-at-xUh"/>
                 <constraint firstItem="mgY-Yv-Kqn" firstAttribute="top" secondItem="n0S-hA-w2m" secondAttribute="bottom" constant="8" id="36Y-cM-D9Y"/>
                 <constraint firstItem="bNd-Ud-CLZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="3A1-ts-nRU"/>
-                <constraint firstItem="bNd-Ud-CLZ" firstAttribute="top" secondItem="qht-oo-rwn" secondAttribute="bottom" constant="8" id="9R3-4o-pgf"/>
-                <constraint firstItem="qht-oo-rwn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="126" id="EK0-gw-NKe"/>
                 <constraint firstAttribute="trailing" secondItem="bNd-Ud-CLZ" secondAttribute="trailing" constant="20" id="LgM-NC-021"/>
                 <constraint firstItem="n0S-hA-w2m" firstAttribute="top" secondItem="bNd-Ud-CLZ" secondAttribute="bottom" constant="10" id="Q7X-Hp-dI9"/>
+                <constraint firstItem="bNd-Ud-CLZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="163" id="eCP-XH-xLn"/>
                 <constraint firstAttribute="trailing" secondItem="mgY-Yv-Kqn" secondAttribute="trailing" constant="20" id="eEb-sW-Fyv"/>
                 <constraint firstItem="n0S-hA-w2m" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tPM-qe-zwj"/>
                 <constraint firstItem="mgY-Yv-Kqn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="vq4-fe-Fh1"/>

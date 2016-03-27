@@ -9,10 +9,16 @@
 import UIKit
 
 class AIDViewController: UIViewController {
-
+    
+    var statusBarColor : UIColor = UIColor(red: 0.35, green: 0.35, blue: 0.35, alpha: 0.3) {
+        didSet {
+            self.statusBarView.backgroundColor = self.statusBarColor
+        }
+    }
+    
     lazy var statusBarView: UIView = {
         let statusBarView = UIView(frame: self.statusBarFrame())
-        statusBarView.backgroundColor = UIColor(red: 0.35, green: 0.35, blue: 0.35, alpha: 0.3)
+        statusBarView.backgroundColor = self.statusBarColor
         return statusBarView
     }()
     

@@ -41,8 +41,8 @@ protocol LoginPresenterProtocol: class
     
     func initialLookNFeel()
     func nextLookNFeel()
-    func setPassAndCoText(text:String?)
-    func setUserName(text:String?)
+    func setUsernameAndCoText(text:String?)
+    func setCompany(text:String?)
 }
 
 protocol LoginInteractorOutputProtocol: class
@@ -50,6 +50,8 @@ protocol LoginInteractorOutputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
+    func loginSuccess()
+    func loginFailed()
 }
 
 protocol LoginInteractorInputProtocol: class
@@ -75,7 +77,7 @@ protocol LoginAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func githubLoginWith(usermane username: String, password: String)
+    func loginWith(usermane username: String, company: String, completion: (Bool) -> Void)
 }
 
 protocol LoginLocalDataManagerInputProtocol: class
