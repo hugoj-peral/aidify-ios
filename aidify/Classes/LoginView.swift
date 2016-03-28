@@ -14,7 +14,9 @@ class LoginView: AIDViewController, LoginViewProtocol
     @IBOutlet weak var companyField: AIDTextField!
     @IBOutlet weak var usernameAndCo: UILabel!
     @IBOutlet weak var usernameAndCoField: AIDTextField!
-    @IBOutlet weak var usernameAndCoHeight: NSLayoutConstraint!
+    @IBOutlet weak var failureTitle: UILabel!
+    @IBOutlet weak var failureDescription: UILabel!
+    @IBOutlet weak var successMsg: UILabel!
     
     lazy var progressView: AIDProgressView = {
         var frame = self.statusBarFrame()
@@ -34,38 +36,71 @@ class LoginView: AIDViewController, LoginViewProtocol
     var presenter: LoginPresenterProtocol?
     
     func loadCompanyLookNFeel() {
+        
+        self.companyField.hidden = true
+        self.usernameAndCo.hidden = false
+        self.usernameAndCo.text = "company"
+        self.usernameAndCoField.text = nil;
+        self.usernameAndCoField.placeholder = "your company"
+        
         UIView .animateWithDuration(0.4) { () -> Void in
             self.view.backgroundColor = AIDColor.Purple.color()
             self.statusBarColor = AIDColor.DarkPurple.color()
-            self.companyField.hidden = true
-            self.usernameAndCo.text = "company"
-            self.usernameAndCoField.text = nil;
-            self.usernameAndCoField.placeholder = "your company"
         }
     }
     
     func loadLoginLookNFeel() {
+        
+        self.companyField.hidden = true
+        self.usernameAndCo.hidden = false
+        self.usernameAndCo.text = "username"
+        self.usernameAndCoField.text = nil
+        self.usernameAndCoField.placeholder = "your username"
+        
         UIView .animateWithDuration(0.4) { () -> Void in
             self.view.backgroundColor = AIDColor.Blue.color()
             self.statusBarColor = AIDColor.DarkBlue.color()
-            self.companyField.hidden = true
-            self.usernameAndCo.text = "username"
-            self.usernameAndCoField.text = nil
-            self.usernameAndCoField.placeholder = "your username"
         }
     }
     
-    func loadFailureLookNFeel() {
+    func loadFailureLookNFeel(username username: String, company: String) {
+        
+        self.companyField.hidden = false
+        self.usernameAndCo.hidden = true
+        self.companyField.text = company
+        self.companyField.placeholder = "your company"
+        self.usernameAndCoField.text = username
+        self.usernameAndCoField.placeholder = "your username"
+        
+        self.failureDescription.hidden = false
+        self.failureTitle.hidden = false
+        
         UIView .animateWithDuration(0.4) { () -> Void in
             self.view.backgroundColor = AIDColor.Pink.color()
             self.statusBarColor = AIDColor.DarkPink.color()
         }
     }
     
-    func loadSuccessLookNFeel() {
+    func loadSuccessLookNFeel(username username: String, company: String) {
+        
+        self.companyField.hidden = true
+        self.usernameAndCo.hidden = true
+        self.usernameAndCoField.hidden = true
+        self.failureDescription.hidden = true
+        self.failureTitle.hidden = true
+        self.successMsg.text = "Welcome to \(company) \n\(username)"
+        self.successMsg.hidden = false
+        
         UIView .animateWithDuration(0.4) { () -> Void in
             self.view.backgroundColor = AIDColor.Green.color()
             self.statusBarColor = AIDColor.DarkGreen.color()
+        }
+        
+        let delayInSeconds = 2.0
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, (Int64)(delayInSeconds * Double(NSEC_PER_SEC)))
+        dispatch_after(popTime, dispatch_get_main_queue()) {[weak self]() -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.presenter?.nextLookNFeel()
         }
     }
     
@@ -82,6 +117,7 @@ class LoginView: AIDViewController, LoginViewProtocol
         dispatch_after(popTime, dispatch_get_main_queue()) {[weak self]() -> Void in
             guard let strongSelf = self else { return }
             strongSelf.progressView.removeFromSuperview()
+            strongSelf.progressView.reset()
         }
     }
 }

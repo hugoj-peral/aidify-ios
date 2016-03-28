@@ -29,8 +29,13 @@ class LoginWireFrame: LoginWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        localDataManager.storage = NSUserDefaults.standardUserDefaults()
         
         let fromWindow = window as! UIWindow
         fromWindow.rootViewController = view as? UIViewController
+    }
+    
+    func dismissLogin() {
+        print("Dismiss login")
     }
 }

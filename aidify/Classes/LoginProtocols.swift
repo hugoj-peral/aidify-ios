@@ -16,8 +16,8 @@ protocol LoginViewProtocol: class
     */
     func loadCompanyLookNFeel()
     func loadLoginLookNFeel()
-    func loadFailureLookNFeel()
-    func loadSuccessLookNFeel()
+    func loadFailureLookNFeel(username username: String, company: String)
+    func loadSuccessLookNFeel(username username: String, company: String)
     func showRequestMode()
     func hideRequestMode()
 }
@@ -28,6 +28,7 @@ protocol LoginWireFrameProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
+    func dismissLogin()
 }
 
 protocol LoginPresenterProtocol: class
@@ -82,7 +83,10 @@ protocol LoginAPIDataManagerInputProtocol: class
 
 protocol LoginLocalDataManagerInputProtocol: class
 {
+    var storage: NSUserDefaults? { get set }
     /**
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
+    
+    func saveLogged()
 }

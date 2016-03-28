@@ -21,7 +21,12 @@ class LoginInteractor: LoginInteractorInputProtocol
         if let username = loginItem.username, company = loginItem.company {
             self.APIDataManager?.loginWith(usermane: username, company: company, completion: { [weak self]login -> Void in
                 guard let strongSelf = self else { return }
-                login ? strongSelf.presenter?.loginSuccess() : strongSelf.presenter?.loginFailed()
+                if(login) {
+                    strongSelf.localDatamanager?.saveLogged()
+                    strongSelf.presenter?.loginSuccess()
+                } else {
+                    strongSelf.presenter?.loginFailed()
+                }
             })
         } else {
             print("Error: username or password empty")

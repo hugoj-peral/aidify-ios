@@ -100,6 +100,18 @@ class AIDProgressView: UIView {
                 strongSelf.simulateProgress()
             }
         }
+    }
+    
+    func reset() {
+        var frame = progressLayer.frame
+        frame.size.width = 0.0
+        progressLayer.frame = frame
         
+        let width = CGRectGetWidth(bounds)
+        frame = trackLayer.frame
+        frame.origin.x = 0
+        frame.size.width = width
+        trackLayer.frame = frame
+        progress = 0.0;
     }
 }

@@ -11,15 +11,20 @@
         </mutableArray>
         <mutableArray key="Raleway-Regular.ttf">
             <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="aidify" customModuleProvider="target">
             <connections>
                 <outlet property="companyField" destination="bNd-Ud-CLZ" id="8gf-zD-qnb"/>
+                <outlet property="failureDescription" destination="Trk-4d-FLA" id="uJZ-rM-3to"/>
+                <outlet property="failureTitle" destination="yDj-Up-cEn" id="87O-jq-ZnU"/>
+                <outlet property="successMsg" destination="Cbc-2L-Oly" id="VQZ-ub-wu8"/>
                 <outlet property="usernameAndCo" destination="n0S-hA-w2m" id="BQ0-yO-HiZ"/>
                 <outlet property="usernameAndCoField" destination="mgY-Yv-Kqn" id="eOg-EB-AgO"/>
-                <outlet property="usernameAndCoHeight" destination="gUk-jS-zFw" id="dBW-hf-qoR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="N1b-kC-pAM"/>
             </connections>
         </placeholder>
@@ -29,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNd-Ud-CLZ" customClass="AIDTextField" customModule="aidify" customModuleProvider="target">
-                    <rect key="frame" x="20" y="163" width="560" height="29"/>
+                    <rect key="frame" x="20" y="202" width="560" height="29"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
@@ -55,19 +60,53 @@
                         <outlet property="delegate" destination="-1" id="nJk-gJ-Gv1"/>
                     </connections>
                 </textField>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh no! your login failed." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDj-Up-cEn">
+                    <rect key="frame" x="170" y="72" width="261" height="29"/>
+                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trk-4d-FLA">
+                    <rect key="frame" x="180" y="105" width="241" height="43"/>
+                    <string key="text">Check username &amp; company
+and try again.</string>
+                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbc-2L-Oly">
+                    <rect key="frame" x="177" y="193" width="246" height="57"/>
+                    <string key="text">Welcome to company
+hugoj-peral</string>
+                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="Trk-4d-FLA" firstAttribute="top" secondItem="yDj-Up-cEn" secondAttribute="bottom" constant="4" id="2fc-Nd-ySu"/>
+                <constraint firstItem="Cbc-2L-Oly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2m0-OC-umS"/>
                 <constraint firstItem="mgY-Yv-Kqn" firstAttribute="top" secondItem="n0S-hA-w2m" secondAttribute="bottom" constant="8" id="36Y-cM-D9Y"/>
                 <constraint firstItem="bNd-Ud-CLZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="3A1-ts-nRU"/>
+                <constraint firstItem="yDj-Up-cEn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="159" id="IIa-g7-WT9"/>
+                <constraint firstItem="n0S-hA-w2m" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="202" id="LY6-IG-gec"/>
                 <constraint firstAttribute="trailing" secondItem="bNd-Ud-CLZ" secondAttribute="trailing" constant="20" id="LgM-NC-021"/>
-                <constraint firstItem="n0S-hA-w2m" firstAttribute="top" secondItem="bNd-Ud-CLZ" secondAttribute="bottom" constant="10" id="Q7X-Hp-dI9"/>
-                <constraint firstItem="bNd-Ud-CLZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="163" id="eCP-XH-xLn"/>
+                <constraint firstItem="yDj-Up-cEn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="72" id="Mws-wA-DrF"/>
+                <constraint firstItem="mgY-Yv-Kqn" firstAttribute="top" secondItem="bNd-Ud-CLZ" secondAttribute="bottom" constant="8" id="XEH-5b-blq"/>
+                <constraint firstItem="Cbc-2L-Oly" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="193" id="YSk-eX-lj3"/>
                 <constraint firstAttribute="trailing" secondItem="mgY-Yv-Kqn" secondAttribute="trailing" constant="20" id="eEb-sW-Fyv"/>
+                <constraint firstItem="yDj-Up-cEn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hUJ-b9-sBl"/>
+                <constraint firstItem="Trk-4d-FLA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hf3-Od-WrI"/>
                 <constraint firstItem="n0S-hA-w2m" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tPM-qe-zwj"/>
                 <constraint firstItem="mgY-Yv-Kqn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="vq4-fe-Fh1"/>
                 <constraint firstItem="bNd-Ud-CLZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yFS-YU-gZ4"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="IIa-g7-WT9"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

@@ -29,8 +29,7 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
         case .Company: self.showUsername()
         case .Login: self.performLogin()
         case .Error: self.performLogin()
-//        case .Success: //dismiss and show profile
-        default: break
+        case .Success: self.wireFrame?.dismissLogin()
         }
     }
     
@@ -48,13 +47,13 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
     func loginSuccess() {
         self.look = .Success
         self.view?.hideRequestMode()
-        self.view?.loadSuccessLookNFeel()
+        self.view?.loadSuccessLookNFeel(username: self.loginItem.username!, company: self.loginItem.company!)
     }
     
     func loginFailed() {
         self.look = .Error
         self.view?.hideRequestMode()
-        self.view?.loadFailureLookNFeel()
+        self.view?.loadFailureLookNFeel(username: self.loginItem.username!, company: self.loginItem.company!)
     }
     
     //MARK: Private

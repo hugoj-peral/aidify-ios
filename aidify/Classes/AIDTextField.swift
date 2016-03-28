@@ -10,7 +10,7 @@ import UIKit
 
 class AIDTextField: UITextField {
     
-    @IBInspectable var underlineWidth: CGFloat = 2.5
+    @IBInspectable var underlineWidth: CGFloat = 2.0
     @IBInspectable var underlineColor: UIColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
     @IBInspectable var placeholderColor: UIColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.35)
     
