@@ -10,11 +10,20 @@ import UIKit
 
 class AppDependencies {
     
+    let rootWireFrame = RootWireFrame()
+    
     func installRootViewControllerIntoWindow(window: UIWindow?) {
         guard let window = window else {
-            fatalError("Error no window")
+            fatalError("Error: no window")
         }
-        //TODO: We need root wireframe
-        LoginWireFrame.presentLoginModule(fromWindow: window)
+        
+        rootWireFrame.window = window
+        let userManager = UserManager()
+        
+        if(userManager.isAnyUserLogged()) {
+            rootWireFrame.presentProfileModule()
+        } else {
+            rootWireFrame.presentLoginModule()
+        }
     }
 }

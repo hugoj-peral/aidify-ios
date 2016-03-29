@@ -11,7 +11,9 @@ import UIKit
 
 class LoginWireFrame: LoginWireFrameProtocol
 {
-    class func presentLoginModule(fromWindow window: AnyObject)
+    weak var rootWireFrame: RootWireFrameProtocol?
+    
+    class func presentLoginModule(fromWindow window: AnyObject, rootWireFrame: RootWireFrameProtocol)
     {
         // Generating module components
         let view: LoginViewProtocol = LoginView()
@@ -30,12 +32,15 @@ class LoginWireFrame: LoginWireFrameProtocol
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
         localDataManager.userManager = UserManager()
+        wireFrame.rootWireFrame = rootWireFrame
         
         let fromWindow = window as! UIWindow
         fromWindow.rootViewController = view as? UIViewController
     }
     
     func dismissLogin() {
-        print("Dismiss login")
+        if let rootWireFrame = rootWireFrame {
+            rootWireFrame.presentProfileModule()
+        }
     }
 }

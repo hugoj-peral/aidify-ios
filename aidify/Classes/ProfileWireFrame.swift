@@ -6,11 +6,13 @@
 //  Copyright © 2016 aidify. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ProfileWireFrame: ProfileWireFrameProtocol
 {
-    class func presentProfileModule(fromView view: AnyObject)
+    weak var rootWireFrame: RootWireFrameProtocol?
+    
+    class func presentProfileModule(fromWindow window: AnyObject, rootWireFrame: RootWireFrameProtocol)
     {
         // Generating module components
         let view: ProfileViewProtocol = ProfileView()
@@ -28,5 +30,10 @@ class ProfileWireFrame: ProfileWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        wireFrame.rootWireFrame = rootWireFrame
+        
+        let navigationController = UINavigationController(rootViewController: (view as? UIViewController)!)
+        let fromWindow = window as! UIWindow
+        fromWindow.rootViewController = navigationController
     }
 }

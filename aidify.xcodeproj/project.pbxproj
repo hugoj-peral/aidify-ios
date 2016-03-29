@@ -16,6 +16,8 @@
 		9A3CEE121CAB08C200EFC8A7 /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE111CAB08C200EFC8A7 /* ProfileProtocols.swift */; };
 		9A3CEE141CAB08CA00EFC8A7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE131CAB08CA00EFC8A7 /* ProfileView.swift */; };
 		9A3CEE161CAB08D100EFC8A7 /* ProfileWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE151CAB08D100EFC8A7 /* ProfileWireFrame.swift */; };
+		9A3CEE181CAB1D1D00EFC8A7 /* RootWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE171CAB1D1D00EFC8A7 /* RootWireFrame.swift */; };
+		9A3CEE1B1CAB235B00EFC8A7 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3CEE191CAB235B00EFC8A7 /* ProfileView.xib */; };
 		9A4011541C9EFD880038BC2D /* AIDColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011531C9EFD880038BC2D /* AIDColor.swift */; };
 		9A4011561C9F00F80038BC2D /* AIDFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011551C9F00F80038BC2D /* AIDFont.swift */; };
 		9A40115B1C9F0C0D0038BC2D /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A4011581C9F0C0D0038BC2D /* AllerDisplay.ttf */; };
@@ -67,6 +69,8 @@
 		9A3CEE111CAB08C200EFC8A7 /* ProfileProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
 		9A3CEE131CAB08CA00EFC8A7 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9A3CEE151CAB08D100EFC8A7 /* ProfileWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWireFrame.swift; sourceTree = "<group>"; };
+		9A3CEE171CAB1D1D00EFC8A7 /* RootWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireFrame.swift; path = Classes/RootWireFrame.swift; sourceTree = "<group>"; };
+		9A3CEE1A1CAB235B00EFC8A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = aidify/Base.lproj/ProfileView.xib; sourceTree = SOURCE_ROOT; };
 		9A4011531C9EFD880038BC2D /* AIDColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDColor.swift; sourceTree = "<group>"; };
 		9A4011551C9F00F80038BC2D /* AIDFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDFont.swift; sourceTree = "<group>"; };
 		9A4011581C9F0C0D0038BC2D /* AllerDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AllerDisplay.ttf; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3CEE131CAB08CA00EFC8A7 /* ProfileView.swift */,
+				9A3CEE191CAB235B00EFC8A7 /* ProfileView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				9A6B1AFE1C9DCF6A006D7A7C /* Assets.xcassets */,
 				9A6B1ADE1C9DC36A006D7A7C /* AppDelegate.swift */,
 				9A40115E1C9F11BC0038BC2D /* AppDependencies.swift */,
+				9A3CEE171CAB1D1D00EFC8A7 /* RootWireFrame.swift */,
 				9A6B1AEA1C9DC36A006D7A7C /* Info.plist */,
 				9A6B1AE71C9DC36A006D7A7C /* LaunchScreen.storyboard */,
 				9A4011571C9F0A7C0038BC2D /* Resources */,
@@ -480,6 +486,7 @@
 				9A40115D1C9F0C0D0038BC2D /* Raleway-Medium.ttf in Resources */,
 				9ADB63661CA5535C00BCC7FF /* Raleway-Regular.ttf in Resources */,
 				9A40115C1C9F0C0D0038BC2D /* Raleway-Light.ttf in Resources */,
+				9A3CEE1B1CAB235B00EFC8A7 /* ProfileView.xib in Resources */,
 				9A92D4F61CA44CB900AEB182 /* LoginView.xib in Resources */,
 				9A6B1AFF1C9DCF6A006D7A7C /* Assets.xcassets in Resources */,
 				9A40115B1C9F0C0D0038BC2D /* AllerDisplay.ttf in Resources */,
@@ -516,6 +523,7 @@
 				9A3CEE101CAB08BC00EFC8A7 /* ProfilePresenter.swift in Sources */,
 				9A3CEE121CAB08C200EFC8A7 /* ProfileProtocols.swift in Sources */,
 				9AFD61071CA408F600E1CC32 /* Resource.swift in Sources */,
+				9A3CEE181CAB1D1D00EFC8A7 /* RootWireFrame.swift in Sources */,
 				9AFD61061CA408F600E1CC32 /* JSONDecodable.swift in Sources */,
 				9A3CEE081CAB089F00EFC8A7 /* ProfileAPIDataManager.swift in Sources */,
 				9ADA5B181CA6FB2D00C4B285 /* AIDViewController.swift in Sources */,
@@ -551,6 +559,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9A3CEE191CAB235B00EFC8A7 /* ProfileView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A3CEE1A1CAB235B00EFC8A7 /* Base */,
+			);
+			name = ProfileView.xib;
+			sourceTree = "<group>";
+		};
 		9A6B1AE71C9DC36A006D7A7C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

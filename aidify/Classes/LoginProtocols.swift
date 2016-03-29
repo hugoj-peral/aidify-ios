@@ -24,7 +24,9 @@ protocol LoginViewProtocol: class
 
 protocol LoginWireFrameProtocol: class
 {
-    static func presentLoginModule(fromWindow window: AnyObject)
+    var rootWireFrame: RootWireFrameProtocol? { get set }
+    
+    static func presentLoginModule(fromWindow window: AnyObject, rootWireFrame: RootWireFrameProtocol)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */

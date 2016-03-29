@@ -18,7 +18,9 @@ protocol ProfileViewProtocol: class
 
 protocol ProfileWireFrameProtocol: class
 {
-    static func presentProfileModule(fromView view: AnyObject)
+    var rootWireFrame: RootWireFrameProtocol? { get set }
+    
+    static func presentProfileModule(fromWindow window: AnyObject, rootWireFrame: RootWireFrameProtocol)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
