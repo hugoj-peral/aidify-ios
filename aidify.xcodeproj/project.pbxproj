@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		9A3CEDFD1CAAF49B00EFC8A7 /* AIDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEDFC1CAAF49B00EFC8A7 /* AIDConstants.swift */; };
+		9A3CEE081CAB089F00EFC8A7 /* ProfileAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE071CAB089F00EFC8A7 /* ProfileAPIDataManager.swift */; };
+		9A3CEE0A1CAB08AA00EFC8A7 /* ProfileLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE091CAB08AA00EFC8A7 /* ProfileLocalDataManager.swift */; };
+		9A3CEE0D1CAB08B400EFC8A7 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE0B1CAB08B400EFC8A7 /* ProfileInteractor.swift */; };
+		9A3CEE0E1CAB08B400EFC8A7 /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE0C1CAB08B400EFC8A7 /* ProfileItem.swift */; };
+		9A3CEE101CAB08BC00EFC8A7 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE0F1CAB08BC00EFC8A7 /* ProfilePresenter.swift */; };
+		9A3CEE121CAB08C200EFC8A7 /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE111CAB08C200EFC8A7 /* ProfileProtocols.swift */; };
+		9A3CEE141CAB08CA00EFC8A7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE131CAB08CA00EFC8A7 /* ProfileView.swift */; };
+		9A3CEE161CAB08D100EFC8A7 /* ProfileWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CEE151CAB08D100EFC8A7 /* ProfileWireFrame.swift */; };
 		9A4011541C9EFD880038BC2D /* AIDColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011531C9EFD880038BC2D /* AIDColor.swift */; };
 		9A4011561C9F00F80038BC2D /* AIDFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4011551C9F00F80038BC2D /* AIDFont.swift */; };
 		9A40115B1C9F0C0D0038BC2D /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A4011581C9F0C0D0038BC2D /* AllerDisplay.ttf */; };
@@ -51,6 +59,14 @@
 
 /* Begin PBXFileReference section */
 		9A3CEDFC1CAAF49B00EFC8A7 /* AIDConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDConstants.swift; path = Classes/AIDConstants.swift; sourceTree = "<group>"; };
+		9A3CEE071CAB089F00EFC8A7 /* ProfileAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAPIDataManager.swift; sourceTree = "<group>"; };
+		9A3CEE091CAB08AA00EFC8A7 /* ProfileLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileLocalDataManager.swift; sourceTree = "<group>"; };
+		9A3CEE0B1CAB08B400EFC8A7 /* ProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		9A3CEE0C1CAB08B400EFC8A7 /* ProfileItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
+		9A3CEE0F1CAB08BC00EFC8A7 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		9A3CEE111CAB08C200EFC8A7 /* ProfileProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
+		9A3CEE131CAB08CA00EFC8A7 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9A3CEE151CAB08D100EFC8A7 /* ProfileWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWireFrame.swift; sourceTree = "<group>"; };
 		9A4011531C9EFD880038BC2D /* AIDColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDColor.swift; sourceTree = "<group>"; };
 		9A4011551C9F00F80038BC2D /* AIDFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDFont.swift; sourceTree = "<group>"; };
 		9A4011581C9F0C0D0038BC2D /* AllerDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AllerDisplay.ttf; sourceTree = "<group>"; };
@@ -104,6 +120,85 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A3CEDFE1CAB083500EFC8A7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEDFF1CAB084200EFC8A7 /* DataManager */,
+				9A3CEE021CAB085700EFC8A7 /* Interactor */,
+				9A3CEE031CAB085E00EFC8A7 /* Presenter */,
+				9A3CEE041CAB086700EFC8A7 /* Protocols */,
+				9A3CEE051CAB087200EFC8A7 /* View */,
+				9A3CEE061CAB087900EFC8A7 /* WireFrame */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		9A3CEDFF1CAB084200EFC8A7 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE001CAB084B00EFC8A7 /* API */,
+				9A3CEE011CAB085100EFC8A7 /* Local */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		9A3CEE001CAB084B00EFC8A7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE071CAB089F00EFC8A7 /* ProfileAPIDataManager.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		9A3CEE011CAB085100EFC8A7 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE091CAB08AA00EFC8A7 /* ProfileLocalDataManager.swift */,
+			);
+			name = Local;
+			sourceTree = "<group>";
+		};
+		9A3CEE021CAB085700EFC8A7 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE0B1CAB08B400EFC8A7 /* ProfileInteractor.swift */,
+				9A3CEE0C1CAB08B400EFC8A7 /* ProfileItem.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		9A3CEE031CAB085E00EFC8A7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE0F1CAB08BC00EFC8A7 /* ProfilePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		9A3CEE041CAB086700EFC8A7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE111CAB08C200EFC8A7 /* ProfileProtocols.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		9A3CEE051CAB087200EFC8A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE131CAB08CA00EFC8A7 /* ProfileView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9A3CEE061CAB087900EFC8A7 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CEE151CAB08D100EFC8A7 /* ProfileWireFrame.swift */,
+			);
+			name = WireFrame;
+			sourceTree = "<group>";
+		};
 		9A4011521C9EFD720038BC2D /* Brand */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +278,7 @@
 		9A92D4DA1CA448B100AEB182 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9A3CEDFE1CAB083500EFC8A7 /* Profile */,
 				9A92D4DB1CA448C400AEB182 /* Login */,
 			);
 			name = Modules;
@@ -413,9 +509,15 @@
 				9A92D4F91CA4689C00AEB182 /* AIDTextField.swift in Sources */,
 				9A92D4E71CA4494600AEB182 /* LoginItem.swift in Sources */,
 				9A4011561C9F00F80038BC2D /* AIDFont.swift in Sources */,
+				9A3CEE0E1CAB08B400EFC8A7 /* ProfileItem.swift in Sources */,
+				9A3CEE0A1CAB08AA00EFC8A7 /* ProfileLocalDataManager.swift in Sources */,
 				9A61419B1CA9CC62009ACE34 /* User.swift in Sources */,
+				9A3CEE141CAB08CA00EFC8A7 /* ProfileView.swift in Sources */,
+				9A3CEE101CAB08BC00EFC8A7 /* ProfilePresenter.swift in Sources */,
+				9A3CEE121CAB08C200EFC8A7 /* ProfileProtocols.swift in Sources */,
 				9AFD61071CA408F600E1CC32 /* Resource.swift in Sources */,
 				9AFD61061CA408F600E1CC32 /* JSONDecodable.swift in Sources */,
+				9A3CEE081CAB089F00EFC8A7 /* ProfileAPIDataManager.swift in Sources */,
 				9ADA5B181CA6FB2D00C4B285 /* AIDViewController.swift in Sources */,
 				9A6B1ADF1C9DC36A006D7A7C /* AppDelegate.swift in Sources */,
 				9A92D4F31CA449C100AEB182 /* LoginWireFrame.swift in Sources */,
@@ -424,6 +526,8 @@
 				9A4011541C9EFD880038BC2D /* AIDColor.swift in Sources */,
 				9AFD61051CA408F600E1CC32 /* APIClient.swift in Sources */,
 				9ADA5B131CA6BC2200C4B285 /* AIDProgressView.swift in Sources */,
+				9A3CEE0D1CAB08B400EFC8A7 /* ProfileInteractor.swift in Sources */,
+				9A3CEE161CAB08D100EFC8A7 /* ProfileWireFrame.swift in Sources */,
 				9A92D4E21CA4492500AEB182 /* LoginLocalDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
