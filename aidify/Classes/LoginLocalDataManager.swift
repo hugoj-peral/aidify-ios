@@ -10,11 +10,12 @@ import Foundation
 
 class LoginLocalDataManager: LoginLocalDataManagerInputProtocol
 {
-    var storage: NSUserDefaults?
+    var userManager: UserManager?
     
     init() {}
     
-    func saveLogged() {
-        self.storage?.setBool(true, forKey: "user_logged")
+    func saveLogged(usermane username: String, company: String) {
+        let user = User(username: username, company: company)
+        self.userManager?.save(user: user)
     }
 }

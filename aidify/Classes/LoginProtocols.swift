@@ -83,10 +83,10 @@ protocol LoginAPIDataManagerInputProtocol: class
 
 protocol LoginLocalDataManagerInputProtocol: class
 {
-    var storage: NSUserDefaults? { get set }
+    var userManager: UserManager? { get set }
     /**
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
     
-    func saveLogged()
+    func saveLogged(usermane username: String, company: String)
 }
