@@ -10,7 +10,7 @@ import Foundation
 
 class LoginLocalDataManager: LoginLocalDataManagerInputProtocol
 {
-    var userManager: UserManager?
+    var userManager: UserManagerProtocol?
     
     init() {}
     

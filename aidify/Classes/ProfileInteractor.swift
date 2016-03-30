@@ -15,4 +15,12 @@ class ProfileInteractor: ProfileInteractorInputProtocol
     var localDatamanager: ProfileLocalDataManagerInputProtocol?
     
     init() {}
+    
+    func shouldShowPairBeacon() {
+        localDatamanager?.hasCurrentUserBeaconPaired({[weak self] hasBeacon -> Void in
+            if let strongSelf = self {
+                strongSelf.presenter?.shouldShowPairBeacon()
+            }
+        })
+    }
 }

@@ -24,6 +24,7 @@ protocol ProfileWireFrameProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
+    func presentPairBeacon(fromView view: AnyObject)
 }
 
 protocol ProfilePresenterProtocol: class
@@ -34,6 +35,7 @@ protocol ProfilePresenterProtocol: class
     /**
     * Add here your methods for communication VIEW -> PRESENTER
     */
+    func needsShowPairBeacon()
 }
 
 protocol ProfileInteractorOutputProtocol: class
@@ -41,6 +43,7 @@ protocol ProfileInteractorOutputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
+    func shouldShowPairBeacon()
 }
 
 protocol ProfileInteractorInputProtocol: class
@@ -51,6 +54,7 @@ protocol ProfileInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+    func shouldShowPairBeacon()
 }
 
 protocol ProfileDataManagerInputProtocol: class
@@ -69,7 +73,10 @@ protocol ProfileAPIDataManagerInputProtocol: class
 
 protocol ProfileLocalDataManagerInputProtocol: class
 {
+    var userManager: UserManagerProtocol? { get set }
     /**
-    * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
-    */
+     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
+     */
+    
+    func hasCurrentUserBeaconPaired(completion: (Bool) -> Void)
 }

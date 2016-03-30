@@ -31,9 +31,14 @@ class ProfileWireFrame: ProfileWireFrameProtocol
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
         wireFrame.rootWireFrame = rootWireFrame
+        localDataManager.userManager = UserManager()
         
         let navigationController = UINavigationController(rootViewController: (view as? UIViewController)!)
         let fromWindow = window as! UIWindow
         fromWindow.rootViewController = navigationController
+    }
+    
+    func presentPairBeacon(fromView view: AnyObject) {
+        print("Show beacon screen")
     }
 }

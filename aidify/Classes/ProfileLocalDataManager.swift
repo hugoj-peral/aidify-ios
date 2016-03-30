@@ -10,5 +10,22 @@ import Foundation
 
 class ProfileLocalDataManager: ProfileLocalDataManagerInputProtocol
 {
+    var userManager: UserManagerProtocol?
+    
     init() {}
+    
+    func hasCurrentUserBeaconPaired(completion: (Bool) -> Void) {
+        guard let userManager = userManager else {
+            completion(false)
+            return
+        }
+        
+        var hasBeaconPaired = false
+        if(userManager.isAnyUserLogged()) {
+            if let user = userManager.currentUser {
+                hasBeaconPaired = user.hasBeaconPaired()
+            }
+        }
+        completion(hasBeaconPaired)
+    }
 }

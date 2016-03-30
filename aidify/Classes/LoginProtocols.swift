@@ -85,7 +85,7 @@ protocol LoginAPIDataManagerInputProtocol: class
 
 protocol LoginLocalDataManagerInputProtocol: class
 {
-    var userManager: UserManager? { get set }
+    var userManager: UserManagerProtocol? { get set }
     /**
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */

@@ -12,4 +12,9 @@ import UIKit
 class ProfileView: UIViewController, ProfileViewProtocol
 {
     var presenter: ProfilePresenterProtocol?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter?.needsShowPairBeacon()
+    }
 }

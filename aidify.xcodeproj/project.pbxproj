@@ -40,6 +40,7 @@
 		9A92D4F31CA449C100AEB182 /* LoginWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92D4F21CA449C100AEB182 /* LoginWireFrame.swift */; };
 		9A92D4F61CA44CB900AEB182 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A92D4F41CA44CB900AEB182 /* LoginView.xib */; };
 		9A92D4F91CA4689C00AEB182 /* AIDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */; };
+		9AC63E241CAC481B00AD6439 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC63E231CAC481B00AD6439 /* UserTests.swift */; };
 		9ADA5B131CA6BC2200C4B285 /* AIDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA5B121CA6BC2200C4B285 /* AIDProgressView.swift */; };
 		9ADA5B181CA6FB2D00C4B285 /* AIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA5B171CA6FB2D00C4B285 /* AIDViewController.swift */; };
 		9ADB63641CA54DE100BCC7FF /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADB63631CA53B4500BCC7FF /* Raleway-Bold.ttf */; };
@@ -97,6 +98,7 @@
 		9A92D4F21CA449C100AEB182 /* LoginWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWireFrame.swift; sourceTree = "<group>"; };
 		9A92D4F51CA44CB900AEB182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginView.xib; sourceTree = "<group>"; };
 		9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDTextField.swift; path = Classes/AIDTextField.swift; sourceTree = "<group>"; };
+		9AC63E231CAC481B00AD6439 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		9ADA5B121CA6BC2200C4B285 /* AIDProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDProgressView.swift; path = Classes/AIDProgressView.swift; sourceTree = "<group>"; };
 		9ADA5B171CA6FB2D00C4B285 /* AIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDViewController.swift; path = Classes/AIDViewController.swift; sourceTree = "<group>"; };
 		9ADB63631CA53B4500BCC7FF /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				9A6B1AF31C9DC36A006D7A7C /* UserManagerTests.swift */,
+				9AC63E231CAC481B00AD6439 /* UserTests.swift */,
 				9A6B1AF51C9DC36A006D7A7C /* Info.plist */,
 			);
 			path = aidifyTests;
@@ -544,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC63E241CAC481B00AD6439 /* UserTests.swift in Sources */,
 				9A6B1AF41C9DC36A006D7A7C /* UserManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

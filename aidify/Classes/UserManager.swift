@@ -8,7 +8,16 @@
 
 import Foundation
 
-final class UserManager {
+protocol UserManagerProtocol: class {
+    
+    var currentUser: User? { get }
+    
+    func save(user user: User)
+    func logOut()
+    func isAnyUserLogged() -> Bool
+}
+
+final class UserManager: UserManagerProtocol {
     
     var currentUser: User? {
         get {
