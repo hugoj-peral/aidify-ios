@@ -25,6 +25,8 @@ protocol ProfileWireFrameProtocol: class
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
     func presentPairBeacon(fromView view: AnyObject)
+    func presentActivity(fromView view: AnyObject)
+    func presentSettings(fromView view: AnyObject)
 }
 
 protocol ProfilePresenterProtocol: class
@@ -36,6 +38,8 @@ protocol ProfilePresenterProtocol: class
     * Add here your methods for communication VIEW -> PRESENTER
     */
     func needsShowPairBeacon()
+    func showSettings()
+    func showActivity()
 }
 
 protocol ProfileInteractorOutputProtocol: class

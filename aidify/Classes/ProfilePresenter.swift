@@ -21,6 +21,14 @@ class ProfilePresenter: ProfilePresenterProtocol, ProfileInteractorOutputProtoco
         interactor?.shouldShowPairBeacon()
     }
     
+    func showSettings() {
+        wireFrame?.presentSettings(fromView: view!)
+    }
+    
+    func showActivity() {
+        wireFrame?.presentActivity(fromView: view!)
+    }
+    
     //MARK: ProfileInteractorOutputProtocol
     func shouldShowPairBeacon() {
         wireFrame?.presentPairBeacon(fromView: view!)

@@ -24,17 +24,13 @@ class User: NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(username, forKey: "username")
         aCoder.encodeObject(company, forKey: "company")
-        if let beaconId = beaconId {
-            aCoder.encodeObject(beaconId, forKey: "beaconId")
-        }
+        aCoder.encodeObject(beaconId, forKey: "beaconId")
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.username = aDecoder.decodeObjectForKey("username") as! String
         self.company = aDecoder.decodeObjectForKey("company") as! String
-        if let beaconId = aDecoder.decodeObjectForKey("beaconId") {
-            self.beaconId = beaconId as? String
-        }
+        self.beaconId = aDecoder.decodeObjectForKey("beaconId") as? String
     }
 }
 

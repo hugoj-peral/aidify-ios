@@ -39,7 +39,7 @@ extension AIDColor : AIDColorRepresentation {
         case .Yellow: return UIColor(red: 255.0/255.0, green: 214.0/255.0, blue: 102.0/255.0, alpha: 1.0)
         case .Purple: return UIColor(red: 165.0/255.0, green: 134.0/255.0, blue: 190.0/255.0, alpha: 1.0)
         case .DarkGreen: return UIColor(red: 73.0/255.0, green: 144.0/255.0, blue: 73.0/255.0, alpha: 1.0)
-        case .DarkOrange: return UIColor(red: 221.0/255.0, green: 149.0/255.0, blue: 76.0/255.0, alpha: 1.0)
+        case .DarkOrange: return UIColor(red: 232.0/255.0, green: 134.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         case .DarkPink: return UIColor(red: 204.0/255.0, green: 86.0/255.0, blue: 121.0/255.0, alpha: 1.0)
         case .DarkBlue: return UIColor(red: 56.0/255.0, green: 145.0/255.0, blue: 191.0/255.0, alpha: 1.0)
         case .DarkYellow: return UIColor(red: 240.0/255.0, green: 193.0/255.0, blue: 64.0/255.0, alpha: 1.0)

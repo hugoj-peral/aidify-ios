@@ -9,12 +9,59 @@
 import Foundation
 import UIKit
 
-class ProfileView: UIViewController, ProfileViewProtocol
+class ProfileView: AIDViewController, ProfileViewProtocol
 {
     var presenter: ProfilePresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.needsShowPairBeacon()
+        navigationBarColor = AIDColor.DarkOrange.color()
+        addNavigationBarRightButtons()
+    }
+    
+    func showSettings() {
+        presenter?.showSettings()
+    }
+    
+    func showActivity() {
+        presenter?.showActivity()
+    }
+    
+    //MARK: Private Methods
+    
+    private struct kBarButtonsSizes {
+        static let width = CGFloat(31.0)
+        static let height = CGFloat(31.0)
+        static let padding = CGFloat(8.0)
+    }
+    
+    private func addNavigationBarRightButtons() {
+        
+        let buttons = UIView(frame: CGRectMake(0.0, 0.0, 2.0 * kBarButtonsSizes.width + kBarButtonsSizes.padding, kBarButtonsSizes.height))
+        buttons.addSubview(createSettingsButton())
+        buttons.addSubview(createActivityButton())
+        
+        let rightBarButton = UIBarButtonItem(customView: buttons)
+        
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    private func createSettingsButton() -> UIButton {
+        let settingsImage = UIImage(named: "SettingsButton")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let settingsButton = UIButton(type: .Custom)
+        settingsButton.frame = CGRectMake(kBarButtonsSizes.width + kBarButtonsSizes.padding, 0.0, kBarButtonsSizes.width, kBarButtonsSizes.height)
+        settingsButton.setImage(settingsImage, forState: .Normal)
+        settingsButton.addTarget(self, action: "showSettings", forControlEvents: .TouchUpInside)
+        return settingsButton
+    }
+    
+    private func createActivityButton() -> UIButton {
+        let activityImage = UIImage(named: "ActivityButton")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let activityButton = UIButton(type: .Custom)
+        activityButton.frame = CGRectMake(0.0, 0.0, kBarButtonsSizes.width, kBarButtonsSizes.height)
+        activityButton.setImage(activityImage, forState: .Normal)
+        activityButton.addTarget(self, action: "showActivity", forControlEvents: .TouchUpInside)
+        return activityButton
     }
 }

@@ -16,6 +16,14 @@ class AIDViewController: UIViewController {
         }
     }
     
+    var navigationBarColor : UIColor? = nil {
+        didSet {
+            if let navigationController = navigationController {
+                navigationController.navigationBar.barTintColor = navigationBarColor
+            }
+        }
+    }
+    
     lazy var statusBarView: UIView = {
         let statusBarView = UIView(frame: self.statusBarFrame())
         statusBarView.backgroundColor = self.statusBarColor
@@ -24,7 +32,12 @@ class AIDViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addStatusBarView()
+        
+        if let navigationController = navigationController {
+            navigationController.navigationBar.barTintColor = navigationBarColor
+        } else {
+            addStatusBarView()
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
