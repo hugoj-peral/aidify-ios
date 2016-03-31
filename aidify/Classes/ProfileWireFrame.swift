@@ -48,6 +48,7 @@ class ProfileWireFrame: ProfileWireFrameProtocol
     }
     
     func presentSettings(fromView view: AnyObject) {
-        print("Show settings screen")
+        guard let navigationController = (view as! UIViewController).navigationController else { return }
+        SettingsWireFrame.pushSettingsModule(fromView: navigationController)
     }
 }

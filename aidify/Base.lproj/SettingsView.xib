@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsView" customModule="aidify" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="Xr2-rt-F3u"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="omj-At-zJC">
+                    <rect key="frame" x="261" y="565" width="79" height="25"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.98431372549019602" green="0.79607843137254897" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="omj-At-zJC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HRk-PW-USg"/>
+                <constraint firstAttribute="bottom" secondItem="omj-At-zJC" secondAttribute="bottom" constant="10" id="Lgl-Ms-r4w"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="footer_logo" width="79" height="25"/>
+    </resources>
+</document>

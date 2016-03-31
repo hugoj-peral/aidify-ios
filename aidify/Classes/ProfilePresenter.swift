@@ -21,6 +21,10 @@ class ProfilePresenter: ProfilePresenterProtocol, ProfileInteractorOutputProtoco
         interactor?.shouldShowPairBeacon()
     }
     
+    func companyName() {
+        interactor?.companyName()
+    }
+    
     func showSettings() {
         wireFrame?.presentSettings(fromView: view!)
     }
@@ -32,5 +36,9 @@ class ProfilePresenter: ProfilePresenterProtocol, ProfileInteractorOutputProtoco
     //MARK: ProfileInteractorOutputProtocol
     func shouldShowPairBeacon() {
         wireFrame?.presentPairBeacon(fromView: view!)
+    }
+    
+    func setCompany(name name: String) {
+        view?.setCompany(name: name)
     }
 }

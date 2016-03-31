@@ -14,6 +14,7 @@ protocol ProfileViewProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> VIEW
     */
+    func setCompany(name name: String)
 }
 
 protocol ProfileWireFrameProtocol: class
@@ -38,6 +39,7 @@ protocol ProfilePresenterProtocol: class
     * Add here your methods for communication VIEW -> PRESENTER
     */
     func needsShowPairBeacon()
+    func companyName()
     func showSettings()
     func showActivity()
 }
@@ -48,6 +50,7 @@ protocol ProfileInteractorOutputProtocol: class
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
     func shouldShowPairBeacon()
+    func setCompany(name name: String)
 }
 
 protocol ProfileInteractorInputProtocol: class
@@ -59,6 +62,7 @@ protocol ProfileInteractorInputProtocol: class
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
     func shouldShowPairBeacon()
+    func companyName()
 }
 
 protocol ProfileDataManagerInputProtocol: class
@@ -83,4 +87,5 @@ protocol ProfileLocalDataManagerInputProtocol: class
      */
     
     func hasCurrentUserBeaconPaired(completion: (Bool) -> Void)
+    func companyName(completion: (String) -> Void)
 }

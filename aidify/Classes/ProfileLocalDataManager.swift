@@ -28,4 +28,19 @@ class ProfileLocalDataManager: ProfileLocalDataManagerInputProtocol
         }
         completion(hasBeaconPaired)
     }
+    
+    func companyName(completion: (String) -> Void) {
+        guard let userManager = userManager else {
+            completion("")
+            return
+        }
+        
+        var company = ""
+        if(userManager.isAnyUserLogged()) {
+            if let user = userManager.currentUser {
+                company = user.company
+            }
+        }
+        completion(company)
+    }
 }

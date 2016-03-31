@@ -23,4 +23,12 @@ class ProfileInteractor: ProfileInteractorInputProtocol
             }
         })
     }
+    
+    func companyName() {
+        localDatamanager?.companyName({ [weak self] company -> Void in
+            if let strongSelf = self {
+                strongSelf.presenter?.setCompany(name: company)
+            }
+        })
+    }
 }

@@ -15,10 +15,23 @@ class ProfileView: AIDViewController, ProfileViewProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.companyName()
         presenter?.needsShowPairBeacon()
-        navigationBarColor = AIDColor.DarkOrange.color()
         addNavigationBarRightButtons()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationBarColor = AIDColor.DarkOrange.color()
+    }
+    
+    //MARK: ProfileViewProtocol
+    
+    func setCompany(name name: String) {
+        title = name.capitalizedString
+    }
+    
+    //MARK: Actions
     
     func showSettings() {
         presenter?.showSettings()
