@@ -29,6 +29,14 @@ class ProfileLocalDataManager: ProfileLocalDataManagerInputProtocol
         completion(hasBeaconPaired)
     }
     
+    func isUserLogged(completion: (Bool) -> Void) {
+        guard let userManager = userManager else {
+            completion(false)
+            return
+        }
+        completion(userManager.isAnyUserLogged())
+    }
+    
     func companyName(completion: (String) -> Void) {
         guard let userManager = userManager else {
             completion("")

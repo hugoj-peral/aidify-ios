@@ -24,6 +24,7 @@
 		9A40115C1C9F0C0D0038BC2D /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A4011591C9F0C0D0038BC2D /* Raleway-Light.ttf */; };
 		9A40115D1C9F0C0D0038BC2D /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A40115A1C9F0C0D0038BC2D /* Raleway-Medium.ttf */; };
 		9A40115F1C9F11BC0038BC2D /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A40115E1C9F11BC0038BC2D /* AppDependencies.swift */; };
+		9A4A0B441CAEFCA4006DA919 /* AIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A0B431CAEFCA4006DA919 /* AIDButton.swift */; };
 		9A6141991CA9CC38009ACE34 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6141981CA9CC38009ACE34 /* UserManager.swift */; };
 		9A61419B1CA9CC62009ACE34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61419A1CA9CC62009ACE34 /* User.swift */; };
 		9A6B1ADF1C9DC36A006D7A7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B1ADE1C9DC36A006D7A7C /* AppDelegate.swift */; };
@@ -88,6 +89,7 @@
 		9A4011591C9F0C0D0038BC2D /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
 		9A40115A1C9F0C0D0038BC2D /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		9A40115E1C9F11BC0038BC2D /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDependencies.swift; path = Classes/AppDependencies.swift; sourceTree = "<group>"; };
+		9A4A0B431CAEFCA4006DA919 /* AIDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIDButton.swift; path = Classes/AIDButton.swift; sourceTree = "<group>"; };
 		9A6141981CA9CC38009ACE34 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Classes/UserManager.swift; sourceTree = "<group>"; };
 		9A61419A1CA9CC62009ACE34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/User.swift; sourceTree = "<group>"; };
 		9A6B1ADB1C9DC36A006D7A7C /* aidify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aidify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -403,6 +405,7 @@
 				9ADA5B171CA6FB2D00C4B285 /* AIDViewController.swift */,
 				9A3CEDFC1CAAF49B00EFC8A7 /* AIDConstants.swift */,
 				9AC63E251CAC570A00AD6439 /* AIDNavigationController.swift */,
+				9A4A0B431CAEFCA4006DA919 /* AIDButton.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				9A92D4ED1CA4497800AEB182 /* LoginProtocols.swift in Sources */,
 				9A6141991CA9CC38009ACE34 /* UserManager.swift in Sources */,
 				9A9469A41CAD953C001B6733 /* SettingsLocalDataManager.swift in Sources */,
+				9A4A0B441CAEFCA4006DA919 /* AIDButton.swift in Sources */,
 				9A92D4E61CA4494600AEB182 /* LoginInteractor.swift in Sources */,
 				9A3CEDFD1CAAF49B00EFC8A7 /* AIDConstants.swift in Sources */,
 				9A92D4F01CA4499100AEB182 /* LoginView.swift in Sources */,

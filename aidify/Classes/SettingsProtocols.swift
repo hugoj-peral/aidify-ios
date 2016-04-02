@@ -22,6 +22,7 @@ protocol SettingsWireFrameProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
+    func dissmisSettingModule(from view: AnyObject?)
 }
 
 protocol SettingsPresenterProtocol: class
@@ -32,6 +33,7 @@ protocol SettingsPresenterProtocol: class
     /**
     * Add here your methods for communication VIEW -> PRESENTER
     */
+    func logOut()
 }
 
 protocol SettingsInteractorOutputProtocol: class
@@ -39,6 +41,7 @@ protocol SettingsInteractorOutputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
+    func logOutDone()
 }
 
 protocol SettingsInteractorInputProtocol: class
@@ -49,6 +52,7 @@ protocol SettingsInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+    func logOut()
 }
 
 protocol SettingsDataManagerInputProtocol: class
@@ -67,7 +71,9 @@ protocol SettingsAPIDataManagerInputProtocol: class
 
 protocol SettingsLocalDataManagerInputProtocol: class
 {
+    var userManager: UserManagerProtocol? { get set }
     /**
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
+    func logOut(completion: (Void) -> Void)
 }

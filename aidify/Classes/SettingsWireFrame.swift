@@ -28,8 +28,17 @@ class SettingsWireFrame: SettingsWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        localDataManager.userManager = UserManager()
         
         let navigationController = view as! UINavigationController
         navigationController .pushViewController(settingsView as! UIViewController, animated: true)
+    }
+    
+    func dissmisSettingModule(from view: AnyObject?) {
+        guard let view = view else { return }
+        if let navigationController = (view as! UIViewController).navigationController {
+            navigationController.popToRootViewControllerAnimated(false)
+        }
+        
     }
 }

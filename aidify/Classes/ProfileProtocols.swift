@@ -28,6 +28,7 @@ protocol ProfileWireFrameProtocol: class
     func presentPairBeacon(fromView view: AnyObject)
     func presentActivity(fromView view: AnyObject)
     func presentSettings(fromView view: AnyObject)
+    func presentLogin()
 }
 
 protocol ProfilePresenterProtocol: class
@@ -42,6 +43,7 @@ protocol ProfilePresenterProtocol: class
     func companyName()
     func showSettings()
     func showActivity()
+    func isUserLogged()
 }
 
 protocol ProfileInteractorOutputProtocol: class
@@ -50,6 +52,7 @@ protocol ProfileInteractorOutputProtocol: class
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
     func shouldShowPairBeacon()
+    func showLogin()
     func setCompany(name name: String)
 }
 
@@ -63,6 +66,7 @@ protocol ProfileInteractorInputProtocol: class
     */
     func shouldShowPairBeacon()
     func companyName()
+    func isUserLogged()
 }
 
 protocol ProfileDataManagerInputProtocol: class
@@ -87,5 +91,6 @@ protocol ProfileLocalDataManagerInputProtocol: class
      */
     
     func hasCurrentUserBeaconPaired(completion: (Bool) -> Void)
+    func isUserLogged(completion: (Bool) -> Void)
     func companyName(completion: (String) -> Void)
 }

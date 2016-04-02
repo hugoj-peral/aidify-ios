@@ -4,9 +4,21 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Raleway-Bold.ttf">
+            <string>Raleway-Bold</string>
+        </mutableArray>
+        <mutableArray key="Raleway-Regular.ttf">
+            <string>Raleway-Regular</string>
+            <string>Raleway-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsView" customModule="aidify" customModuleProvider="target">
             <connections>
+                <outlet property="beaconLabel" destination="2hS-3A-PjG" id="uDi-E9-g79"/>
+                <outlet property="beaconSwitch" destination="Lvx-Z3-t3t" id="R3v-es-a68"/>
+                <outlet property="logOutButton" destination="hEi-lX-3wS" id="sWX-xw-ZS8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Xr2-rt-F3u"/>
             </connections>
         </placeholder>
@@ -15,14 +27,91 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BEACON DESK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-cm-e2s">
+                    <rect key="frame" x="43" y="40" width="167" height="29"/>
+                    <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vcp-EQ-oLw">
+                    <rect key="frame" x="20" y="75" width="560" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="E7p-AG-Vfb"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="beaconid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hS-3A-PjG">
+                    <rect key="frame" x="57" y="97" width="87" height="24"/>
+                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lvx-Z3-t3t">
+                    <rect key="frame" x="508" y="94" width="51" height="31"/>
+                    <color key="backgroundColor" red="0.84313725490000002" green="0.46666666670000001" blue="0.57647058819999997" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <color key="onTintColor" red="0.41960784313725491" green="0.67843137254901964" blue="0.41960784313725491" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="switchValueChanged:" destination="-1" eventType="valueChanged" id="AD1-5r-muH"/>
+                    </connections>
+                </switch>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uhl-Bo-5gi">
+                    <rect key="frame" x="20" y="141" width="560" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="2H5-jT-I9h"/>
+                    </constraints>
+                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="omj-At-zJC">
                     <rect key="frame" x="261" y="565" width="79" height="25"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEi-lX-3wS" customClass="AIDButton" customModule="aidify" customModuleProvider="target">
+                    <rect key="frame" x="50" y="168" width="500" height="50"/>
+                    <color key="backgroundColor" red="0.84313725490196079" green="0.46666666666666667" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="pJ3-Ip-YO5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                    <state key="normal" title="Log Out"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="CSX-K6-AwT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.98431372549019602" green="0.79607843137254897" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="uhl-Bo-5gi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0UK-Fx-Unr"/>
+                <constraint firstItem="2hS-3A-PjG" firstAttribute="top" secondItem="vcp-EQ-oLw" secondAttribute="bottom" constant="20" id="3ep-cv-4XO"/>
+                <constraint firstAttribute="trailing" secondItem="hEi-lX-3wS" secondAttribute="trailing" constant="50" id="7a0-Ik-TlG"/>
+                <constraint firstItem="hEi-lX-3wS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="A7z-FF-aB8"/>
+                <constraint firstItem="vcp-EQ-oLw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Az4-yP-SNN"/>
                 <constraint firstItem="omj-At-zJC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HRk-PW-USg"/>
+                <constraint firstItem="F9t-cm-e2s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="L7C-7I-AEw"/>
+                <constraint firstItem="hEi-lX-3wS" firstAttribute="top" secondItem="uhl-Bo-5gi" secondAttribute="bottom" constant="25" id="Lbp-wM-Qi9"/>
                 <constraint firstAttribute="bottom" secondItem="omj-At-zJC" secondAttribute="bottom" constant="10" id="Lgl-Ms-r4w"/>
+                <constraint firstAttribute="trailing" secondItem="vcp-EQ-oLw" secondAttribute="trailing" constant="20" id="OCo-cS-gmA"/>
+                <constraint firstItem="2hS-3A-PjG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="57" id="PQB-Ws-j50"/>
+                <constraint firstItem="F9t-cm-e2s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="43" id="TDi-ue-fKV"/>
+                <constraint firstItem="uhl-Bo-5gi" firstAttribute="top" secondItem="2hS-3A-PjG" secondAttribute="bottom" constant="20" id="atK-Hz-FHJ"/>
+                <constraint firstAttribute="trailing" secondItem="uhl-Bo-5gi" secondAttribute="trailing" constant="20" id="kpg-4F-pRt"/>
+                <constraint firstItem="vcp-EQ-oLw" firstAttribute="top" secondItem="F9t-cm-e2s" secondAttribute="bottom" constant="6" id="o2H-YG-mOk"/>
+                <constraint firstItem="Lvx-Z3-t3t" firstAttribute="top" secondItem="vcp-EQ-oLw" secondAttribute="bottom" constant="17" id="q9t-VX-wD9"/>
+                <constraint firstAttribute="trailing" secondItem="Lvx-Z3-t3t" secondAttribute="trailing" constant="43" id="uf7-Qw-GaA"/>
             </constraints>
         </view>
     </objects>

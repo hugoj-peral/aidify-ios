@@ -31,4 +31,12 @@ class ProfileInteractor: ProfileInteractorInputProtocol
             }
         })
     }
+    
+    func isUserLogged() {
+        localDatamanager?.isUserLogged({ (isLogged) -> Void in
+            if (!isLogged) {
+                self.presenter?.showLogin()
+            }
+        })
+    }
 }

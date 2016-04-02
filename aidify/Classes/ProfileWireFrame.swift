@@ -51,4 +51,10 @@ class ProfileWireFrame: ProfileWireFrameProtocol
         guard let navigationController = (view as! UIViewController).navigationController else { return }
         SettingsWireFrame.pushSettingsModule(fromView: navigationController)
     }
+    
+    func presentLogin() {
+        if let rootWireFrame = rootWireFrame {
+            rootWireFrame.presentLoginModule()
+        }
+    }
 }

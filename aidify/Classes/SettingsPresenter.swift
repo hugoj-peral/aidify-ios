@@ -15,4 +15,15 @@ class SettingsPresenter: SettingsPresenterProtocol, SettingsInteractorOutputProt
     var wireFrame: SettingsWireFrameProtocol?
     
     init() {}
+    
+    //MARK: SettingsPresenterProtocol
+    
+    func logOut() {
+        interactor?.logOut()
+    }
+    
+    //MARK: SettingsInteractorOutputProtocol
+    func logOutDone() {
+        wireFrame?.dissmisSettingModule(from: view)
+    }
 }

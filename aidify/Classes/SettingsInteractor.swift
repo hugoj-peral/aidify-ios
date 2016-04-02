@@ -15,4 +15,12 @@ class SettingsInteractor: SettingsInteractorInputProtocol
     var localDatamanager: SettingsLocalDataManagerInputProtocol?
     
     init() {}
+    
+    func logOut() {
+        localDatamanager?.logOut({ [weak self] () -> Void in
+            if let strongSelf = self {
+                strongSelf.presenter?.logOutDone()
+            }
+        })
+    }
 }

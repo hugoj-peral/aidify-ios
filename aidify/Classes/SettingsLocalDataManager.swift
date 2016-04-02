@@ -10,5 +10,12 @@ import Foundation
 
 class SettingsLocalDataManager: SettingsLocalDataManagerInputProtocol
 {
+    var userManager: UserManagerProtocol?
+    
     init() {}
+    
+    func logOut(completion: (Void) -> Void) {
+        userManager?.logOut()
+        completion()
+    }
 }

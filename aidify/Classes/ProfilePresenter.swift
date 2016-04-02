@@ -33,9 +33,17 @@ class ProfilePresenter: ProfilePresenterProtocol, ProfileInteractorOutputProtoco
         wireFrame?.presentActivity(fromView: view!)
     }
     
+    func isUserLogged() {
+        interactor?.isUserLogged()
+    }
+    
     //MARK: ProfileInteractorOutputProtocol
     func shouldShowPairBeacon() {
         wireFrame?.presentPairBeacon(fromView: view!)
+    }
+    
+    func showLogin() {
+        wireFrame?.presentLogin()
     }
     
     func setCompany(name name: String) {
