@@ -77,6 +77,17 @@
 		EBBBC1B21CB062B800034456 /* ProfilePunctuationMeaningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1B01CB062B800034456 /* ProfilePunctuationMeaningCell.swift */; };
 		EBBBC1B31CB062B800034456 /* ProfilePunctuationMeaningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1B11CB062B800034456 /* ProfilePunctuationMeaningCell.xib */; };
 		EBBBC1B71CB06D1700034456 /* UITableViewCell+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1B61CB06D1700034456 /* UITableViewCell+Initialization.swift */; };
+		EBBBC1BA1CB085F200034456 /* ActivityWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1B91CB085F200034456 /* ActivityWireFrame.swift */; };
+		EBBBC1BC1CB0860500034456 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1BB1CB0860500034456 /* ActivityView.swift */; };
+		EBBBC1BE1CB0860D00034456 /* ActivityProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1BD1CB0860D00034456 /* ActivityProtocols.swift */; };
+		EBBBC1C01CB0861600034456 /* ActivityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1BF1CB0861600034456 /* ActivityPresenter.swift */; };
+		EBBBC1C31CB0861E00034456 /* ActivityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1C11CB0861E00034456 /* ActivityInteractor.swift */; };
+		EBBBC1C41CB0861E00034456 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1C21CB0861E00034456 /* ActivityItem.swift */; };
+		EBBBC1C61CB0862C00034456 /* ActivityAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1C51CB0862C00034456 /* ActivityAPIDataManager.swift */; };
+		EBBBC1C81CB0863400034456 /* ActivityLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1C71CB0863400034456 /* ActivityLocalDataManager.swift */; };
+		EBBBC1D01CB086A000034456 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1CF1CB086A000034456 /* ActivityView.xib */; };
+		EBBBC1D31CB0882600034456 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1D11CB0882600034456 /* ActivityCell.swift */; };
+		EBBBC1D41CB0882600034456 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1D21CB0882600034456 /* ActivityCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +178,17 @@
 		EBBBC1B01CB062B800034456 /* ProfilePunctuationMeaningCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePunctuationMeaningCell.swift; sourceTree = "<group>"; };
 		EBBBC1B11CB062B800034456 /* ProfilePunctuationMeaningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePunctuationMeaningCell.xib; sourceTree = "<group>"; };
 		EBBBC1B61CB06D1700034456 /* UITableViewCell+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+Initialization.swift"; path = "Classes/UITableViewCell+Initialization.swift"; sourceTree = "<group>"; };
+		EBBBC1B91CB085F200034456 /* ActivityWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityWireFrame.swift; sourceTree = "<group>"; };
+		EBBBC1BB1CB0860500034456 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		EBBBC1BD1CB0860D00034456 /* ActivityProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityProtocols.swift; sourceTree = "<group>"; };
+		EBBBC1BF1CB0861600034456 /* ActivityPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityPresenter.swift; sourceTree = "<group>"; };
+		EBBBC1C11CB0861E00034456 /* ActivityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityInteractor.swift; sourceTree = "<group>"; };
+		EBBBC1C21CB0861E00034456 /* ActivityItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
+		EBBBC1C51CB0862C00034456 /* ActivityAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityAPIDataManager.swift; sourceTree = "<group>"; };
+		EBBBC1C71CB0863400034456 /* ActivityLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityLocalDataManager.swift; sourceTree = "<group>"; };
+		EBBBC1CF1CB086A000034456 /* ActivityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
+		EBBBC1D11CB0882600034456 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		EBBBC1D21CB0882600034456 /* ActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +390,7 @@
 		9A92D4DA1CA448B100AEB182 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EBBBC1B81CB0859600034456 /* Activity */,
 				9A94699D1CAD947B001B6733 /* Settings */,
 				EB292FC61CADB16D00D39463 /* Pairing */,
 				9A3CEDFE1CAB083500EFC8A7 /* Profile */,
@@ -641,6 +664,72 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EBBBC1B81CB0859600034456 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBC1CE1CB0868000034456 /* DataManager */,
+				EBBBC1CD1CB0867700034456 /* Interactor */,
+				EBBBC1CC1CB0866F00034456 /* Presenter */,
+				EBBBC1CB1CB0866700034456 /* Protocols */,
+				EBBBC1C91CB0865800034456 /* View */,
+				EBBBC1CA1CB0866000034456 /* Wireframe */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		EBBBC1C91CB0865800034456 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBC1BB1CB0860500034456 /* ActivityView.swift */,
+				EBBBC1CF1CB086A000034456 /* ActivityView.xib */,
+				EBBBC1D11CB0882600034456 /* ActivityCell.swift */,
+				EBBBC1D21CB0882600034456 /* ActivityCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EBBBC1CA1CB0866000034456 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBC1B91CB085F200034456 /* ActivityWireFrame.swift */,
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		EBBBC1CB1CB0866700034456 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBC1BD1CB0860D00034456 /* ActivityProtocols.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		EBBBC1CC1CB0866F00034456 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBC1BF1CB0861600034456 /* ActivityPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		EBBBC1CD1CB0867700034456 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBC1C11CB0861E00034456 /* ActivityInteractor.swift */,
+				EBBBC1C21CB0861E00034456 /* ActivityItem.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		EBBBC1CE1CB0868000034456 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBC1C71CB0863400034456 /* ActivityLocalDataManager.swift */,
+				EBBBC1C51CB0862C00034456 /* ActivityAPIDataManager.swift */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -743,6 +832,8 @@
 				EBBBC1AB1CB0622300034456 /* ProfileUserCell.xib in Resources */,
 				9A3CEE1B1CAB235B00EFC8A7 /* ProfileView.xib in Resources */,
 				9A92D4F61CA44CB900AEB182 /* LoginView.xib in Resources */,
+				EBBBC1D01CB086A000034456 /* ActivityView.xib in Resources */,
+				EBBBC1D41CB0882600034456 /* ActivityCell.xib in Resources */,
 				9A40115B1C9F0C0D0038BC2D /* AllerDisplay.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -814,16 +905,20 @@
 				9A6141991CA9CC38009ACE34 /* UserManager.swift in Sources */,
 				9A9469A41CAD953C001B6733 /* SettingsLocalDataManager.swift in Sources */,
 				EBBBC1B21CB062B800034456 /* ProfilePunctuationMeaningCell.swift in Sources */,
+				EBBBC1C41CB0861E00034456 /* ActivityItem.swift in Sources */,
 				9A4A0B441CAEFCA4006DA919 /* AIDButton.swift in Sources */,
+				EBBBC1C81CB0863400034456 /* ActivityLocalDataManager.swift in Sources */,
 				9A92D4E61CA4494600AEB182 /* LoginInteractor.swift in Sources */,
 				9A3CEDFD1CAAF49B00EFC8A7 /* AIDConstants.swift in Sources */,
 				9A92D4F01CA4499100AEB182 /* LoginView.swift in Sources */,
 				9A92D4F91CA4689C00AEB182 /* AIDTextField.swift in Sources */,
+				EBBBC1C61CB0862C00034456 /* ActivityAPIDataManager.swift in Sources */,
 				9A92D4E71CA4494600AEB182 /* LoginItem.swift in Sources */,
 				9A9469AD1CAD9584001B6733 /* SettingsItem.swift in Sources */,
 				9A4011561C9F00F80038BC2D /* AIDFont.swift in Sources */,
 				EB292FD51CADB25200D39463 /* PairingInteractor.swift in Sources */,
 				9A3CEE0E1CAB08B400EFC8A7 /* ProfileItem.swift in Sources */,
+				EBBBC1C31CB0861E00034456 /* ActivityInteractor.swift in Sources */,
 				9A3CEE0A1CAB08AA00EFC8A7 /* ProfileLocalDataManager.swift in Sources */,
 				EBBBC1AE1CB0628400034456 /* ProfilePunctuationCell.swift in Sources */,
 				9A61419B1CA9CC62009ACE34 /* User.swift in Sources */,
@@ -832,15 +927,19 @@
 				9A9469AC1CAD9584001B6733 /* SettingsInteractor.swift in Sources */,
 				EB292FDA1CADB26A00D39463 /* PairingAPIDataManager.swift in Sources */,
 				9A3CEE141CAB08CA00EFC8A7 /* ProfileView.swift in Sources */,
+				EBBBC1BA1CB085F200034456 /* ActivityWireFrame.swift in Sources */,
 				9A3CEE101CAB08BC00EFC8A7 /* ProfilePresenter.swift in Sources */,
 				9A3CEE121CAB08C200EFC8A7 /* ProfileProtocols.swift in Sources */,
 				9AFD61071CA408F600E1CC32 /* Resource.swift in Sources */,
 				EB292FD61CADB25200D39463 /* PairingItem.swift in Sources */,
+				EBBBC1BE1CB0860D00034456 /* ActivityProtocols.swift in Sources */,
 				EBBBC1AA1CB0622300034456 /* ProfileUserCell.swift in Sources */,
 				9A3CEE181CAB1D1D00EFC8A7 /* RootWireFrame.swift in Sources */,
 				9AFD61061CA408F600E1CC32 /* JSONDecodable.swift in Sources */,
+				EBBBC1C01CB0861600034456 /* ActivityPresenter.swift in Sources */,
 				9A3CEE081CAB089F00EFC8A7 /* ProfileAPIDataManager.swift in Sources */,
 				EB292FDC1CADB27200D39463 /* PairingLocalDataManager.swift in Sources */,
+				EBBBC1BC1CB0860500034456 /* ActivityView.swift in Sources */,
 				EBBBC1A41CAFEFA100034456 /* NearableManager.swift in Sources */,
 				EB292FD21CADB23700D39463 /* PairingPresenter.swift in Sources */,
 				EB292FD81CADB25C00D39463 /* PairingView.swift in Sources */,
@@ -853,6 +952,7 @@
 				9A9469B11CAD9596001B6733 /* SettingsProtocols.swift in Sources */,
 				9A9469A21CAD952D001B6733 /* SettingsAPIDataManager.swift in Sources */,
 				9A40115F1C9F11BC0038BC2D /* AppDependencies.swift in Sources */,
+				EBBBC1D31CB0882600034456 /* ActivityCell.swift in Sources */,
 				9A4011541C9EFD880038BC2D /* AIDColor.swift in Sources */,
 				9AC63E261CAC570A00AD6439 /* AIDNavigationController.swift in Sources */,
 				9AFD61051CA408F600E1CC32 /* APIClient.swift in Sources */,

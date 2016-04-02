@@ -44,7 +44,8 @@ class ProfileWireFrame: ProfileWireFrameProtocol
     }
     
     func presentActivity(fromView view: AnyObject) {
-        print("Show activity screen")
+        guard let navigationController = (view as! UIViewController).navigationController else { return }
+        ActivityWireFrame.pushActivityModule(fromView: navigationController)
     }
     
     func presentSettings(fromView view: AnyObject) {

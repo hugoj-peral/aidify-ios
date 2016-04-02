@@ -30,8 +30,8 @@ class SettingsWireFrame: SettingsWireFrameProtocol
         interactor.localDatamanager = localDataManager
         localDataManager.userManager = UserManager()
         
-        let navigationController = view as! UINavigationController
-        navigationController .pushViewController(settingsView as! UIViewController, animated: true)
+        let navigationController = view as? UINavigationController
+        navigationController?.pushViewController(settingsView as! UIViewController, animated: true)
     }
     
     func dissmisSettingModule(from view: AnyObject?) {
