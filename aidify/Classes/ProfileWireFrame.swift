@@ -40,7 +40,7 @@ class ProfileWireFrame: ProfileWireFrameProtocol
     }
     
     func presentPairBeacon(fromView view: AnyObject) {
-        print("Show beacon screen")
+        PairingWireFrame.presentPairingModule(fromViewController: view)
     }
     
     func presentActivity(fromView view: AnyObject) {

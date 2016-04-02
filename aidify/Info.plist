@@ -22,6 +22,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use Location Services to detect when you’re close to your workplace.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AllerDisplay.ttf</string>
@@ -29,6 +31,10 @@
 		<string>Raleway-Medium.ttf</string>
 		<string>Raleway-Bold.ttf</string>
 		<string>Raleway-Regular.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

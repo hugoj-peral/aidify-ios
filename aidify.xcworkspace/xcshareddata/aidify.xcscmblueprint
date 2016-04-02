@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D3B19E02EC9759279B29D481F849ADF009C5070C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "05AB65D0033AA1DE98D53542666996D83A3D7460" : 0,
+    "D3B19E02EC9759279B29D481F849ADF009C5070C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "079B3056-FE3F-4743-B541-2020B7DF36D9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "05AB65D0033AA1DE98D53542666996D83A3D7460" : "",
+    "D3B19E02EC9759279B29D481F849ADF009C5070C" : "ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "aidify",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "aidify.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/isanjosgon\/RealityHack-Challenge-3",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "05AB65D0033AA1DE98D53542666996D83A3D7460"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hugoj-peral\/aidify-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3B19E02EC9759279B29D481F849ADF009C5070C"
+    }
+  ]
+}
