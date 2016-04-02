@@ -11,19 +11,29 @@ import UIKit
 
 class ProfileView: AIDViewController, ProfileViewProtocol
 {
+    @IBOutlet weak var tableView: UITableView!
+    
     var presenter: ProfilePresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.companyName()
         presenter?.needsShowPairBeacon()
-        addNavigationBarRightButtons()
+        initializeView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationBarColor = AIDColor.DarkOrange.color()
         presenter?.isUserLogged()
+    }
+    
+    private func initializeView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.registerCell(ProfileUserCell.self)
+        tableView.registerCell(ProfilePunctuationCell.self)
+        tableView.registerCell(ProfilePunctuationMeaningCell.self)
+        addNavigationBarRightButtons()
     }
     
     //MARK: ProfileViewProtocol
@@ -77,5 +87,32 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         activityButton.setImage(activityImage, forState: .Normal)
         activityButton.addTarget(self, action: "showActivity", forControlEvents: .TouchUpInside)
         return activityButton
+    }
+}
+
+extension ProfileView: UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return (indexPath.row == 0) ? tableView.dequeueReusableCellWithIdentifier(ProfileUserCell.reuseIdentifier())! : tableView.dequeueReusableCellWithIdentifier(ProfilePunctuationCell.reuseIdentifier())!
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return indexPath.row == 0 ? 99 : 73
+    }
+    
+}
+
+extension ProfileView: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 }

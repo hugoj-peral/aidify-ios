@@ -6,14 +6,33 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="aidify" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="VF2-yb-K5w" id="FzH-wM-Hx1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="XgU-Lv-U1R"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VF2-yb-K5w">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="1" green="0.65490196079999996" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="owg-Vx-5da"/>
+                        <outlet property="delegate" destination="-1" id="qIS-qc-yjD"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VF2-yb-K5w" secondAttribute="trailing" id="NKi-8m-VNq"/>
+                <constraint firstItem="VF2-yb-K5w" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RqK-Ef-QSx"/>
+                <constraint firstItem="VF2-yb-K5w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hqP-M9-59q"/>
+                <constraint firstAttribute="bottom" secondItem="VF2-yb-K5w" secondAttribute="bottom" id="tRc-EY-bk9"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="547.5" y="481.5"/>
         </view>
     </objects>
 </document>
