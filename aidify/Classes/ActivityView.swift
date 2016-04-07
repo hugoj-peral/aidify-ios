@@ -16,6 +16,7 @@ class ActivityView: AIDViewController, ActivityViewProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
+        presenter?.dataRequest()
         view.backgroundColor = AIDColor.Purple.color()
         title = "Activity"
     }
@@ -43,19 +44,22 @@ extension ActivityView: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2 //self.activities.count
+        return activities.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier(ActivityCell.reuseIdentifier())!
+        
+        let item = activities[indexPath.row]
+        let cell = item.cellDrawer.cellForTableView(tableView)
+        item.cellDrawer.drawCell(cell, withItem: item)
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 54.0
-    }
-    
-}
 
-extension ActivityView: UITableViewDelegate {
+        let item = activities[indexPath.row]
+        return item.cellDrawer.estimatedHeight()
+    }
     
 }

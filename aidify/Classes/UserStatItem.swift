@@ -9,14 +9,7 @@
 import Foundation
 import UIKit
 
-enum UserStatType: String{
-    case Reputation
-    case Impact
-    case Helpful
-    case Buggy
-}
-
-extension UserStatType {
+extension UserActivityCategory {
     
     var color: UIColor {
         switch self {
@@ -37,7 +30,7 @@ extension UserStatType {
 }
 
 struct UserStatItem {
-    let type: UserStatType
+    let type: UserActivityCategory
     let value: Int
 }
 

@@ -23,12 +23,20 @@ enum UserActivityAction:String {
     case Merged = "merged"
 }
 
+enum UserActivityCategory: String{
+    case Reputation
+    case Impact
+    case Helpful
+    case Buggy
+}
+
 struct UserActivity {
     let repo: String
     let type: UserActivityType
     let action: UserActivityAction
+    let category: UserActivityCategory
     let points: Int
-    let createDate: NSDate
+    let creationDate: NSDate
 }
 
 extension UserActivity: JSONDecodable {
@@ -41,6 +49,18 @@ extension UserActivity: JSONDecodable {
         self.type = type
         self.action = action
         self.points = points
-        self.createDate = NSDateFormatter.RFC3339DateFormatter().dateFromString(date) ?? NSDate()
+        self.category = .Reputation
+        self.creationDate = NSDateFormatter.ISO8601DateFormatter().dateFromString(date) ?? NSDate()
+    }
+}
+
+extension NSDateFormatter {
+    static func ISO8601DateFormatter() -> NSDateFormatter {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        
+        return dateFormatter
     }
 }

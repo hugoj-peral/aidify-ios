@@ -29,14 +29,3 @@ extension UserStats: JSONDecodable {
         self.total = total
     }
 }
-
-extension NSDateFormatter {
-    static func RFC3339DateFormatter() -> NSDateFormatter {
-        let RFC3339DateFormatter = NSDateFormatter()
-        RFC3339DateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        RFC3339DateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        
-        return RFC3339DateFormatter
-    }
-}

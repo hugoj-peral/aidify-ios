@@ -75,6 +75,8 @@
 		EB6233D71CB6E52D00BFB567 /* UserProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6233D61CB6E52D00BFB567 /* UserProfileItem.swift */; };
 		EB6233D91CB6E56100BFB567 /* UserStatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6233D81CB6E56100BFB567 /* UserStatItem.swift */; };
 		EB6233DB1CB6E61100BFB567 /* UserItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6233DA1CB6E61100BFB567 /* UserItemProtocol.swift */; };
+		EB6233DD1CB6EA1B00BFB567 /* ActivityDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6233DC1CB6EA1B00BFB567 /* ActivityDrawer.swift */; };
+		EB6233DF1CB6EA4E00BFB567 /* ActivityDrawerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6233DE1CB6EA4E00BFB567 /* ActivityDrawerProtocol.swift */; };
 		EB6CC5451CB6E323002BEEB3 /* UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6CC5441CB6E323002BEEB3 /* UserActivity.swift */; };
 		EBBBC1A41CAFEFA100034456 /* NearableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1A31CAFEFA100034456 /* NearableManager.swift */; };
 		EBBBC1A71CB01F8A00034456 /* PairingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1A51CB01F8A00034456 /* PairingView.xib */; };
@@ -184,6 +186,8 @@
 		EB6233D61CB6E52D00BFB567 /* UserProfileItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileItem.swift; sourceTree = "<group>"; };
 		EB6233D81CB6E56100BFB567 /* UserStatItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStatItem.swift; sourceTree = "<group>"; };
 		EB6233DA1CB6E61100BFB567 /* UserItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemProtocol.swift; sourceTree = "<group>"; };
+		EB6233DC1CB6EA1B00BFB567 /* ActivityDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDrawer.swift; sourceTree = "<group>"; };
+		EB6233DE1CB6EA4E00BFB567 /* ActivityDrawerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDrawerProtocol.swift; sourceTree = "<group>"; };
 		EB6CC5441CB6E323002BEEB3 /* UserActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserActivity.swift; path = Classes/UserActivity.swift; sourceTree = "<group>"; };
 		EBBBC1A21CAFE4D200034456 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjCBridge.h; path = Classes/ObjCBridge.h; sourceTree = "<group>"; };
 		EBBBC1A31CAFEFA100034456 /* NearableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NearableManager.swift; path = Classes/NearableManager.swift; sourceTree = "<group>"; };
@@ -711,6 +715,8 @@
 				EBBBC1CF1CB086A000034456 /* ActivityView.xib */,
 				EBBBC1D11CB0882600034456 /* ActivityCell.swift */,
 				EBBBC1D21CB0882600034456 /* ActivityCell.xib */,
+				EB6233DC1CB6EA1B00BFB567 /* ActivityDrawer.swift */,
+				EB6233DE1CB6EA4E00BFB567 /* ActivityDrawerProtocol.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -928,6 +934,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A92D4DD1CA448F100AEB182 /* LoginAPIDataManager.swift in Sources */,
+				EB6233DF1CB6EA4E00BFB567 /* ActivityDrawerProtocol.swift in Sources */,
 				9A92D4ED1CA4497800AEB182 /* LoginProtocols.swift in Sources */,
 				EB4468221CB2DDF4002BB61C /* UserData.swift in Sources */,
 				9A6141991CA9CC38009ACE34 /* UserManager.swift in Sources */,
@@ -944,6 +951,7 @@
 				9A92D4F01CA4499100AEB182 /* LoginView.swift in Sources */,
 				EB274B011CB6E3BE00841EDA /* UserStats.swift in Sources */,
 				EB16F8C71CB5A15B00694D04 /* ImageLoader.swift in Sources */,
+				EB6233DD1CB6EA1B00BFB567 /* ActivityDrawer.swift in Sources */,
 				9A92D4F91CA4689C00AEB182 /* AIDTextField.swift in Sources */,
 				EBBBC1C61CB0862C00034456 /* ActivityAPIDataManager.swift in Sources */,
 				9A92D4E71CA4494600AEB182 /* LoginItem.swift in Sources */,
