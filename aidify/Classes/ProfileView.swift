@@ -14,12 +14,15 @@ class ProfileView: AIDViewController, ProfileViewProtocol
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: ProfilePresenterProtocol?
+    var stats: [UserItemProtocol]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.companyName()
         presenter?.needsShowPairBeacon()
+        presenter?.requestData()
         initializeView()
+        addProfileChart()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,10 +39,45 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         addNavigationBarRightButtons()
     }
     
+    private func addProfileChart() {
+        var views: [String: UIView] = [:]
+        
+        var error = Piechart.Slice()
+        error.value = 3234
+        error.color =  AIDColor.Green.color()
+        
+        var zero = Piechart.Slice()
+        zero.value = 2555
+        zero.color = AIDColor.Orange.color()
+        
+        var win = Piechart.Slice()
+        win.value = 1000
+        win.color = AIDColor.Blue.color()
+        
+        var win2 = Piechart.Slice()
+        win2.value = 200
+        win2.color = AIDColor.Pink.color()
+        
+        let piechart = Piechart()
+        piechart.slices = [error, zero, win, win2]
+        
+        piechart.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(piechart, belowSubview: tableView)
+        views["piechart"] = piechart
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[piechart]-|", options: [], metrics: nil, views: views))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[piechart(==500)]", options: [], metrics: nil, views: views))
+        
+    }
+    
     //MARK: ProfileViewProtocol
     
     func setCompany(name name: String) {
         title = name.capitalizedString
+    }
+    
+    func setData(data: [UserItemProtocol]) {
+        self.stats = data
+        self.tableView.reloadData()
     }
     
     //MARK: Actions
@@ -93,19 +131,50 @@ class ProfileView: AIDViewController, ProfileViewProtocol
 extension ProfileView: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return stats?.count > 0 ? 1 : 0
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return stats?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return (indexPath.row == 0) ? tableView.dequeueReusableCellWithIdentifier(ProfileUserCell.reuseIdentifier())! : tableView.dequeueReusableCellWithIdentifier(ProfilePunctuationCell.reuseIdentifier())!
+        guard let stats = stats else {
+            return UITableViewCell()
+        }
+        
+        let item = stats[indexPath.row]
+        let cell = item.cellDrawer.cellForTableView(tableView)
+        item.cellDrawer.drawCell(cell, withItem: item)
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row == 0 ? 99 : 73
+        guard let stats = stats else {
+            return 0
+        }
+        
+        let item = stats[indexPath.row]
+        return item.cellDrawer.estimatedHeight()
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let profileCell = self.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: section))
+        return tableView.frame.size.height - profileCell.frame.size.height + 1
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        var heightToFill = tableView.frame.size.height
+        
+        if let stats = stats {
+            for (index, _) in stats.enumerate() {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: index, inSection: section))
+                heightToFill -= cell.frame.size.height
+            }
+        }
+        
+        return max(heightToFill, 0)
     }
     
 }

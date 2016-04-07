@@ -11,6 +11,7 @@ class ActivityView: AIDViewController, ActivityViewProtocol
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: ActivityPresenterProtocol?
+    var activities: [UserActivity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,11 @@ class ActivityView: AIDViewController, ActivityViewProtocol
         super.viewWillAppear(animated)
         navigationBarColor = AIDColor.DarkPurple.color()
     }
+    
+    func setData(data: [UserActivity]) {
+        self.activities = data
+        self.tableView.reloadData()
+    }
 }
 
 extension ActivityView: UITableViewDataSource {
@@ -37,7 +43,7 @@ extension ActivityView: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 2 //self.activities.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -52,7 +58,4 @@ extension ActivityView: UITableViewDataSource {
 
 extension ActivityView: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
 }

@@ -39,4 +39,19 @@ class ProfileInteractor: ProfileInteractorInputProtocol
             }
         })
     }
+    
+    func getUserProfile() {
+        localDatamanager?.userID({ (userID) -> Void in
+            if let userID = userID {
+                self.APIDataManager?.getProfile(userID: userID, completion: { result -> Void in
+                    switch result {
+                    case let .Success(userData):
+                        self.presenter?.setUserProfile(userData)
+                    case .Failure:
+                        break
+                    }
+                })
+            }
+        })
+    }
 }

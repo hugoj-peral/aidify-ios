@@ -11,11 +11,12 @@ protocol ActivityViewProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> VIEW
     */
+    func setData(data: [UserActivity])
 }
 
 protocol ActivityWireFrameProtocol: class
 {
-    static func pushActivityModule(fromView view: AnyObject)
+    static func pushActivityModule(fromView view: AnyObject, withActivities activities:[UserActivity])
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
@@ -29,6 +30,8 @@ protocol ActivityPresenterProtocol: class
     /**
     * Add here your methods for communication VIEW -> PRESENTER
     */
+    
+    func dataRequest()
 }
 
 protocol ActivityInteractorOutputProtocol: class
@@ -36,6 +39,7 @@ protocol ActivityInteractorOutputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
+    func setActivities(activities: [UserActivity])
 }
 
 protocol ActivityInteractorInputProtocol: class

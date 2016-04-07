@@ -40,6 +40,7 @@ extension Auth: CustomStringConvertible {
 protocol Resource {
     var method: Method { get }
     var path: String { get }
+    var pathParameters: [String] { get }
     var parameters: [String: AnyObject] { get }
     var auth: Auth { get }
 }
@@ -54,8 +55,16 @@ extension Resource {
         return .None
     }
     
+    var pathParameters: [String] {
+        return []
+    }
+    
     func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest {
-        let URL = baseURL.URLByAppendingPathComponent(path)
+        var URL = baseURL.URLByAppendingPathComponent(path)
+            
+        if (pathParameters.count > 0) {
+           URL = URL.URLByAppendingPathComponent(pathParameters.joinWithSeparator("/"))
+        }
         
         var request: NSMutableURLRequest
         

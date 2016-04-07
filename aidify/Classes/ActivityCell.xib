@@ -21,11 +21,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cD4-l3-WdS">
+                        <rect key="frame" x="71" y="0.0" width="31" height="48"/>
+                        <color key="backgroundColor" red="0.64705882349999999" green="0.52549019610000003" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bad03" translatesAutoresizingMaskIntoConstraints="NO" id="gha-7i-bkX">
                         <rect key="frame" x="71" y="8" width="31" height="32"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22/03/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfg-o1-jLe">
                         <rect key="frame" x="8" y="18" width="55" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="1Im-BQ-fLh"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -47,27 +54,31 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="gha-7i-bkX" firstAttribute="centerX" secondItem="cD4-l3-WdS" secondAttribute="centerX" id="3Cu-jo-w3M"/>
+                    <constraint firstItem="gha-7i-bkX" firstAttribute="width" secondItem="cD4-l3-WdS" secondAttribute="width" id="6l0-lj-lcG"/>
                     <constraint firstItem="lfg-o1-jLe" firstAttribute="centerY" secondItem="gha-7i-bkX" secondAttribute="centerY" id="Ar0-kf-Wfr"/>
                     <constraint firstItem="KlA-T6-fhB" firstAttribute="top" secondItem="cer-T7-W2t" secondAttribute="bottom" id="GDw-WS-UBt"/>
+                    <constraint firstItem="gha-7i-bkX" firstAttribute="height" secondItem="cD4-l3-WdS" secondAttribute="height" constant="-16" id="Hkg-05-gHD"/>
                     <constraint firstItem="cer-T7-W2t" firstAttribute="leading" secondItem="gha-7i-bkX" secondAttribute="trailing" constant="8" id="I0Z-Io-fhf"/>
                     <constraint firstItem="cer-T7-W2t" firstAttribute="top" secondItem="gha-7i-bkX" secondAttribute="top" id="JzS-qu-t9L"/>
                     <constraint firstItem="KlA-T6-fhB" firstAttribute="leading" secondItem="cer-T7-W2t" secondAttribute="leading" id="SUd-PT-Dha"/>
                     <constraint firstItem="KlA-T6-fhB" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Y50-Xv-Cyk"/>
                     <constraint firstItem="cer-T7-W2t" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="dA9-N1-Pns"/>
+                    <constraint firstItem="gha-7i-bkX" firstAttribute="centerY" secondItem="cD4-l3-WdS" secondAttribute="centerY" id="iPX-4G-PMK"/>
                     <constraint firstItem="lfg-o1-jLe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="imf-f2-8sd"/>
                     <constraint firstItem="gha-7i-bkX" firstAttribute="leading" secondItem="lfg-o1-jLe" secondAttribute="trailing" constant="8" id="l7g-xz-v4k"/>
                     <constraint firstItem="gha-7i-bkX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oZO-EO-43b"/>
                     <constraint firstItem="cer-T7-W2t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xAi-u8-4DM"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.64705882349999999" green="0.52549019610000003" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="activityDateLabel" destination="lfg-o1-jLe" id="fuK-bU-a32"/>
                 <outlet property="activityImage" destination="gha-7i-bkX" id="D9R-Cs-diQ"/>
                 <outlet property="activitySubtitleLabel" destination="KlA-T6-fhB" id="KY5-M3-VYa"/>
                 <outlet property="activityTitleLabel" destination="cer-T7-W2t" id="mkn-af-xex"/>
             </connections>
-            <point key="canvasLocation" x="313" y="520"/>
+            <point key="canvasLocation" x="123" y="480"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -38,7 +38,7 @@ class LoginWireFrame: LoginWireFrameProtocol
         fromWindow.rootViewController = view as? UIViewController
     }
     
-    func dismissLogin() {
+    func dismissLogin(user: UserData) {
         if let rootWireFrame = rootWireFrame {
             rootWireFrame.presentProfileModule()
         }

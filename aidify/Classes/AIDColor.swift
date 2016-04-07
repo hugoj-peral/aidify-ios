@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AIDColor: String {
+enum AIDColor {
     case Black
     case Green
     case Orange

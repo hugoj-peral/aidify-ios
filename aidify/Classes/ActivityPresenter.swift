@@ -11,5 +11,15 @@ class ActivityPresenter: ActivityPresenterProtocol, ActivityInteractorOutputProt
     var interactor: ActivityInteractorInputProtocol?
     var wireFrame: ActivityWireFrameProtocol?
     
+    var activities: [UserActivity] = []
+    
     init() {}
+    
+    func dataRequest() {
+        view?.setData(activities)
+    }
+    
+    func setActivities(activities: [UserActivity]) {
+        self.activities = activities
+    }
 }

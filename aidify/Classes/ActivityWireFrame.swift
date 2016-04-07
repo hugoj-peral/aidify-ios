@@ -7,7 +7,7 @@ import UIKit
 
 class ActivityWireFrame: ActivityWireFrameProtocol
 {
-    class func pushActivityModule(fromView view: AnyObject)
+    class func pushActivityModule(fromView view: AnyObject, withActivities activities:[UserActivity])
     {
         // Generating module components
         let activityView: ActivityViewProtocol = ActivityView()
@@ -25,7 +25,7 @@ class ActivityWireFrame: ActivityWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
-        
+        presenter.setActivities(activities)
         
         let navigationController = view as? UINavigationController
         navigationController?.pushViewController(activityView as! UIViewController, animated: true)

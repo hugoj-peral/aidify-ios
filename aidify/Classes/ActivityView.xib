@@ -15,9 +15,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkm-1j-63P">
+                    <rect key="frame" x="85" y="0.0" width="4" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="4" id="KIQ-ev-Aek"/>
+                        <constraint firstAttribute="width" constant="4" id="LTn-Kl-uj5"/>
+                        <constraint firstAttribute="width" constant="4" id="fxL-gv-NzJ"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="KIQ-ev-Aek"/>
+                            <exclude reference="LTn-Kl-uj5"/>
+                        </mask>
+                    </variation>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-jU-6J7">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.64705882349999999" green="0.52549019610000003" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="HKk-SE-GC6"/>
                         <outlet property="delegate" destination="-1" id="3Od-7d-MlH"/>
@@ -26,12 +42,27 @@
             </subviews>
             <color key="backgroundColor" red="0.64705882349999999" green="0.52549019610000003" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="Pkm-1j-63P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="85" id="2qt-KN-Zsz"/>
+                <constraint firstItem="Pkm-1j-63P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="89s-bg-UxD"/>
+                <constraint firstItem="Pkm-1j-63P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BAf-c1-YtL"/>
+                <constraint firstAttribute="bottom" secondItem="Pkm-1j-63P" secondAttribute="bottom" id="FlR-gq-xGM"/>
+                <constraint firstAttribute="bottom" secondItem="Pkm-1j-63P" secondAttribute="bottom" id="O3C-ed-erx"/>
                 <constraint firstAttribute="trailing" secondItem="XVt-jU-6J7" secondAttribute="trailing" id="dxP-zK-6Mb"/>
+                <constraint firstAttribute="bottom" secondItem="Pkm-1j-63P" secondAttribute="bottom" id="enp-Ro-rKd"/>
                 <constraint firstItem="XVt-jU-6J7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iFu-Mc-Kqj"/>
+                <constraint firstItem="Pkm-1j-63P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qu8-sZ-wpf"/>
                 <constraint firstAttribute="bottom" secondItem="XVt-jU-6J7" secondAttribute="bottom" id="r2J-r4-4Sv"/>
                 <constraint firstItem="XVt-jU-6J7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yMy-rt-1hT"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="89s-bg-UxD"/>
+                    <exclude reference="FlR-gq-xGM"/>
+                    <exclude reference="enp-Ro-rKd"/>
+                    <exclude reference="qu8-sZ-wpf"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

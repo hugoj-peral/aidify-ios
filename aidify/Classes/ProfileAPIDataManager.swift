@@ -11,4 +11,9 @@ import Foundation
 class ProfileAPIDataManager: ProfileAPIDataManagerInputProtocol
 {
     init() {}
+    
+    func getProfile(userID userID: Int, completion: (APIClientResult<UserData, APIClientError>) -> Void) {
+        let clientAPI = APIClient.userAPIClient()
+        clientAPI.userWithID(userID) {(completion($0))}
+    }
 }

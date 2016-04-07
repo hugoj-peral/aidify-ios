@@ -10,11 +10,13 @@ import Foundation
 
 class User: NSObject, NSCoding {
     
+    var userID: Int
     var username: String
     var company: String
     var beaconId: String?
     
-    init(username: String, company: String) {
+    init(userID: Int, username: String, company: String) {
+        self.userID = userID
         self.username = username
         self.company = company
         
@@ -22,12 +24,14 @@ class User: NSObject, NSCoding {
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(userID, forKey: "userID")
         aCoder.encodeObject(username, forKey: "username")
         aCoder.encodeObject(company, forKey: "company")
         aCoder.encodeObject(beaconId, forKey: "beaconId")
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.userID = aDecoder.decodeObjectForKey("userID") as! Int
         self.username = aDecoder.decodeObjectForKey("username") as! String
         self.company = aDecoder.decodeObjectForKey("company") as! String
         self.beaconId = aDecoder.decodeObjectForKey("beaconId") as? String

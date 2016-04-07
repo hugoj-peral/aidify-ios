@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AIDFont: String {
+enum AIDFont {
     case Header
     case Title
     case Subtitle

@@ -14,8 +14,8 @@ class LoginLocalDataManager: LoginLocalDataManagerInputProtocol
     
     init() {}
     
-    func saveLogged(usermane username: String, company: String) {
-        let user = User(username: username, company: company)
+    func saveLogged(userID userID: Int, username: String, company: String) {
+        let user = User(userID: userID, username: username, company: company)
         self.userManager?.save(user: user)
     }
 }

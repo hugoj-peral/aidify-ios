@@ -43,9 +43,9 @@ class ProfileWireFrame: ProfileWireFrameProtocol
         PairingWireFrame.presentPairingModule(fromViewController: view)
     }
     
-    func presentActivity(fromView view: AnyObject) {
+    func presentActivity(fromView view: AnyObject, withActivities activities:[UserActivity]){
         guard let navigationController = (view as! UIViewController).navigationController else { return }
-        ActivityWireFrame.pushActivityModule(fromView: navigationController)
+        ActivityWireFrame.pushActivityModule(fromView: navigationController, withActivities:activities)
     }
     
     func presentSettings(fromView view: AnyObject) {

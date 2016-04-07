@@ -17,6 +17,7 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
     weak var view: LoginViewProtocol?
     var interactor: LoginInteractorInputProtocol?
     var wireFrame: LoginWireFrameProtocol?
+    var user: UserData?
     
     init() {}
     
@@ -29,7 +30,12 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
         case .Company: self.showUsername()
         case .Login: self.performLogin()
         case .Error: self.performLogin()
-        case .Success: self.wireFrame?.dismissLogin()
+        case .Success:
+            guard let user = user else {
+                return
+            }
+            
+            self.wireFrame?.dismissLogin(user)
         }
     }
     
@@ -44,7 +50,8 @@ class LoginPresenter: LoginPresenterProtocol, LoginInteractorOutputProtocol
         loginItem.company = text
     }
     
-    func loginSuccess() {
+    func loginSuccess(user: UserData) {
+        self.user = user
         self.look = .Success
         self.view?.hideRequestMode()
         self.view?.loadSuccessLookNFeel(username: self.loginItem.username!, company: self.loginItem.company!)

@@ -30,7 +30,7 @@ protocol LoginWireFrameProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
-    func dismissLogin()
+    func dismissLogin(user: UserData)
 }
 
 protocol LoginPresenterProtocol: class
@@ -53,7 +53,7 @@ protocol LoginInteractorOutputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
-    func loginSuccess()
+    func loginSuccess(user: UserData)
     func loginFailed()
 }
 
@@ -80,7 +80,7 @@ protocol LoginAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func loginWith(usermane username: String, company: String, completion: (Bool) -> Void)
+    func loginWith(usermane username: String, company: String, completion: (APIClientResult<UserData, APIClientError>) -> Void)
 }
 
 protocol LoginLocalDataManagerInputProtocol: class
@@ -90,5 +90,5 @@ protocol LoginLocalDataManagerInputProtocol: class
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
     
-    func saveLogged(usermane username: String, company: String)
+    func saveLogged(userID userID: Int, username: String, company: String) 
 }
