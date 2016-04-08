@@ -13,8 +13,17 @@ class ProfileView: AIDViewController, ProfileViewProtocol
 {
     @IBOutlet weak var tableView: UITableView!
     
+    let kInterpolateStagesWithAlpha = true
+    let kScrollViewTravel = 200.0
+    let kMaximumBlurRadius = 25.0
+    let kNumberOfStages = 10
+    
+    weak var piechart: Piechart?
     var presenter: ProfilePresenterProtocol?
     var stats: [UserItemProtocol]?
+    
+    var blurredImages : [UIImage] = []
+//    var originalImage : UIImage
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,32 +50,32 @@ class ProfileView: AIDViewController, ProfileViewProtocol
     
     private func addProfileChart() {
         var views: [String: UIView] = [:]
-        
-        var error = Piechart.Slice()
-        error.value = 3234
-        error.color =  AIDColor.Green.color()
-        
-        var zero = Piechart.Slice()
-        zero.value = 2555
-        zero.color = AIDColor.Orange.color()
-        
-        var win = Piechart.Slice()
-        win.value = 1000
-        win.color = AIDColor.Blue.color()
-        
-        var win2 = Piechart.Slice()
-        win2.value = 200
-        win2.color = AIDColor.Pink.color()
-        
+                
         let piechart = Piechart()
-        piechart.slices = [error, zero, win, win2]
         
         piechart.translatesAutoresizingMaskIntoConstraints = false
         view.insertSubview(piechart, belowSubview: tableView)
         views["piechart"] = piechart
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[piechart]-|", options: [], metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[piechart(==500)]", options: [], metrics: nil, views: views))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[piechart]-|", options: [], metrics: nil, views: views))
         
+        self.piechart = piechart
+        
+        //initBlurredImages()
+    }
+    
+    func initBlurredImages() {
+        /*blurredImages.append(originalImage)
+        
+        for i in 1...kNumberOfStages {
+            let radius = Double(i) * kMaximumBlurRadius / Double(kNumberOfStages)
+            let blurredImage = blurOriginalImageWithRadius(radius)
+            blurredImages.append(blurredImage)
+            
+            if i == kNumberOfStages {
+                blurredImages.append(blurredImage)
+            }
+        }*/
     }
     
     //MARK: ProfileViewProtocol
@@ -77,6 +86,16 @@ class ProfileView: AIDViewController, ProfileViewProtocol
     
     func setData(data: [UserItemProtocol]) {
         self.stats = data
+        
+        var items: [UserStatItem] = []
+        for item in data {
+            if let item = item as? UserStatItem {
+                items.append(item)
+            }
+        }
+        
+        self.piechart?.slices = items
+        self.piechart?.setNeedsDisplay()
         self.tableView.reloadData()
     }
     
@@ -180,6 +199,32 @@ extension ProfileView: UITableViewDataSource {
 }
 
 extension ProfileView: UITableViewDelegate {
+    
+    
+    /*
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        var r = Double(scrollView.contentOffset.y / CGFloat(kScrollViewTravel))
+        var blur = max(0, min(1, r)) * Double(kNumberOfStages)
+        var blurIndex = Int(blur)
+        var blurRemainder = blur - Double(blurIndex)
+        
+        firstImageView.image = blurredImages[blurIndex]
+        
+        if kInterpolateStagesWithAlpha == true {
+            secondImageView.image = blurredImages[blurIndex + 1]
+            secondImageView.alpha = CGFloat(blurRemainder)
+        }
+    }
+    
+    func blurOriginalImageWithRadius(radius: Double) -> UIImage {
+        return originalImage.applyBlurWithRadius(CGFloat(radius), tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
+    }*/
+    /*
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        var y = Double(targetContentOffset.memory.y)
+        y = (y < kScrollViewTravel / 2.0) ? 0: kScrollViewTravel
+        targetContentOffset.memory.y = CGFloat(y)
+    }*/
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

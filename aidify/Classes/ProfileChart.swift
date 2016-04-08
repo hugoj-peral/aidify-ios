@@ -9,20 +9,15 @@
 import Foundation
 import UIKit
 
-public class Piechart: UIView {
+class Piechart: UIView {
     
-    public struct Slice {
-        public var color: UIColor!
-        public var value: CGFloat!
-    }
+    var slices: [UserStatItem] = []
     
-    public var slices: [Slice] = []
-    
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override public init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
     }
@@ -51,7 +46,7 @@ public class Piechart: UIView {
         return result
     }
     
-    public override func drawRect(rect: CGRect) {
+    override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
         
@@ -60,10 +55,10 @@ public class Piechart: UIView {
         var startAngle: CGFloat = 0
         var endValue: CGFloat = 0
         var endAngle: CGFloat = 0
-        slices.sortInPlace { $0.value > $1.value }
-        let total = slices.reduce(0) { $0 + $1.value }
+        slices.sortInPlace { abs($0.value) > abs($1.value) }
+        let total = CGFloat(slices.reduce(0) { $0 + abs($1.value) })
         
-        let angle0: CGFloat = (slices.first != nil) ? CGFloat(M_PI_2) - (slices.first!.value * CGFloat(M_PI) / total) : 0
+        let angle0: CGFloat = (slices.first != nil) ? CGFloat(M_PI_2) - (CGFloat(abs(slices.first!.value)) * CGFloat(M_PI) / total) : 0
         
         let radius = bounds.width / 2 - 50
         let strokeWidth = 30.0
@@ -80,10 +75,10 @@ public class Piechart: UIView {
         for slice in slices {
             
             startAngle = (startValue * 2 * CGFloat(M_PI)) + angle0
-            endValue = startValue + (slice.value / total)
+            endValue = startValue + (CGFloat(abs(slice.value)) / total)
             endAngle = (endValue * 2 * CGFloat(M_PI)) + angle0
             
-            let colorWithAlpha = slice.color.colorWithAlphaComponent(0.85)
+            let colorWithAlpha = slice.type.color.colorWithAlphaComponent(0.85)
             
             let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
             path.lineWidth = 30
@@ -98,19 +93,19 @@ public class Piechart: UIView {
             colorWithAlpha.setFill()
             circle.fill()
             
-            let text: NSString = "\(Int((slice.value/total)*100))%"
+            let text: NSString = "\(Int((Double(abs(slice.value))/Double(total))*100.0))%"
             let labelSize = text.sizeWithAttributes(textAttributes)
             text.drawInRect(CGRect(origin: CGPoint(x: circleRect.origin.x, y: circleRect.origin.y + (circleRect.size.height - labelSize.height) / 2), size: circleRect.size), withAttributes: textAttributes)
             
             // increase start value for next slice
-            startValue += slice.value / total
+            startValue += CGFloat(abs(slice.value)) / total
         }
         
         let innerRadius = radius - 45
         if let firstSlice = slices.first {
             let mainCircleRect = CGRect(x: center.x - innerRadius, y: center.y - innerRadius, width: innerRadius * 2, height: innerRadius * 2)
             let mainCircle = UIBezierPath(ovalInRect: mainCircleRect)
-            firstSlice.color.setFill()
+            firstSlice.type.color.setFill()
             mainCircle.lineWidth = 30
             UIColor.lightGrayColor().setStroke()
             mainCircle.fill()
