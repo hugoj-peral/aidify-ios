@@ -27,7 +27,7 @@ class PairingLocalDataManager: NSObject, PairingLocalDataManagerInputProtocol,ES
     
     func findClosestNearable(closure: ((PairingResult)->())?) {
         findClosestClosure = closure
-        nearableManager.startRangingForType(.Chair)
+        nearableManager.startRangingForType(.All)
         timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "rangingTimeout", userInfo: nil, repeats: false)
     }
     

@@ -7,74 +7,17 @@
 //
 
 import Foundation
-
-
 import UIKit
 
-
-public protocol PiechartDelegate {
-    func setSubtitle(total: CGFloat, slice: Piechart.Slice) -> String
-    func setInfo(total: CGFloat, slice: Piechart.Slice) -> String
-}
-
-
-/**
- * Piechart
- */
-public class Piechart: UIControl {
+public class Piechart: UIView {
     
-    /**
-     * Slice
-     */
     public struct Slice {
         public var color: UIColor!
         public var value: CGFloat!
     }
     
-    /*
-    private var titleLabel: UILabel!
-    private var subtitleLabel: UILabel!
-    private var infoLabel: UILabel!
-*/
+    public var slices: [Slice] = []
     
-    private var total: CGFloat!
-    
-    /*
-    public var delegate: PiechartDelegate?
-    
-    public var title: String = "title" {
-        didSet {
-            titleLabel.text = title
-        }
-    }
-    
-    public var subtitle: String = "subtitle" {
-        didSet {
-            subtitleLabel.text = subtitle
-        }
-    }
-    
-    public var info: String = "info" {
-        didSet {
-            infoLabel.text = info
-        }
-    }
-    */
-    
-    public var slices: [Slice] = [] {
-        didSet {
-            total = 0
-            for slice in slices {
-                total = slice.value + total
-            }
-        }
-    }
-    
-    
-    
-    /**
-     * methods
-     */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -82,77 +25,104 @@ public class Piechart: UIControl {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
-        /*
-        self.addTarget(self, action: "click", forControlEvents: .TouchUpInside)
-        
-        titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        titleLabel.textAlignment = .Center
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(titleLabel)
-        
-        subtitleLabel = UILabel()
-        subtitleLabel.text = subtitle
-        subtitleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        subtitleLabel.textColor = UIColor.grayColor()
-        subtitleLabel.textAlignment = .Center
-        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(subtitleLabel)
-        
-        infoLabel = UILabel()
-        infoLabel.text = subtitle
-        infoLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        infoLabel.textColor = UIColor.grayColor()
-        infoLabel.textAlignment = .Center
-        infoLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(infoLabel)
-        
-        self.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
-        
-        self.addConstraint(NSLayoutConstraint(item: subtitleLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: subtitleLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
-        
-        self.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .Top, relatedBy: .Equal, toItem: subtitleLabel, attribute: .Bottom, multiplier: 1, constant: 0))*/
     }
     
     convenience init() {
         self.init(frame: CGRectZero)
     }
     
+    private func calculatePunctuation(total: Int) -> String {
+        
+        var result: String = ""
+        let userClassRaw:Int = total / 500
+        let lowerUserClass = "abcdefghijklmnopqrstuvwxyz"
+        let userClassList = Array(lowerUserClass.characters)
+        let base = userClassList.count
+        
+        var quotient = userClassRaw / base
+        var remainder = userClassRaw %  base
+        
+        repeat {
+            result = String(userClassList[remainder]) + result
+            quotient = quotient / base
+            remainder = quotient %  base
+        } while quotient != 0
+        
+        return result
+    }
+    
     public override func drawRect(rect: CGRect) {
         super.drawRect(rect)
+        
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2 - 40)
         var startValue: CGFloat = 0
         var startAngle: CGFloat = 0
         var endValue: CGFloat = 0
         var endAngle: CGFloat = 0
+        slices.sortInPlace { $0.value > $1.value }
+        let total = slices.reduce(0) { $0 + $1.value }
+        
+        let angle0: CGFloat = (slices.first != nil) ? CGFloat(M_PI_2) - (slices.first!.value * CGFloat(M_PI) / total) : 0
+        
+        let radius = bounds.width / 2 - 50
+        let strokeWidth = 30.0
+        let radiusWithStroke = radius + CGFloat(strokeWidth)
+        let textFont = UIFont(name: "Raleway", size: 14)
+        let textColor = UIColor.whiteColor()
+        let textDrawingContext = NSStringDrawingContext()
+        textDrawingContext.minimumScaleFactor = 0.2
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Center
+        paragraphStyle.lineBreakMode = .ByClipping
+        var textAttributes = [ NSForegroundColorAttributeName: textColor, NSFontAttributeName: textFont!, NSParagraphStyleAttributeName: paragraphStyle]
         
         for slice in slices {
             
-            startAngle = (startValue * 2 * CGFloat(M_PI)) - CGFloat(M_PI_2)
-            endValue = startValue + (slice.value / self.total)
-            endAngle = (endValue * 2 * CGFloat(M_PI)) - CGFloat(M_PI_2)
+            startAngle = (startValue * 2 * CGFloat(M_PI)) + angle0
+            endValue = startValue + (slice.value / total)
+            endAngle = (endValue * 2 * CGFloat(M_PI)) + angle0
             
-            let path = UIBezierPath()
-            path.moveToPoint(center)
-            path.addArcWithCenter(center, radius: bounds.width / 2 - 50, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-            slice.color.setFill()
-            path.fill()
+            let colorWithAlpha = slice.color.colorWithAlphaComponent(0.85)
+            
+            let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+            path.lineWidth = 30
+            colorWithAlpha.setStroke()
+            path.stroke()
+            
+            let circleSize = CGFloat(40.0)
+            
+            let halfAngle = (startAngle + endAngle) / 2.0
+            let circleRect = CGRect(x: center.x + radiusWithStroke * cos(halfAngle) - circleSize / 2.0, y: center.y + radiusWithStroke * sin(halfAngle) - circleSize / 2.0, width: circleSize, height: circleSize)
+            let circle = UIBezierPath(ovalInRect: circleRect)
+            colorWithAlpha.setFill()
+            circle.fill()
+            
+            let text: NSString = "\(Int((slice.value/total)*100))%"
+            let labelSize = text.sizeWithAttributes(textAttributes)
+            text.drawInRect(CGRect(origin: CGPoint(x: circleRect.origin.x, y: circleRect.origin.y + (circleRect.size.height - labelSize.height) / 2), size: circleRect.size), withAttributes: textAttributes)
             
             // increase start value for next slice
-            startValue += slice.value / self.total
+            startValue += slice.value / total
         }
         
-        // create center donut hole
-        let innerPath = UIBezierPath()
-        innerPath.moveToPoint(center)
-        innerPath.addArcWithCenter(center, radius: bounds.width / 2 - 80, startAngle: 0, endAngle: CGFloat(M_PI) * 2, clockwise: true)
-        UIColor.whiteColor().setFill()
-        innerPath.fill()
+        let innerRadius = radius - 45
+        if let firstSlice = slices.first {
+            let mainCircleRect = CGRect(x: center.x - innerRadius, y: center.y - innerRadius, width: innerRadius * 2, height: innerRadius * 2)
+            let mainCircle = UIBezierPath(ovalInRect: mainCircleRect)
+            firstSlice.color.setFill()
+            mainCircle.lineWidth = 30
+            UIColor.lightGrayColor().setStroke()
+            mainCircle.fill()
+            mainCircle.stroke()
+            
+            let mainTextFont = UIFont(name: "Raleway-Bold", size: 100)
+            textAttributes[NSFontAttributeName] = mainTextFont
+            let text: NSString = calculatePunctuation(Int(total))
+            let labelSize = text.sizeWithAttributes(textAttributes)
+            text.drawWithRect(CGRect(origin: CGPoint(x: mainCircleRect.origin.x, y: mainCircleRect.origin.y + (mainCircleRect.size.height - labelSize.height) / 2), size: mainCircleRect.size), options:.UsesLineFragmentOrigin, attributes: textAttributes, context: textDrawingContext)
+        }
+        
     }
     
 }

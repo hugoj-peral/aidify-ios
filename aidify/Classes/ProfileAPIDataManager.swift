@@ -12,8 +12,8 @@ class ProfileAPIDataManager: ProfileAPIDataManagerInputProtocol
 {
     init() {}
     
-    func getProfile(userID userID: Int, completion: (APIClientResult<UserData, APIClientError>) -> Void) {
+    func getProfile(withUsername username: String, completion: (APIClientResult<UserData, APIClientError>) -> Void) {
         let clientAPI = APIClient.userAPIClient()
-        clientAPI.userWithID(userID) {(completion($0))}
+        clientAPI.userWithID(username) {(completion($0))}
     }
 }

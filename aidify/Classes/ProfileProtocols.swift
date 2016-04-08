@@ -85,7 +85,7 @@ protocol ProfileAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func getProfile(userID userID: Int, completion: (APIClientResult<UserData, APIClientError>) -> Void)
+    func getProfile(withUsername username: String, completion: (APIClientResult<UserData, APIClientError>) -> Void)
 }
 
 protocol ProfileLocalDataManagerInputProtocol: class
@@ -98,5 +98,5 @@ protocol ProfileLocalDataManagerInputProtocol: class
     func hasCurrentUserBeaconPaired(completion: (Bool) -> Void)
     func isUserLogged(completion: (Bool) -> Void)
     func companyName(completion: (String) -> Void)
-    func userID(completion: (Int?) -> Void)
+    func username(completion: (String?) -> Void)
 }

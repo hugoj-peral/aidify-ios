@@ -24,19 +24,7 @@ struct UserData {
 }
 
 extension UserData: JSONDecodable {
-    init?(dictionary: JSONDictionary) {
-        /*
-        guard let userID = dictionary["id"] as? Int, name = dictionary["name"] as? String, avatar = dictionary["avatar"] as? String else {
-            return nil
-        
-        self.userID = userID
-        self.name = name
-        self.location = .Working
-        self.avatar = avatar
-        self.activities = []
-        self.stats = UserStats(reputation: 0, impact: 0, helpful: 0, buggy: 0, total: 0)
-        }*/
-        
+    init?(dictionary: JSONDictionary) {        
         guard let userID = dictionary["id"] as? Int, name = dictionary["name"] as? String, locationRawValue = dictionary["location"] as? String, avatar = dictionary["avatar"] as? String, activities = dictionary["activities"] as? [JSONDictionary], stats = dictionary["stats"] as? JSONDictionary, location = UserLocation(rawValue: locationRawValue) else {
             return nil
         }

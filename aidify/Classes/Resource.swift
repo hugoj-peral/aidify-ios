@@ -88,6 +88,10 @@ extension Resource {
         // NSURLComponents can fail due to programming errors, so
         // prefer crashing than returning an optional
         
+        if parameters.count == 0 {
+            return NSMutableURLRequest(URL: URL)
+        }
+        
         guard let components = NSURLComponents(URL: URL, resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URL components from \(URL)")
         }

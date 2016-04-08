@@ -10,7 +10,7 @@ import Foundation
 
 enum UserAPI {
     case Login(username: String, company: String)
-    case Get(userID: Int)
+    case Get(username: String)
 }
 
 extension UserAPI: Resource {
@@ -30,8 +30,8 @@ extension UserAPI: Resource {
     
     var pathParameters: [String] {
         switch self {
-        case let .Get(userID):
-            return [String(userID)]
+        case let .Get(username):
+            return [username]
         default:
             return []
         }
@@ -62,8 +62,8 @@ extension APIClient {
         return APIClient(baseURL: NSURL.userURL())
     }
     
-    func userWithID(userID: Int, completion: (APIClientResult<UserData, APIClientError>) -> Void) {
-        object(UserAPI.Get(userID: userID)) { (completion($0)) }
+    func userWithID(username: String, completion: (APIClientResult<UserData, APIClientError>) -> Void) {
+        object(UserAPI.Get(username: username)) { (completion($0)) }
     }
     
     func login(username username: String, company: String, completion: (APIClientResult<UserData, APIClientError>) -> Void) {

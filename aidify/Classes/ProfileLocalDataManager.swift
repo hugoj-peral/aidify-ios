@@ -52,11 +52,11 @@ class ProfileLocalDataManager: ProfileLocalDataManagerInputProtocol
         completion(company)
     }
     
-    func userID(completion: (Int?) -> Void) {
+    func username(completion: (String?) -> Void) {
         guard let userManager = userManager else {
             return
         }
         
-        completion(userManager.currentUser?.userID)
+        completion(userManager.currentUser?.username)
     }
 }

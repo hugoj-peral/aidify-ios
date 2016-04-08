@@ -41,9 +41,9 @@ class ProfileInteractor: ProfileInteractorInputProtocol
     }
     
     func getUserProfile() {
-        localDatamanager?.userID({ (userID) -> Void in
-            if let userID = userID {
-                self.APIDataManager?.getProfile(userID: userID, completion: { result -> Void in
+        localDatamanager?.username({ (username) -> Void in
+            if let username = username {
+                self.APIDataManager?.getProfile(withUsername: username, completion: { result -> Void in
                     switch result {
                     case let .Success(userData):
                         self.presenter?.setUserProfile(userData)
