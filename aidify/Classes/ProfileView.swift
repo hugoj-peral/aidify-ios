@@ -13,17 +13,17 @@ class ProfileView: AIDViewController, ProfileViewProtocol
 {
     @IBOutlet weak var tableView: UITableView!
     
-    let kInterpolateStagesWithAlpha = true
-    let kScrollViewTravel = 200.0
-    let kMaximumBlurRadius = 25.0
+    let kScrollViewTravel = 400.0
+    let kMaximumBlurRadius = 30.0
     let kNumberOfStages = 10
     
     weak var piechart: Piechart?
+    weak var background: UIImageView?
     var presenter: ProfilePresenterProtocol?
     var stats: [UserItemProtocol]?
     
     var blurredImages : [UIImage] = []
-//    var originalImage : UIImage
+    var originalImage : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,6 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         presenter?.needsShowPairBeacon()
         presenter?.requestData()
         initializeView()
-        addProfileChart()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,26 +45,35 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         tableView.registerCell(ProfilePunctuationCell.self)
         tableView.registerCell(ProfilePunctuationMeaningCell.self)
         addNavigationBarRightButtons()
+        addProfileChart()
+        addBackgroundImage()
     }
     
     private func addProfileChart() {
-        var views: [String: UIView] = [:]
-                
         let piechart = Piechart()
-        
-        piechart.translatesAutoresizingMaskIntoConstraints = false
-        view.insertSubview(piechart, belowSubview: tableView)
-        views["piechart"] = piechart
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[piechart]-|", options: [], metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[piechart]-|", options: [], metrics: nil, views: views))
-        
+        addViewBelowTable(piechart)
         self.piechart = piechart
+    }
+    
+    private func addBackgroundImage() {
+        let image = UIImageView()
+        image.backgroundColor = UIColor.clearColor()
+        addViewBelowTable(image)
+        self.background = image
+    }
+    
+    private func addViewBelowTable(newView: UIView) {
         
-        //initBlurredImages()
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(newView, belowSubview: tableView)
+        let views = ["newView": newView]
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[newView]|", options: [], metrics: nil, views: views))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[newView]|", options: [], metrics: nil, views: views))
     }
     
     func initBlurredImages() {
-        /*blurredImages.append(originalImage)
+        originalImage = piechart?.takeSnapshot()
+        blurredImages.append(originalImage)
         
         for i in 1...kNumberOfStages {
             let radius = Double(i) * kMaximumBlurRadius / Double(kNumberOfStages)
@@ -75,7 +83,7 @@ class ProfileView: AIDViewController, ProfileViewProtocol
             if i == kNumberOfStages {
                 blurredImages.append(blurredImage)
             }
-        }*/
+        }
     }
     
     //MARK: ProfileViewProtocol
@@ -97,6 +105,7 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         self.piechart?.slices = items
         self.piechart?.setNeedsDisplay()
         self.tableView.reloadData()
+        initBlurredImages()
     }
     
     //MARK: Actions
@@ -200,31 +209,17 @@ extension ProfileView: UITableViewDataSource {
 
 extension ProfileView: UITableViewDelegate {
     
-    
-    /*
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        var r = Double(scrollView.contentOffset.y / CGFloat(kScrollViewTravel))
-        var blur = max(0, min(1, r)) * Double(kNumberOfStages)
-        var blurIndex = Int(blur)
-        var blurRemainder = blur - Double(blurIndex)
+        let r = Double(scrollView.contentOffset.y / CGFloat(kScrollViewTravel))
+        let blur = max(0, min(1, r)) * Double(kNumberOfStages)
+        let blurIndex = Int(blur)
         
-        firstImageView.image = blurredImages[blurIndex]
-        
-        if kInterpolateStagesWithAlpha == true {
-            secondImageView.image = blurredImages[blurIndex + 1]
-            secondImageView.alpha = CGFloat(blurRemainder)
-        }
+        background?.image = blurredImages[blurIndex]
     }
     
     func blurOriginalImageWithRadius(radius: Double) -> UIImage {
-        return originalImage.applyBlurWithRadius(CGFloat(radius), tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
-    }*/
-    /*
-    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        var y = Double(targetContentOffset.memory.y)
-        y = (y < kScrollViewTravel / 2.0) ? 0: kScrollViewTravel
-        targetContentOffset.memory.y = CGFloat(y)
-    }*/
+        return originalImage.applyBlurWithRadius(CGFloat(radius), tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)!
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
