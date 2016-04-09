@@ -36,9 +36,12 @@ class SettingsWireFrame: SettingsWireFrameProtocol
     
     func dissmisSettingModule(from view: AnyObject?) {
         guard let view = view else { return }
-        if let navigationController = (view as! UIViewController).navigationController {
+        if let view = view as? UIViewController, navigationController = view.navigationController {
             navigationController.popToRootViewControllerAnimated(false)
         }
-        
+    }
+    
+    func presentPairBeacon(fromView view: AnyObject) {
+        PairingWireFrame.presentPairingModule(fromViewController: view)
     }
 }

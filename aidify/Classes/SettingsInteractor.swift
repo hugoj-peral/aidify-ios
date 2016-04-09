@@ -23,4 +23,12 @@ class SettingsInteractor: SettingsInteractorInputProtocol
             }
         })
     }
+    
+    func requestUser() {
+        localDatamanager?.requestUser({ self.presenter?.setUser($0)})
+    }
+    
+    func unpairNearable() {
+        localDatamanager?.unpairNearable()
+    }
 }

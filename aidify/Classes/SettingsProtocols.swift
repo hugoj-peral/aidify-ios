@@ -14,6 +14,7 @@ protocol SettingsViewProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> VIEW
     */
+    func setNearableIdentifier(identifier: String?)
 }
 
 protocol SettingsWireFrameProtocol: class
@@ -23,6 +24,7 @@ protocol SettingsWireFrameProtocol: class
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
     func dissmisSettingModule(from view: AnyObject?)
+    func presentPairBeacon(fromView view: AnyObject)
 }
 
 protocol SettingsPresenterProtocol: class
@@ -34,6 +36,9 @@ protocol SettingsPresenterProtocol: class
     * Add here your methods for communication VIEW -> PRESENTER
     */
     func logOut()
+    func requestNearableIdentifier()
+    func requestPairing()
+    func requestUnpairing()
 }
 
 protocol SettingsInteractorOutputProtocol: class
@@ -42,6 +47,7 @@ protocol SettingsInteractorOutputProtocol: class
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
     func logOutDone()
+    func setUser(user: User)
 }
 
 protocol SettingsInteractorInputProtocol: class
@@ -53,6 +59,8 @@ protocol SettingsInteractorInputProtocol: class
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
     func logOut()
+    func requestUser()
+    func unpairNearable()
 }
 
 protocol SettingsDataManagerInputProtocol: class
@@ -76,4 +84,6 @@ protocol SettingsLocalDataManagerInputProtocol: class
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
     func logOut(completion: (Void) -> Void)
+    func requestUser(completion: (User) -> Void)
+    func unpairNearable()
 }

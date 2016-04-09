@@ -27,6 +27,18 @@ class SettingsView: AIDViewController, SettingsViewProtocol
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationBarColor = AIDColor.DarkYellow.color()
+        presenter?.requestNearableIdentifier()
+    }
+    
+    func setNearableIdentifier(identifier: String?) {
+        
+        if let identifier = identifier {
+            self.beaconLabel.text = identifier
+            self.beaconSwitch.on = true
+        } else {
+            self.beaconLabel.text = "pair beacon"
+            self.beaconSwitch.on = false
+        }
     }
 }
 
@@ -35,7 +47,12 @@ extension SettingsView {
         presenter?.logOut()
     }
     
-    @IBAction func switchValueChanged(sender: AnyObject) {
-        print("switch")
+    @IBAction func switchValueChanged(sender: UISwitch) {
+        if sender.on {
+            presenter?.requestPairing()
+        } else {
+            self.beaconLabel.text = "pair beacon"
+            presenter?.requestUnpairing()
+        }
     }
 }

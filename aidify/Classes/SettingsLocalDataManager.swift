@@ -18,4 +18,17 @@ class SettingsLocalDataManager: SettingsLocalDataManagerInputProtocol
         userManager?.logOut()
         completion()
     }
+    
+    func requestUser(completion: (User) -> Void) {
+        if let user = userManager?.currentUser {
+            completion(user)
+        }
+    }
+    
+    func unpairNearable() {
+        if let userManager = userManager,  user = userManager.currentUser {
+            user.beaconId = nil
+            userManager.save(user: user)
+        }
+    }
 }
