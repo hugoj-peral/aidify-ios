@@ -6,67 +6,51 @@
 //  Copyright © 2016 aidify. All rights reserved.
 //
 
-protocol NearableManagerDelegate: class {
+class NearableManager: NSObject {
     
-    //func showroomManager(showroomManager: ShowroomManager, didDetectPickupForProduct product: Product)
-    
-    //`func showroomManager(showroomManager: ShowroomManager, didDetectPutdownForProduct product: Product)
-    
-}
-
-class NearableManager: NSObject, ESTNearableManagerDelegate {
-    
-    weak var delegate: NearableManagerDelegate?
-    
+    static let sharedInstance = NearableManager()
     private let nearableManager = ESTNearableManager()
     
-    override init() {
+    var user: UserData?
+    var identifier: String?
+    
+    private override init() {
         super.init()
         nearableManager.delegate = self
     }
     
+    func startMonitoring(identifier: String) {
+        self.identifier = identifier
+        nearableManager.startMonitoringForIdentifier(identifier)
+    }
     
-    
+    func stopMonitoring() {
+        guard let identifier = identifier else {
+            return
+        }
+        nearableManager.stopMonitoringForIdentifier(identifier)
+        self.identifier = nil
+    }
+}
 
-    /*private let products: [NearableID: Product]
+extension NearableManager: ESTNearableManagerDelegate {
     
-    private let triggerManager = ESTTriggerManager()
-    private var triggers = [ESTTrigger]()
-    
-    init(products: [NearableID: Product]) {
-        self.products = products
-        
-        super.init()
-        
-        self.triggerManager.delegate = self
-        
-        for nearableID in products.keys {
-            let motionRule = ESTMotionRule.motionStateEquals(true, forNearableIdentifier: nearableID.nearableIDString)
-            let motionTrigger = ESTTrigger(rules: [motionRule], identifier: nearableID.nearableIDString)
-            self.triggers.append(motionTrigger)
-        }
+    func nearableManager(manager: ESTNearableManager, didEnterIdentifierRegion identifier: String) {
+        updateUserLocation(.Working)
     }
     
-    func startUpdates() {
-        for trigger in self.triggers {
-            self.triggerManager.startMonitoringForTrigger(trigger)
-        }
+    func nearableManager(manager: ESTNearableManager, didExitIdentifierRegion identifier: String) {
+        updateUserLocation(.Out)
     }
     
-    func stoptUpdates() {
-        for trigger in self.triggers {
-            self.triggerManager.stopMonitoringForTriggerWithIdentifier(trigger.identifier)
+    private func updateUserLocation(location: UserLocation) {
+        guard var user = user else {
+            return
         }
+
+        user.location = location
+        
+        let clientAPI = APIClient.userAPIClient()
+        clientAPI.update(user) { _ in }
     }
-    
-    func triggerManager(manager: ESTTriggerManager, triggerChangedState trigger: ESTTrigger) {
-        if let nearableID = NearableID(nearableIDString: trigger.identifier), let product = self.products[nearableID] {
-            if trigger.state == true {
-                self.delegate?.showroomManager(self, didDetectPickupForProduct: product)
-            } else {
-                self.delegate?.showroomManager(self, didDetectPutdownForProduct: product)
-            }
-        }
-    }*/
-    
 }

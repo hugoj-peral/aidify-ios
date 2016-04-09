@@ -17,7 +17,7 @@ struct UserData {
     let userID: Int
     let name: String
     let realName: String?
-    let location: UserLocation
+    var location: UserLocation
     let avatar: String
     let stats: UserStats
     let activities: [UserActivity]

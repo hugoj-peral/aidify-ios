@@ -20,7 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appDependencies.installRootViewControllerIntoWindow(window)
         window?.makeKeyAndVisible()
         
+        initNearableManager()
+        
         return true
+    }
+    
+    private func initNearableManager() {
+        let userManager = UserManager()
+        if let user = userManager.currentUser, nearableIdentifier = user.beaconId {
+            NearableManager.sharedInstance.startMonitoring(nearableIdentifier)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

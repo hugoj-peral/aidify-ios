@@ -21,6 +21,7 @@ class PairingInteractor: PairingInteractorInputProtocol
         localDatamanager?.findClosestNearable({
             switch $0 {
             case let .Success(identifier):
+                NearableManager.sharedInstance.startMonitoring(identifier)
                 self.presenter?.pairingSuccessful(identifier)
             case .Failure(_):
                 self.presenter?.pairingFailure()

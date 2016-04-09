@@ -25,7 +25,7 @@ class AppDependencies {
         rootWireFrame.window = window
         let userManager = UserManager()
         
-        if(userManager.isAnyUserLogged()) {
+        if userManager.isAnyUserLogged() {
             rootWireFrame.presentProfileModule()
         } else {
             rootWireFrame.presentLoginModule()

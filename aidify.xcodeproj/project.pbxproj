@@ -60,6 +60,7 @@
 		9AFD61051CA408F600E1CC32 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD61021CA408F600E1CC32 /* APIClient.swift */; };
 		9AFD61061CA408F600E1CC32 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD61031CA408F600E1CC32 /* JSONDecodable.swift */; };
 		9AFD61071CA408F600E1CC32 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD61041CA408F600E1CC32 /* Resource.swift */; };
+		EB04EBA31CB947A1006AF1EB /* NearableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB04EBA21CB947A1006AF1EB /* NearableManager.swift */; };
 		EB16F8C71CB5A15B00694D04 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16F8C61CB5A15B00694D04 /* ImageLoader.swift */; };
 		EB16F8C91CB5BD4400694D04 /* ProfileChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16F8C81CB5BD4400694D04 /* ProfileChart.swift */; };
 		EB274B011CB6E3BE00841EDA /* UserStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB274B001CB6E3BE00841EDA /* UserStats.swift */; };
@@ -79,7 +80,6 @@
 		EB6233DF1CB6EA4E00BFB567 /* ActivityDrawerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6233DE1CB6EA4E00BFB567 /* ActivityDrawerProtocol.swift */; };
 		EB6CC5451CB6E323002BEEB3 /* UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6CC5441CB6E323002BEEB3 /* UserActivity.swift */; };
 		EB929F4B1CB853FE007D220D /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB929F4A1CB853FE007D220D /* UIImage+Blur.swift */; };
-		EBBBC1A41CAFEFA100034456 /* NearableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1A31CAFEFA100034456 /* NearableManager.swift */; };
 		EBBBC1A71CB01F8A00034456 /* PairingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1A51CB01F8A00034456 /* PairingView.xib */; };
 		EBBBC1AA1CB0622300034456 /* ProfileUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1A81CB0622300034456 /* ProfileUserCell.swift */; };
 		EBBBC1AB1CB0622300034456 /* ProfileUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1A91CB0622300034456 /* ProfileUserCell.xib */; };
@@ -172,6 +172,7 @@
 		9AFD61041CA408F600E1CC32 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Classes/Resource.swift; sourceTree = "<group>"; };
 		A2FF398ABA69F2FFF200CC22 /* Pods-aidify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aidify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-aidify/Pods-aidify.debug.xcconfig"; sourceTree = "<group>"; };
 		A40B7447111A8A595FA2790E /* Pods_aidify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aidify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB04EBA21CB947A1006AF1EB /* NearableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NearableManager.swift; path = Classes/NearableManager.swift; sourceTree = "<group>"; };
 		EB16F8C61CB5A15B00694D04 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = Classes/ImageLoader.swift; sourceTree = "<group>"; };
 		EB16F8C81CB5BD4400694D04 /* ProfileChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileChart.swift; sourceTree = "<group>"; };
 		EB274B001CB6E3BE00841EDA /* UserStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserStats.swift; path = Classes/UserStats.swift; sourceTree = "<group>"; };
@@ -611,6 +612,7 @@
 				EB274B001CB6E3BE00841EDA /* UserStats.swift */,
 				EB16F8C61CB5A15B00694D04 /* ImageLoader.swift */,
 				EB929F4A1CB853FE007D220D /* UIImage+Blur.swift */,
+				EB04EBA21CB947A1006AF1EB /* NearableManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -949,6 +951,7 @@
 				EBBBC1C81CB0863400034456 /* ActivityLocalDataManager.swift in Sources */,
 				EB6233D71CB6E52D00BFB567 /* UserProfileItem.swift in Sources */,
 				9A92D4E61CA4494600AEB182 /* LoginInteractor.swift in Sources */,
+				EB04EBA31CB947A1006AF1EB /* NearableManager.swift in Sources */,
 				9A3CEDFD1CAAF49B00EFC8A7 /* AIDConstants.swift in Sources */,
 				EB6233D91CB6E56100BFB567 /* UserStatItem.swift in Sources */,
 				9A92D4F01CA4499100AEB182 /* LoginView.swift in Sources */,
@@ -986,7 +989,6 @@
 				9A3CEE081CAB089F00EFC8A7 /* ProfileAPIDataManager.swift in Sources */,
 				EB292FDC1CADB27200D39463 /* PairingLocalDataManager.swift in Sources */,
 				EBBBC1BC1CB0860500034456 /* ActivityView.swift in Sources */,
-				EBBBC1A41CAFEFA100034456 /* NearableManager.swift in Sources */,
 				EB292FD21CADB23700D39463 /* PairingPresenter.swift in Sources */,
 				EB292FD81CADB25C00D39463 /* PairingView.swift in Sources */,
 				9ADA5B181CA6FB2D00C4B285 /* AIDViewController.swift in Sources */,
