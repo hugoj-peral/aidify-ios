@@ -31,7 +31,13 @@ extension UserActivity {
     }
     
     var subtitle: String {
-        return  points >= 0 ? "You earned \(points)pts in \(category.rawValue) for this great \(type.description.lowercaseString)!" : "You lost \(-points)pts in \(category.rawValue).\nThis sucks man!"
+        
+        var categoriesString = affectedStats.map { $0.rawValue.capitalizedString }.joinWithSeparator(", ")
+        if (affectedStats.count > 0) {
+            categoriesString = categoriesString.stringByReplacingCharactersInRange(categoriesString.rangeOfString(",", options: .BackwardsSearch)!, withString: " and")
+        }
+        
+        return  points >= 0 ? "You earned \(points)pts in \(categoriesString) for this great \(type.description.lowercaseString)!" : "You lost \(-points)pts in \(categoriesString).\nThis sucks man!"
     }
     
     var image: UIImage? {

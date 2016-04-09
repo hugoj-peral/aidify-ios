@@ -24,24 +24,24 @@ enum UserActivityAction:String {
 }
 
 enum UserActivityCategory: String{
-    case Reputation
-    case Impact
-    case Helpful
-    case Buggy
+    case Reputation = "reputation"
+    case Impact = "impact"
+    case Helpful = "helpful"
+    case Buggy = "buggy"
 }
 
 struct UserActivity {
     let repo: String
     let type: UserActivityType
     let action: UserActivityAction
-    let category: UserActivityCategory
     let points: Int
     let creationDate: NSDate
+    let affectedStats: [UserActivityCategory]
 }
 
 extension UserActivity: JSONDecodable {
     init?(dictionary: JSONDictionary) {
-        guard let repo = dictionary["repo"] as? String, typeRawValue = dictionary["type"] as? String, actionRawValue = dictionary["action"] as? String, points = dictionary["points"] as? Int, date = dictionary["createdAt"] as? String, type = UserActivityType(rawValue: typeRawValue), action = UserActivityAction(rawValue: actionRawValue) else {
+        guard let repo = dictionary["repo"] as? String, typeRawValue = dictionary["type"] as? String, actionRawValue = dictionary["action"] as? String, points = dictionary["points"] as? Int, date = dictionary["createdAt"] as? String, type = UserActivityType(rawValue: typeRawValue), action = UserActivityAction(rawValue: actionRawValue), affectedStats = dictionary["affectedStats"] as? [String] else {
             return nil
         }
         
@@ -49,8 +49,8 @@ extension UserActivity: JSONDecodable {
         self.type = type
         self.action = action
         self.points = points
-        self.category = .Reputation
         self.creationDate = NSDateFormatter.ISO8601DateFormatter().dateFromString(date) ?? NSDate()
+        self.affectedStats = affectedStats.map { UserActivityCategory(rawValue: $0)! }
     }
 }
 
