@@ -14,7 +14,7 @@ class ProfileView: AIDViewController, ProfileViewProtocol
     @IBOutlet weak var tableView: UITableView!
     
     let kScrollViewTravel = 400.0
-    let kMaximumBlurRadius = 30.0
+    let kMaximumBlurRadius = 20.5
     let kNumberOfStages = 10
     
     weak var piechart: Piechart?
@@ -77,7 +77,7 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         
         for i in 1...kNumberOfStages {
             let radius = Double(i) * kMaximumBlurRadius / Double(kNumberOfStages)
-            let blurredImage = blurOriginalImageWithRadius(radius)
+            let blurredImage = originalImage.applyBlurWithRadius(CGFloat(radius), tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)!
             blurredImages.append(blurredImage)
             
             if i == kNumberOfStages {
@@ -198,7 +198,7 @@ extension ProfileView: UITableViewDataSource {
         if let stats = stats {
             for (index, _) in stats.enumerate() {
                 let cell = self.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: index, inSection: section))
-                heightToFill -= cell.frame.size.height
+                heightToFill -= cell.frame.size.height - 1
             }
         }
         
@@ -215,10 +215,6 @@ extension ProfileView: UITableViewDelegate {
         let blurIndex = Int(blur)
         
         background?.image = blurredImages[blurIndex]
-    }
-    
-    func blurOriginalImageWithRadius(radius: Double) -> UIImage {
-        return originalImage.applyBlurWithRadius(CGFloat(radius), tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

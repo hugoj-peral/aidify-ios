@@ -16,6 +16,7 @@ enum AIDColor {
     case Blue
     case Yellow
     case Purple
+    case Gray
     case DarkGreen
     case DarkOrange
     case DarkPink
@@ -38,6 +39,7 @@ extension AIDColor : AIDColorRepresentation {
         case .Blue: return UIColor(red: 82.0/255.0, green: 168.0/255.0, blue: 212.0/255.0, alpha: 1.0)
         case .Yellow: return UIColor(red: 255.0/255.0, green: 214.0/255.0, blue: 102.0/255.0, alpha: 1.0)
         case .Purple: return UIColor(red: 165.0/255.0, green: 134.0/255.0, blue: 190.0/255.0, alpha: 1.0)
+        case .Gray: return UIColor(red: 233.0/255.0, green: 240.0/255.0, blue: 238.0/255.0, alpha: 1.0)
         case .DarkGreen: return UIColor(red: 73.0/255.0, green: 144.0/255.0, blue: 73.0/255.0, alpha: 1.0)
         case .DarkOrange: return UIColor(red: 232.0/255.0, green: 134.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         case .DarkPink: return UIColor(red: 204.0/255.0, green: 86.0/255.0, blue: 121.0/255.0, alpha: 1.0)
