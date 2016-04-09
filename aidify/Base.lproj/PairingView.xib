@@ -14,8 +14,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PairingView" customModule="aidify" customModuleProvider="target">
             <connections>
+                <outlet property="pairingBase" destination="tcp-hY-dji" id="dLD-gx-FMz"/>
                 <outlet property="pairingImage" destination="PXh-Uf-B2X" id="xEB-jh-eQH"/>
+                <outlet property="pairingLeftSignal" destination="Jsj-Gu-eXe" id="JPP-x2-MER"/>
                 <outlet property="pairingPrimaryButton" destination="aHq-1Z-oJT" id="8y2-aW-93S"/>
+                <outlet property="pairingRightSignal" destination="FQx-we-EWy" id="gMC-wt-yBT"/>
                 <outlet property="pairingSecondaryButton" destination="EuD-Cd-uXJ" id="1tZ-3Z-U7B"/>
                 <outlet property="pairingSubtitleLabel" destination="evq-Kz-npp" id="EDt-qh-Hdl"/>
                 <outlet property="pairingTitleLabel" destination="BIQ-YD-thu" id="JVh-4o-iju"/>
@@ -85,24 +88,48 @@
                         <action selector="secondaryButtonDidPressed:" destination="-1" eventType="touchUpInside" id="G4f-GS-CoL"/>
                     </connections>
                 </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="locationRightSignal" translatesAutoresizingMaskIntoConstraints="NO" id="FQx-we-EWy">
+                    <rect key="frame" x="209" y="72" width="17" height="34"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="locationLeftSignal" translatesAutoresizingMaskIntoConstraints="NO" id="Jsj-Gu-eXe">
+                    <rect key="frame" x="149" y="72" width="17" height="34"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="locationBase" translatesAutoresizingMaskIntoConstraints="NO" id="tcp-hY-dji">
+                    <rect key="frame" x="176" y="130" width="23" height="9"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.32156862749999998" green="0.6588235294" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="evq-Kz-npp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4Fk-3C-Qbb"/>
                 <constraint firstItem="PXh-Uf-B2X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="72" id="9NZ-vF-ATL"/>
+                <constraint firstItem="tcp-hY-dji" firstAttribute="centerX" secondItem="PXh-Uf-B2X" secondAttribute="centerX" id="A4o-tS-3Qb"/>
+                <constraint firstItem="PXh-Uf-B2X" firstAttribute="leading" secondItem="Jsj-Gu-eXe" secondAttribute="trailing" constant="4" id="Ak9-l5-Wap"/>
                 <constraint firstItem="evq-Kz-npp" firstAttribute="top" secondItem="BIQ-YD-thu" secondAttribute="bottom" constant="10" id="F4g-MD-AZg"/>
                 <constraint firstItem="EuD-Cd-uXJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M0R-So-fQt"/>
+                <constraint firstItem="FQx-we-EWy" firstAttribute="leading" secondItem="PXh-Uf-B2X" secondAttribute="trailing" constant="4" id="NA1-1d-q5w"/>
                 <constraint firstItem="EuD-Cd-uXJ" firstAttribute="top" secondItem="aHq-1Z-oJT" secondAttribute="bottom" constant="8" id="NwE-Ck-DrS"/>
                 <constraint firstItem="BIQ-YD-thu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yga-dS-qFd"/>
+                <constraint firstItem="tcp-hY-dji" firstAttribute="top" secondItem="PXh-Uf-B2X" secondAttribute="bottom" constant="6" id="apv-9k-mpu"/>
                 <constraint firstItem="aHq-1Z-oJT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ee5-rZ-a4U"/>
+                <constraint firstItem="Jsj-Gu-eXe" firstAttribute="top" secondItem="PXh-Uf-B2X" secondAttribute="top" id="f1t-ZI-dnh"/>
                 <constraint firstItem="PXh-Uf-B2X" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fAf-rw-gh4"/>
                 <constraint firstItem="BIQ-YD-thu" firstAttribute="top" secondItem="PXh-Uf-B2X" secondAttribute="bottom" constant="25" id="fM1-bd-PLT"/>
+                <constraint firstItem="FQx-we-EWy" firstAttribute="top" secondItem="PXh-Uf-B2X" secondAttribute="top" id="j36-JO-hpp"/>
                 <constraint firstItem="aHq-1Z-oJT" firstAttribute="top" secondItem="evq-Kz-npp" secondAttribute="bottom" constant="25" id="j6q-dy-4gx"/>
+                <constraint firstItem="BIQ-YD-thu" firstAttribute="top" secondItem="tcp-hY-dji" secondAttribute="bottom" constant="10" id="o3F-Yb-LGs"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="fM1-bd-PLT"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
         <image name="location" width="35" height="52"/>
+        <image name="locationBase" width="23" height="9"/>
+        <image name="locationLeftSignal" width="17" height="34"/>
+        <image name="locationRightSignal" width="17" height="34"/>
     </resources>
 </document>
