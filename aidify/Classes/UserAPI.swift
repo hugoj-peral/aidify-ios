@@ -11,6 +11,7 @@ import Foundation
 enum UserAPI {
     case Login(username: String, company: String)
     case Get(username: String)
+    case Update(user: UserData)
 }
 
 extension UserAPI: Resource {
@@ -21,6 +22,8 @@ extension UserAPI: Resource {
             return .POST
         case .Get:
             return .GET
+        case .Update:
+            return .PUT
         }
     }
     
@@ -32,6 +35,8 @@ extension UserAPI: Resource {
         switch self {
         case let .Get(username):
             return [username]
+        case let .Update(user):
+            return [user.name]
         default:
             return []
         }
@@ -43,6 +48,8 @@ extension UserAPI: Resource {
             return ["username" : username, "company" : company]
         case .Get:
             return [String: AnyObject]()
+        case let .Update(user):
+            return user.dictionary()
         }
     }
     
@@ -68,5 +75,9 @@ extension APIClient {
     
     func login(username username: String, company: String, completion: (APIClientResult<UserData, APIClientError>) -> Void) {
         object(UserAPI.Login(username: username, company: company)) { (completion($0)) }
+    }
+    
+    func update(user: UserData, completion: (APIClientResult<UserData, APIClientError>) -> Void) {
+        object(UserAPI.Update(user: user)) { (completion($0)) }
     }
 }

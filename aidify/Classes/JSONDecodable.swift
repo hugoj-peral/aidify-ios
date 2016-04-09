@@ -41,3 +41,7 @@ func decode<T:JSONDecodable>(data: NSData) -> T? {
     
     return object
 }
+
+protocol DictionaryRepresentation {
+    func dictionary() -> [String: AnyObject]
+}

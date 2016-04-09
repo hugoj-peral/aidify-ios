@@ -38,3 +38,9 @@ extension UserData: JSONDecodable {
         self.stats = stats
     }
 }
+
+extension UserData: DictionaryRepresentation {
+    func dictionary() -> [String: AnyObject] {
+        return ["id": userID, "name": name, "realName":realName ?? NSNull(), "avatar":avatar, "location":location.rawValue]
+    }
+}
