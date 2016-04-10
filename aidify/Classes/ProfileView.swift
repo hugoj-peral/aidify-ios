@@ -70,18 +70,13 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[newView]|", options: [], metrics: nil, views: views))
     }
     
-    func initBlurredImages() {
+    private func initBlurredImages() {
         originalImage = piechart?.takeSnapshot()
         blurredImages.append(originalImage)
         
-        for i in 1...kNumberOfStages {
-            let radius = Double(i) * kMaximumBlurRadius / Double(kNumberOfStages)
-            let blurredImage = originalImage.applyBlurWithRadius(CGFloat(radius), tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)!
-            blurredImages.append(blurredImage)
-            
-            if i == kNumberOfStages {
-                blurredImages.append(blurredImage)
-            }
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.blurredImages = self.originalImage.blurOriginalImage(withStages: self.kNumberOfStages, maximumBlurRadius: self.kMaximumBlurRadius)
         }
     }
     

@@ -207,6 +207,22 @@ extension UIImage {
         
         return outputImage
     }
+    
+    func blurOriginalImage(withStages stages: Int, maximumBlurRadius: Double)-> [UIImage] {
+        var result:[UIImage] = [self]
+        
+        for i in 1...stages {
+            let radius = Double(i) * maximumBlurRadius / Double(stages)
+            let blurredImage = self.applyBlurWithRadius(CGFloat(radius), tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)!
+            result.append(blurredImage)
+            
+            if i == stages {
+                result.append(blurredImage)
+            }
+        }
+        
+        return result
+    }
 }
 
 extension UIImage {
