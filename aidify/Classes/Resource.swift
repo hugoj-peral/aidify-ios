@@ -111,6 +111,7 @@ extension Resource {
         let request = NSMutableURLRequest(URL: URL)
         
         if let jsonData = try? NSJSONSerialization.dataWithJSONObject(parameters, options: []){
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.HTTPBody = jsonData
         }
         

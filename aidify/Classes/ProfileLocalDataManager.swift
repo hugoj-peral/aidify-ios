@@ -59,4 +59,8 @@ class ProfileLocalDataManager: ProfileLocalDataManagerInputProtocol
         
         completion(userManager.currentUser?.username)
     }
+    
+    func storeUser(user: UserData) {
+        userManager?.updateUserInfo(withUserData: user)
+    }
 }

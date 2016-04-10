@@ -59,7 +59,7 @@ class Piechart: UIView {
         
         if slices.count > 0 && total == 0 {
             let newValue = 100/slices.count
-            slices = slices.map({UserStatItem(type: $0.type, value:newValue, description: $0.description, expanded: $0.expanded)})
+            slices = slices.map({UserStatItem(type: $0.type, value:newValue, expanded: $0.expanded)})
             total = CGFloat(slices.reduce(0) { $0 + abs($1.value) })
             displayPercentages = false
         }

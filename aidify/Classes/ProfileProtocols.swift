@@ -99,4 +99,5 @@ protocol ProfileLocalDataManagerInputProtocol: class
     func isUserLogged(completion: (Bool) -> Void)
     func companyName(completion: (String) -> Void)
     func username(completion: (String?) -> Void)
+    func storeUser(user: UserData)
 }

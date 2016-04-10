@@ -27,12 +27,24 @@ extension UserActivityCategory {
     var name: String {
         return self.rawValue
     }
+    
+    var description: String {
+        switch self {
+        case .Reputation:
+            return "how good you are at coding"
+        case .Impact:
+            return "your activity in the repos you work with. Everyhing count, so keep coding!"
+        case .Helpful:
+            return "you are always ready to give a helpful hand"
+        case .Buggy:
+            return "do not let this increase too much..."
+        }
+    }
 }
 
 struct UserStatItem {
     let type: UserActivityCategory
     let value: Int
-    let description: String
     var expanded: Bool
 }
 
@@ -61,7 +73,7 @@ struct UserStatItemDrawer: UserItemDrawerProtocol {
             return
         }
         
-        cell.profileDescriptionLabel.text = item.description
+        cell.profileDescriptionLabel.text = item.type.description
         cell.profileColorView.backgroundColor = item.type.color
         cell.profileTitleLabel.text = item.type.name
         cell.profileSubtitleLabel.text = String(item.value)
@@ -71,6 +83,6 @@ struct UserStatItemDrawer: UserItemDrawerProtocol {
 
 extension UserStats {
     func explode() -> [UserStatItem] {
-        return [ UserStatItem(type: .Reputation, value: reputation, description: "Lorem", expanded: false), UserStatItem(type: .Impact, value: impact, description: "Lorem", expanded: false), UserStatItem(type: .Helpful, value: helpful, description: "Lorem", expanded: false), UserStatItem(type: .Buggy, value: buggy, description: "Lorem", expanded: false)]
+        return [ UserStatItem(type: .Reputation, value: reputation, expanded: false), UserStatItem(type: .Impact, value: impact, expanded: false), UserStatItem(type: .Helpful, value: helpful, expanded: false), UserStatItem(type: .Buggy, value: buggy, expanded: false)]
     }
 }

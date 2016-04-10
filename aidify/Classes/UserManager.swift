@@ -16,6 +16,7 @@ protocol UserManagerProtocol: class {
     func logOut()
     func isAnyUserLogged() -> Bool
     func updateBeacon(identifier: String?)
+    func updateUserInfo(withUserData userData: UserData)
 }
 
 final class UserManager: UserManagerProtocol {
@@ -35,6 +36,20 @@ final class UserManager: UserManagerProtocol {
         let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
         storage.setObject(encodedUser, forKey: K.UserDeafultsKey.User)
         storage.synchronize()
+    }
+    
+    func updateUserInfo(withUserData userData: UserData) {
+        guard let user = currentUser else {
+            return
+        }
+        
+        user.userID = userData.userID
+        user.username = userData.name
+        user.realname = userData.realName
+        user.location = userData.location.rawValue
+        user.avatar = userData.avatar
+        
+        save(user: user)
     }
     
     func updateBeacon(identifier: String?) {

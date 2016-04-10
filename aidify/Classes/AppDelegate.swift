@@ -27,8 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func initNearableManager() {
         let userManager = UserManager()
+        let nearableManager = NearableManager.sharedInstance
+        nearableManager.userManager = userManager
         if let user = userManager.currentUser, nearableIdentifier = user.beaconId {
-            NearableManager.sharedInstance.startMonitoring(nearableIdentifier)
+            nearableManager.startMonitoring(nearableIdentifier)
         }
     }
 

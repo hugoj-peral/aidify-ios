@@ -44,6 +44,7 @@ class ProfileInteractor: ProfileInteractorInputProtocol
                 self.APIDataManager?.getProfile(withUsername: username, completion: { result -> Void in
                     switch result {
                     case let .Success(userData):
+                        self.localDatamanager?.storeUser(userData)
                         self.presenter?.setUserProfile(userData)
                     case .Failure:
                         break
