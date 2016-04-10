@@ -54,7 +54,16 @@ class Piechart: UIView {
         var endValue: CGFloat = 0
         var endAngle: CGFloat = 0
         slices.sortInPlace { abs($0.value) > abs($1.value) }
-        let total = CGFloat(slices.reduce(0) { $0 + abs($1.value) })
+        var total = CGFloat(slices.reduce(0) { $0 + abs($1.value) })
+        var displayPercentages = true
+        
+        if slices.count > 0 && total == 0 {
+            let newValue = 100/slices.count
+            slices = slices.map({UserStatItem(type: $0.type, value:newValue, description: $0.description, expanded: $0.expanded)})
+            total = CGFloat(slices.reduce(0) { $0 + abs($1.value) })
+            displayPercentages = false
+        }
+        
         let angle0: CGFloat = (slices.first != nil) ? CGFloat(M_PI_2) - (CGFloat(abs(slices.first!.value)) * CGFloat(M_PI) / total) : 0
         
         let radius = bounds.width / 2 - 70
@@ -86,17 +95,19 @@ class Piechart: UIView {
             colorWithAlpha.setStroke()
             path.stroke()
             
-            let sliceCircleSize = circleSize * (CGFloat(abs(slice.value))/total + 1)
-            
-            let halfAngle = (startAngle + endAngle) / 2.0
-            let circleRect = CGRect(x: center.x + radiusWithStroke * cos(halfAngle) - circleSize / 2.0, y: center.y + radiusWithStroke * sin(halfAngle) - sliceCircleSize / 2.0, width: sliceCircleSize, height: sliceCircleSize)
-            let circle = UIBezierPath(ovalInRect: circleRect)
-            colorWithAlpha.setFill()
-            circle.fill()
-            
-            let text: NSString = "\(Int((Double(abs(slice.value))/Double(total))*100.0))%"
-            let labelSize = text.sizeWithAttributes(textAttributes)
-            text.drawInRect(CGRect(origin: CGPoint(x: circleRect.origin.x, y: circleRect.origin.y + (circleRect.size.height - labelSize.height) / 2), size: circleRect.size), withAttributes: textAttributes)
+            if displayPercentages {
+                let sliceCircleSize = circleSize * (CGFloat(abs(slice.value))/total + 1)
+                
+                let halfAngle = (startAngle + endAngle) / 2.0
+                let circleRect = CGRect(x: center.x + radiusWithStroke * cos(halfAngle) - circleSize / 2.0, y: center.y + radiusWithStroke * sin(halfAngle) - sliceCircleSize / 2.0, width: sliceCircleSize, height: sliceCircleSize)
+                let circle = UIBezierPath(ovalInRect: circleRect)
+                colorWithAlpha.setFill()
+                circle.fill()
+                
+                let text: NSString = "\(Int((Double(abs(slice.value))/Double(total))*100.0))%"
+                let labelSize = text.sizeWithAttributes(textAttributes)
+                text.drawInRect(CGRect(origin: CGPoint(x: circleRect.origin.x, y: circleRect.origin.y + (circleRect.size.height - labelSize.height) / 2), size: circleRect.size), withAttributes: textAttributes)
+            }
             
             // increase start value for next slice
             startValue += CGFloat(abs(slice.value)) / total
@@ -127,7 +138,7 @@ class Piechart: UIView {
             
             let pointsTitleFont = UIFont(name: "Raleway-Bold", size: 36)
             textAttributes[NSFontAttributeName] = pointsTitleFont
-            let pointsTitle:NSString = "\(Int(total))"
+            let pointsTitle:NSString = "\(displayPercentages ? Int(total) : 0)"
             let pointsTitleSize = pointsTitle.sizeWithAttributes(textAttributes)
             let pointsTitlePoint = CGPoint(x: arcImagePoint.x + arcImage.size.width - 20, y: arcImagePoint.y + arcImage.size.height - pointsTitleSize.height)
             pointsTitle.drawAtPoint(pointsTitlePoint, withAttributes: textAttributes)
