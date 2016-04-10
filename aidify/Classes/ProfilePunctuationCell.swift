@@ -24,8 +24,6 @@ class ProfilePunctuationCell: UITableViewCell {
         self.profileColorView.layer.cornerRadius = self.profileColorView.frame.size.width / 2.0
         self.profileColorView.layer.borderColor = UIColor.whiteColor().CGColor
         self.profileColorView.layer.borderWidth = 4.0
-        self.profileDescriptionViewConstraint.constant = 0
-        expandCell(false)
     }
     
     func expandCell(expand: Bool) {

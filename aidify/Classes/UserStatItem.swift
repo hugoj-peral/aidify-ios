@@ -65,7 +65,7 @@ struct UserStatItemDrawer: UserItemDrawerProtocol {
         cell.profileColorView.backgroundColor = item.type.color
         cell.profileTitleLabel.text = item.type.name
         cell.profileSubtitleLabel.text = String(item.value)
-        cell.profileDisclosureLabel.text = item.expanded ? "-" : "+"
+        cell.expandCell(item.expanded)
     }
 }
 

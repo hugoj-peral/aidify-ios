@@ -16,6 +16,7 @@ class ProfileView: AIDViewController, ProfileViewProtocol
     let kScrollViewTravel = 400.0
     let kMaximumBlurRadius = 20.5
     let kNumberOfStages = 10
+    var footerHeight: CGFloat = -1
     
     weak var piechart: Piechart?
     weak var background: UIImageView?
@@ -187,15 +188,24 @@ extension ProfileView: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        if footerHeight > 0 {
+            return footerHeight
+        }
+        
+        footerHeight = calculateFooterHeight(tableView, heightForFooterInSection: section)
+        return footerHeight
+    }
+    
+    func calculateFooterHeight(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         var heightToFill = tableView.frame.size.height
         
         if let stats = stats {
             for (index, _) in stats.enumerate() {
                 let cell = self.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: index, inSection: section))
-                heightToFill -= cell.frame.size.height - 1
+                heightToFill -= cell.frame.size.height  - 1
             }
         }
-        
         return max(heightToFill, 0)
     }
     
@@ -204,7 +214,6 @@ extension ProfileView: UITableViewDataSource {
         view.backgroundColor = AIDColor.Orange.color()
         return view
     }
-    
 }
 
 extension ProfileView: UITableViewDelegate {
