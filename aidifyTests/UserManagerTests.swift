@@ -31,7 +31,7 @@ class UserManagerTests: XCTestCase {
     
     func testSave() {
         XCTAssertNil(userManager.currentUser)
-        let user = User(username: "Doe", company: "Without")
+        let user = User(userID:1, username: "Doe", company: "Without")
         userManager.save(user: user)
         XCTAssertNotNil(userManager.currentUser)
         let recovered = userManager.currentUser
@@ -40,7 +40,7 @@ class UserManagerTests: XCTestCase {
     
     func testLogOut() {
         XCTAssertNil(userManager.currentUser)
-        let user = User(username: "Doe", company: "Without")
+        let user = User(userID:1, username: "Doe", company: "Without")
         userManager.save(user: user)
         XCTAssertNotNil(userManager.currentUser)
         userManager.logOut()

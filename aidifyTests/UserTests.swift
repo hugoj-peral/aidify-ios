@@ -22,7 +22,7 @@ class UserTests: XCTestCase {
     }
     
     func testBeaconPaired() {
-        let user = User(username: "Doe", company: "Without")
+        let user = User(userID:1, username: "Doe", company: "Without")
         XCTAssertFalse(user.hasBeaconPaired())
         user.beaconId = "beaconId"
         XCTAssertTrue(user.hasBeaconPaired())

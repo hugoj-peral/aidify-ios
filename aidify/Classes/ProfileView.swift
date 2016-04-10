@@ -37,6 +37,7 @@ class ProfileView: AIDViewController, ProfileViewProtocol
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationBarColor = AIDColor.DarkOrange.color()
+        piechart?.setNeedsDisplay()
         presenter?.isUserLogged()
     }
     

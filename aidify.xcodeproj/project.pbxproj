@@ -305,6 +305,7 @@
 		9A3CEE051CAB087200EFC8A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EBB0DAFD1CBADEA800FE20B5 /* Decorator */,
 				9A3CEE131CAB08CA00EFC8A7 /* ProfileView.swift */,
 				9A3CEE191CAB235B00EFC8A7 /* ProfileView.xib */,
 				EBBBC1A81CB0622300034456 /* ProfileUserCell.swift */,
@@ -312,9 +313,6 @@
 				EBBBC1AC1CB0628400034456 /* ProfilePunctuationCell.swift */,
 				EBBBC1AD1CB0628400034456 /* ProfilePunctuationCell.xib */,
 				EB16F8C81CB5BD4400694D04 /* ProfileChart.swift */,
-				EB6233D61CB6E52D00BFB567 /* UserProfileItem.swift */,
-				EB6233D81CB6E56100BFB567 /* UserStatItem.swift */,
-				EB6233DA1CB6E61100BFB567 /* UserItemProtocol.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -386,11 +384,10 @@
 				9A92D4F71CA4682300AEB182 /* Components */,
 				9A92D4DA1CA448B100AEB182 /* Modules */,
 				9A4011571C9F0A7C0038BC2D /* Resources */,
-				9A6141971CA9CBAE009ACE34 /* User */,
+				EBB0DAFE1CBADF3F00FE20B5 /* Manager */,
 				9A6B1ADE1C9DC36A006D7A7C /* AppDelegate.swift */,
 				9A40115E1C9F11BC0038BC2D /* AppDependencies.swift */,
 				9A3CEE171CAB1D1D00EFC8A7 /* RootWireFrame.swift */,
-				EBBBC1B61CB06D1700034456 /* ViewInitializers.swift */,
 				9A9469B91CADC84D001B6733 /* Assets.xcassets */,
 				9A6B1AEA1C9DC36A006D7A7C /* Info.plist */,
 				9A6B1AE71C9DC36A006D7A7C /* LaunchScreen.storyboard */,
@@ -506,6 +503,9 @@
 		9A92D4F71CA4682300AEB182 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EBBBC1B61CB06D1700034456 /* ViewInitializers.swift */,
+				EB16F8C61CB5A15B00694D04 /* ImageLoader.swift */,
+				EB929F4A1CB853FE007D220D /* UIImage+Blur.swift */,
 				9A92D4F81CA4689C00AEB182 /* AIDTextField.swift */,
 				9ADA5B121CA6BC2200C4B285 /* AIDProgressView.swift */,
 				9ADA5B171CA6FB2D00C4B285 /* AIDViewController.swift */,
@@ -604,9 +604,6 @@
 				EB4468211CB2DDF4002BB61C /* UserData.swift */,
 				EB6CC5441CB6E323002BEEB3 /* UserActivity.swift */,
 				EB274B001CB6E3BE00841EDA /* UserStats.swift */,
-				EB16F8C61CB5A15B00694D04 /* ImageLoader.swift */,
-				EB929F4A1CB853FE007D220D /* UIImage+Blur.swift */,
-				EB04EBA21CB947A1006AF1EB /* NearableManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -692,6 +689,33 @@
 				53ECC2D926BDF483868E43B1 /* Pods-aidify.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EBB0DAFD1CBADEA800FE20B5 /* Decorator */ = {
+			isa = PBXGroup;
+			children = (
+				EB6233D61CB6E52D00BFB567 /* UserProfileItem.swift */,
+				EB6233D81CB6E56100BFB567 /* UserStatItem.swift */,
+				EB6233DA1CB6E61100BFB567 /* UserItemProtocol.swift */,
+			);
+			name = Decorator;
+			sourceTree = "<group>";
+		};
+		EBB0DAFE1CBADF3F00FE20B5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9A6141971CA9CBAE009ACE34 /* User */,
+				EBB0DAFF1CBADF4E00FE20B5 /* Nearable */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		EBB0DAFF1CBADF4E00FE20B5 /* Nearable */ = {
+			isa = PBXGroup;
+			children = (
+				EB04EBA21CB947A1006AF1EB /* NearableManager.swift */,
+			);
+			name = Nearable;
 			sourceTree = "<group>";
 		};
 		EBBBC1B81CB0859600034456 /* Activity */ = {

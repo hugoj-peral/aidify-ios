@@ -17,6 +17,7 @@ protocol UserManagerProtocol: class {
     func isAnyUserLogged() -> Bool
     func updateBeacon(identifier: String?)
     func updateUserInfo(withUserData userData: UserData)
+    func updateLocation( location: UserLocation)
 }
 
 final class UserManager: UserManagerProtocol {
@@ -58,6 +59,15 @@ final class UserManager: UserManagerProtocol {
         }
         
         user.beaconId = identifier
+        save(user: user)
+    }
+    
+    func updateLocation( location: UserLocation) {
+        guard let user = currentUser else {
+            return
+        }
+        
+        user.location = location.rawValue
         save(user: user)
     }
     

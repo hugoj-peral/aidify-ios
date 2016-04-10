@@ -25,13 +25,10 @@ class PairingLocalDataManager: NSObject, PairingLocalDataManagerInputProtocol, E
     private var timer: NSTimer?
     private var locationManager: CLLocationManager?
     
-    private var simulator: ESTSimulatedNearableManager?
-    
     override init() {
         nearableManager = ESTNearableManager()
         super.init()
         nearableManager.delegate = self
-        simulator = ESTSimulatedNearableManager(delegate: self)
     }
     
     func requestBackgroundAccess(closure: ((Bool)->())?) {
@@ -49,19 +46,7 @@ class PairingLocalDataManager: NSObject, PairingLocalDataManagerInputProtocol, E
             self.nearableManager.startRangingForType(.All)
         }
         
-        
-        
         timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: "rangingTimeout", userInfo: nil, repeats: false)
-        
-        
-        
-        simulator?.addNearableToSimulation("0a1b2c3d4e5f6a7b", withType: .All, zone: .Far, rssi: -20)
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "simulateRange", userInfo: nil, repeats: false)
-    }
-    
-    func simulateRange() {
-        simulator?.simulateZone(.Immediate, forNearable: "0a1b2c3d4e5f6a7b")
-        self.nearableManager(nearableManager, didRangeNearable: simulator?.nearables.firstObject as! ESTNearable)
     }
     
     func rangingTimeout() {

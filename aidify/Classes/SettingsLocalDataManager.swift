@@ -27,5 +27,6 @@ class SettingsLocalDataManager: SettingsLocalDataManagerInputProtocol
     
     func unpairNearable() {
         userManager?.updateBeacon(nil)
+        NearableManager.sharedInstance.stopMonitoring()
     }
 }
