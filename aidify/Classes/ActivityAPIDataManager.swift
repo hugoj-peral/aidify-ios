@@ -1,7 +1,10 @@
 //
-// Created by VIPER
-// Copyright (c) 2016 VIPER. All rights reserved.
+//  aidify
 //
+//  Created by salazar on 31/3/16.
+//  Copyright © 2016 aidify. All rights reserved.
+//
+
 
 import Foundation
 
