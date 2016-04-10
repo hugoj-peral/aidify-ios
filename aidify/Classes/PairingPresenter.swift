@@ -21,9 +21,12 @@ class PairingPresenter: PairingPresenterProtocol, PairingInteractorOutputProtoco
         view?.loadPairingRequestLookNFeel()
     }
     
+    func showAppSettings() {
+        wireFrame?.showAppSettings()
+    }
+    
     func primaryAction() {
-        view?.loadPairingActionLookNFeel()
-        interactor?.pairClosestNearable()
+        interactor?.requestBackgroundAccess()
     }
     
     func secondaryAction() {
@@ -33,7 +36,7 @@ class PairingPresenter: PairingPresenterProtocol, PairingInteractorOutputProtoco
     func pairingSuccessful(nearableId: String) {
         view?.loadPairingSuccessfulLookNFeel(nearableId)
         
-        let delayInSeconds = 3.0
+        let delayInSeconds = 5.0
         let dismissTime = dispatch_time(DISPATCH_TIME_NOW, (Int64)(delayInSeconds * Double(NSEC_PER_SEC)))
         dispatch_after(dismissTime, dispatch_get_main_queue()) {[weak self]() -> Void in
             guard let strongSelf = self else { return }
@@ -43,6 +46,14 @@ class PairingPresenter: PairingPresenterProtocol, PairingInteractorOutputProtoco
     
     func pairingFailure() {
         view?.loadPairingFailureLookNFeel()
+    }
+    
+    func requestBackgroundSuccess() {
+        view?.loadPairingActionLookNFeel()
+    }
+    
+    func requestBackgroundFail() {
+        view?.showNoBackgroundPermissions()
     }
     
 }

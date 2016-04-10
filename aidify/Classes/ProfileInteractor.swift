@@ -17,18 +17,16 @@ class ProfileInteractor: ProfileInteractorInputProtocol
     init() {}
     
     func shouldShowPairBeacon() {
-        localDatamanager?.hasCurrentUserBeaconPaired({[weak self] hasBeacon -> Void in
-            if let strongSelf = self {
-                strongSelf.presenter?.shouldShowPairBeacon()
+        localDatamanager?.hasCurrentUserBeaconPaired({ hasBeacon in
+            if !hasBeacon {
+                self.presenter?.shouldShowPairBeacon()
             }
         })
     }
     
     func companyName() {
-        localDatamanager?.companyName({ [weak self] company -> Void in
-            if let strongSelf = self {
-                strongSelf.presenter?.setCompany(name: company)
-            }
+        localDatamanager?.companyName({ company in
+                self.presenter?.setCompany(name: company)
         })
     }
     

@@ -30,6 +30,7 @@ class PairingWireFrame: PairingWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        localDataManager.userManager = UserManager()
         
         let viewController = viewController as? UIViewController
         viewController?.presentViewController(view as! UIViewController, animated: true, completion: nil)
@@ -38,5 +39,11 @@ class PairingWireFrame: PairingWireFrameProtocol
     func dismissView(view: AnyObject?) {
         guard let viewController = view as? UIViewController else { return }
         viewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func showAppSettings() {
+        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
 }

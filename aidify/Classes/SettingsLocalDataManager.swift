@@ -26,9 +26,6 @@ class SettingsLocalDataManager: SettingsLocalDataManagerInputProtocol
     }
     
     func unpairNearable() {
-        if let userManager = userManager,  user = userManager.currentUser {
-            user.beaconId = nil
-            userManager.save(user: user)
-        }
+        userManager?.updateBeacon(nil)
     }
 }

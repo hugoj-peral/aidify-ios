@@ -19,12 +19,14 @@ protocol PairingViewProtocol: class
     func loadPairingActionLookNFeel()
     func loadPairingSuccessfulLookNFeel(nearableId: String)
     func loadPairingFailureLookNFeel()
+    func showNoBackgroundPermissions()
 }
 
 protocol PairingWireFrameProtocol: class
 {
     static func presentPairingModule(fromViewController viewController: AnyObject)
     func dismissView(view: AnyObject?)
+    func showAppSettings()
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
@@ -42,6 +44,7 @@ protocol PairingPresenterProtocol: class
     func initialLookNFeel()
     func primaryAction()
     func secondaryAction()
+    func showAppSettings()
 }
 
 protocol PairingInteractorOutputProtocol: class
@@ -49,9 +52,10 @@ protocol PairingInteractorOutputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
-    
     func pairingSuccessful(nearableId: String)
     func pairingFailure()
+    func requestBackgroundSuccess()
+    func requestBackgroundFail()
 }
 
 protocol PairingInteractorInputProtocol: class
@@ -62,7 +66,7 @@ protocol PairingInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
-    func pairClosestNearable()
+    func requestBackgroundAccess()
     
 }
 
@@ -82,9 +86,11 @@ protocol PairingAPIDataManagerInputProtocol: class
 
 protocol PairingLocalDataManagerInputProtocol: class
 {
+    var userManager: UserManagerProtocol? { get set }
     /**
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
     
-    func findClosestNearable(closure: ((PairingResult)->())?);
+    func findClosestNearable(closure: ((PairingResult)->())?)
+    func requestBackgroundAccess(closure: ((Bool)->())?)
 }

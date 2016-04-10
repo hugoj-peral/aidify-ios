@@ -13,6 +13,8 @@ import UIKit
 class PairingView: AIDViewController, PairingViewProtocol
 {
     
+    @IBOutlet weak var pairingTopSubtitleSeparator: UIView!
+    @IBOutlet weak var pairingBottomSubtitleSeparator: UIView!
     @IBOutlet weak var pairingLeftSignal: UIImageView!
     @IBOutlet weak var pairingRightSignal: UIImageView!
     @IBOutlet weak var pairingBase: UIImageView!
@@ -69,9 +71,16 @@ class PairingView: AIDViewController, PairingViewProtocol
     
     func loadPairingSuccessfulLookNFeel(nearableId: String) {
         removeAllAnimations()
+        pairingTopSubtitleSeparator.hidden = false
+        pairingBottomSubtitleSeparator.hidden = false
         pairingImage.image = UIImage(named: "locationSuccess")
         pairingTitleLabel.text = "SUCCESSFUL PAIRED"
-        pairingSubtitleLabel.text = "ID: \(nearableId)"
+        let subtitleHeader = "beaconId: \(nearableId)"
+        let subtitleBody = "We use low-energy Bluetooth and iBeacon devices installed at your company to find you inside the office, and provide relevant information around you.\n You just need to focus on the donuts, ai{D}fy will worry about your code!"
+        let attributedSubtitleText = NSMutableAttributedString(string: "\(subtitleHeader)\n\n\(subtitleBody)")
+        attributedSubtitleText.addAttribute(NSFontAttributeName, value: UIFont(name: "Raleway", size: 12.0)!, range: NSRange(location: subtitleHeader.characters.count + 2, length: subtitleBody.characters.count))
+        
+        pairingSubtitleLabel.attributedText = attributedSubtitleText
         pairingLeftSignal.hidden = true
         pairingRightSignal.hidden = true
         pairingBase.hidden = false
@@ -99,6 +108,20 @@ class PairingView: AIDViewController, PairingViewProtocol
             self.view.backgroundColor = AIDColor.Pink.color()
             self.statusBarColor = AIDColor.DarkPink.color()
         }
+    }
+    
+    func showNoBackgroundPermissions() {
+        let alertController = UIAlertController( title: "Background Location Access Disabled", message: "In order detect if you are available to receive pull requets, please open this app's settings and set location access to 'Always'.", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+            self.presenter?.showAppSettings()
+        }
+        alertController.addAction(openAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     @IBAction func primaryButtonDidPressed(sender: AnyObject) {

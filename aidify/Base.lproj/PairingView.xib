@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Raleway-Regular.ttf">
@@ -15,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PairingView" customModule="aidify" customModuleProvider="target">
             <connections>
                 <outlet property="pairingBase" destination="tcp-hY-dji" id="dLD-gx-FMz"/>
+                <outlet property="pairingBottomSubtitleSeparator" destination="4S0-Gq-MKd" id="6Lz-Ld-yXe"/>
                 <outlet property="pairingImage" destination="PXh-Uf-B2X" id="xEB-jh-eQH"/>
                 <outlet property="pairingLeftSignal" destination="Jsj-Gu-eXe" id="JPP-x2-MER"/>
                 <outlet property="pairingPrimaryButton" destination="aHq-1Z-oJT" id="8y2-aW-93S"/>
@@ -22,6 +24,7 @@
                 <outlet property="pairingSecondaryButton" destination="EuD-Cd-uXJ" id="1tZ-3Z-U7B"/>
                 <outlet property="pairingSubtitleLabel" destination="evq-Kz-npp" id="EDt-qh-Hdl"/>
                 <outlet property="pairingTitleLabel" destination="BIQ-YD-thu" id="JVh-4o-iju"/>
+                <outlet property="pairingTopSubtitleSeparator" destination="zvE-eg-bEe" id="4NM-jq-x2Q"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kHA-3g-oUz"/>
             </connections>
         </placeholder>
@@ -40,16 +43,16 @@
                     <rect key="frame" x="170" y="72" width="35" height="52"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ai{d}fy needs access to your location in order to know if you are at your desk... and to bring you delicious donuts!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evq-Kz-npp">
-                    <rect key="frame" x="78" y="188" width="220" height="118"/>
+                    <rect key="frame" x="58" y="201" width="260" height="118"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="220" id="938-YK-Jzm"/>
+                        <constraint firstAttribute="width" constant="260" id="938-YK-Jzm"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHq-1Z-oJT">
-                    <rect key="frame" x="75" y="331" width="225" height="50"/>
+                    <rect key="frame" x="75" y="347" width="225" height="50"/>
                     <color key="backgroundColor" red="0.41960784309999999" green="0.67843137249999996" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="225" id="hIG-Ee-1RG"/>
@@ -79,7 +82,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuD-Cd-uXJ">
-                    <rect key="frame" x="154" y="389" width="68" height="34"/>
+                    <rect key="frame" x="154" y="405" width="68" height="34"/>
                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
                     <state key="normal" title="not now">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,17 +100,35 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="locationBase" translatesAutoresizingMaskIntoConstraints="NO" id="tcp-hY-dji">
                     <rect key="frame" x="176" y="130" width="23" height="9"/>
                 </imageView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvE-eg-bEe">
+                    <rect key="frame" x="18" y="188" width="339" height="3"/>
+                    <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="3" id="byp-91-2MQ"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4S0-Gq-MKd">
+                    <rect key="frame" x="18" y="329" width="339" height="3"/>
+                    <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="3" id="HOD-dC-NJP"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.32156862749999998" green="0.6588235294" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="evq-Kz-npp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4Fk-3C-Qbb"/>
+                <constraint firstItem="zvE-eg-bEe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="10" id="97U-w7-B4R"/>
                 <constraint firstItem="PXh-Uf-B2X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="72" id="9NZ-vF-ATL"/>
                 <constraint firstItem="tcp-hY-dji" firstAttribute="centerX" secondItem="PXh-Uf-B2X" secondAttribute="centerX" id="A4o-tS-3Qb"/>
                 <constraint firstItem="PXh-Uf-B2X" firstAttribute="leading" secondItem="Jsj-Gu-eXe" secondAttribute="trailing" constant="4" id="Ak9-l5-Wap"/>
                 <constraint firstItem="evq-Kz-npp" firstAttribute="top" secondItem="BIQ-YD-thu" secondAttribute="bottom" constant="10" id="F4g-MD-AZg"/>
+                <constraint firstItem="zvE-eg-bEe" firstAttribute="top" secondItem="BIQ-YD-thu" secondAttribute="bottom" constant="10" id="Ly0-4y-ao7"/>
                 <constraint firstItem="EuD-Cd-uXJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M0R-So-fQt"/>
                 <constraint firstItem="FQx-we-EWy" firstAttribute="leading" secondItem="PXh-Uf-B2X" secondAttribute="trailing" constant="4" id="NA1-1d-q5w"/>
                 <constraint firstItem="EuD-Cd-uXJ" firstAttribute="top" secondItem="aHq-1Z-oJT" secondAttribute="bottom" constant="8" id="NwE-Ck-DrS"/>
+                <constraint firstItem="evq-Kz-npp" firstAttribute="top" secondItem="zvE-eg-bEe" secondAttribute="bottom" constant="10" id="OJm-Vk-dZp"/>
+                <constraint firstAttribute="trailingMargin" secondItem="zvE-eg-bEe" secondAttribute="trailing" constant="10" id="RKh-M8-1n7"/>
                 <constraint firstItem="BIQ-YD-thu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yga-dS-qFd"/>
                 <constraint firstItem="tcp-hY-dji" firstAttribute="top" secondItem="PXh-Uf-B2X" secondAttribute="bottom" constant="6" id="apv-9k-mpu"/>
                 <constraint firstItem="aHq-1Z-oJT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ee5-rZ-a4U"/>
@@ -117,11 +138,17 @@
                 <constraint firstItem="FQx-we-EWy" firstAttribute="top" secondItem="PXh-Uf-B2X" secondAttribute="top" id="j36-JO-hpp"/>
                 <constraint firstItem="aHq-1Z-oJT" firstAttribute="top" secondItem="evq-Kz-npp" secondAttribute="bottom" constant="25" id="j6q-dy-4gx"/>
                 <constraint firstItem="BIQ-YD-thu" firstAttribute="top" secondItem="tcp-hY-dji" secondAttribute="bottom" constant="10" id="o3F-Yb-LGs"/>
+                <constraint firstAttribute="trailingMargin" secondItem="4S0-Gq-MKd" secondAttribute="trailing" constant="10" id="phH-je-8PM"/>
+                <constraint firstItem="aHq-1Z-oJT" firstAttribute="top" secondItem="4S0-Gq-MKd" secondAttribute="bottom" constant="15" id="rXI-OG-psK"/>
+                <constraint firstItem="4S0-Gq-MKd" firstAttribute="top" secondItem="evq-Kz-npp" secondAttribute="bottom" constant="10" id="vM3-tV-etP"/>
+                <constraint firstItem="4S0-Gq-MKd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="10" id="wS7-pB-ALp"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="fM1-bd-PLT"/>
+                    <exclude reference="F4g-MD-AZg"/>
+                    <exclude reference="j6q-dy-4gx"/>
                 </mask>
             </variation>
         </view>

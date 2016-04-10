@@ -17,7 +17,7 @@ class PairingInteractor: PairingInteractorInputProtocol
     
     init() {}
     
-    func pairClosestNearable() {
+    private func pairClosestNearable() {
         localDatamanager?.findClosestNearable({
             switch $0 {
             case let .Success(identifier):
@@ -25,6 +25,17 @@ class PairingInteractor: PairingInteractorInputProtocol
                 self.presenter?.pairingSuccessful(identifier)
             case .Failure(_):
                 self.presenter?.pairingFailure()
+            }
+        })
+    }
+    
+    func requestBackgroundAccess() {
+        localDatamanager?.requestBackgroundAccess( {
+            if $0 {
+                self.presenter?.requestBackgroundSuccess()
+                self.pairClosestNearable()
+            } else {
+                self.presenter?.requestBackgroundFail()
             }
         })
     }
