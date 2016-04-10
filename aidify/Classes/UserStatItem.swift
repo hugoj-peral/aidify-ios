@@ -32,6 +32,8 @@ extension UserActivityCategory {
 struct UserStatItem {
     let type: UserActivityCategory
     let value: Int
+    let description: String
+    var expanded: Bool
 }
 
 extension UserStatItem: UserItemProtocol {
@@ -46,8 +48,12 @@ struct UserStatItemDrawer: UserItemDrawerProtocol {
         return tableView.dequeueReusableCellWithIdentifier(ProfilePunctuationCell.reuseIdentifier()) as! ProfilePunctuationCell
     }
     
-    func estimatedHeight() -> CGFloat {
-        return 73;
+    func estimatedHeight(item: UserItemProtocol) -> CGFloat {
+        guard let item = item as? UserStatItem else {
+            return 0
+        }
+        
+        return  item.expanded ? 120 : 73
     }
     
     func drawCell(cell: UITableViewCell, withItem item: UserItemProtocol) {
@@ -55,14 +61,16 @@ struct UserStatItemDrawer: UserItemDrawerProtocol {
             return
         }
         
+        cell.profileDescriptionLabel.text = item.description
         cell.profileColorView.backgroundColor = item.type.color
         cell.profileTitleLabel.text = item.type.name
         cell.profileSubtitleLabel.text = String(item.value)
+        cell.profileDisclosureLabel.text = item.expanded ? "-" : "+"
     }
 }
 
 extension UserStats {
     func explode() -> [UserStatItem] {
-        return [ UserStatItem(type: .Reputation, value: reputation), UserStatItem(type: .Impact, value: impact), UserStatItem(type: .Helpful, value: helpful), UserStatItem(type: .Buggy, value: buggy)]
+        return [ UserStatItem(type: .Reputation, value: reputation, description: "Lorem", expanded: false), UserStatItem(type: .Impact, value: impact, description: "Lorem", expanded: false), UserStatItem(type: .Helpful, value: helpful, description: "Lorem", expanded: false), UserStatItem(type: .Buggy, value: buggy, description: "Lorem", expanded: false)]
     }
 }

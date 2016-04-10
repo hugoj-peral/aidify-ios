@@ -16,5 +16,5 @@ protocol UserItemProtocol {
 protocol UserItemDrawerProtocol {
     func cellForTableView(tableView: UITableView) -> UITableViewCell
     func drawCell(cell: UITableViewCell, withItem item: UserItemProtocol)
-    func estimatedHeight() -> CGFloat
+    func estimatedHeight(item: UserItemProtocol) -> CGFloat
 }

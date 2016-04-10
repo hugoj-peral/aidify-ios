@@ -27,7 +27,7 @@ struct UserProfileItemDrawer: UserItemDrawerProtocol {
         return tableView.dequeueReusableCellWithIdentifier(ProfileUserCell.reuseIdentifier()) as! ProfileUserCell
     }
     
-    func estimatedHeight() -> CGFloat {
+    func estimatedHeight(item: UserItemProtocol) -> CGFloat {
         return 99;
     }
     

@@ -85,9 +85,7 @@
 		EBBBC1AB1CB0622300034456 /* ProfileUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1A91CB0622300034456 /* ProfileUserCell.xib */; };
 		EBBBC1AE1CB0628400034456 /* ProfilePunctuationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1AC1CB0628400034456 /* ProfilePunctuationCell.swift */; };
 		EBBBC1AF1CB0628400034456 /* ProfilePunctuationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1AD1CB0628400034456 /* ProfilePunctuationCell.xib */; };
-		EBBBC1B21CB062B800034456 /* ProfilePunctuationMeaningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1B01CB062B800034456 /* ProfilePunctuationMeaningCell.swift */; };
-		EBBBC1B31CB062B800034456 /* ProfilePunctuationMeaningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBBC1B11CB062B800034456 /* ProfilePunctuationMeaningCell.xib */; };
-		EBBBC1B71CB06D1700034456 /* UITableViewCell+Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1B61CB06D1700034456 /* UITableViewCell+Initialization.swift */; };
+		EBBBC1B71CB06D1700034456 /* ViewInitializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1B61CB06D1700034456 /* ViewInitializers.swift */; };
 		EBBBC1BA1CB085F200034456 /* ActivityWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1B91CB085F200034456 /* ActivityWireFrame.swift */; };
 		EBBBC1BC1CB0860500034456 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1BB1CB0860500034456 /* ActivityView.swift */; };
 		EBBBC1BE1CB0860D00034456 /* ActivityProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBC1BD1CB0860D00034456 /* ActivityProtocols.swift */; };
@@ -199,9 +197,7 @@
 		EBBBC1A91CB0622300034456 /* ProfileUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileUserCell.xib; sourceTree = "<group>"; };
 		EBBBC1AC1CB0628400034456 /* ProfilePunctuationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePunctuationCell.swift; sourceTree = "<group>"; };
 		EBBBC1AD1CB0628400034456 /* ProfilePunctuationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePunctuationCell.xib; sourceTree = "<group>"; };
-		EBBBC1B01CB062B800034456 /* ProfilePunctuationMeaningCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePunctuationMeaningCell.swift; sourceTree = "<group>"; };
-		EBBBC1B11CB062B800034456 /* ProfilePunctuationMeaningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePunctuationMeaningCell.xib; sourceTree = "<group>"; };
-		EBBBC1B61CB06D1700034456 /* UITableViewCell+Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+Initialization.swift"; path = "Classes/UITableViewCell+Initialization.swift"; sourceTree = "<group>"; };
+		EBBBC1B61CB06D1700034456 /* ViewInitializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewInitializers.swift; path = Classes/ViewInitializers.swift; sourceTree = "<group>"; };
 		EBBBC1B91CB085F200034456 /* ActivityWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityWireFrame.swift; sourceTree = "<group>"; };
 		EBBBC1BB1CB0860500034456 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		EBBBC1BD1CB0860D00034456 /* ActivityProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityProtocols.swift; sourceTree = "<group>"; };
@@ -315,8 +311,6 @@
 				EBBBC1A91CB0622300034456 /* ProfileUserCell.xib */,
 				EBBBC1AC1CB0628400034456 /* ProfilePunctuationCell.swift */,
 				EBBBC1AD1CB0628400034456 /* ProfilePunctuationCell.xib */,
-				EBBBC1B01CB062B800034456 /* ProfilePunctuationMeaningCell.swift */,
-				EBBBC1B11CB062B800034456 /* ProfilePunctuationMeaningCell.xib */,
 				EB16F8C81CB5BD4400694D04 /* ProfileChart.swift */,
 				EB6233D61CB6E52D00BFB567 /* UserProfileItem.swift */,
 				EB6233D81CB6E56100BFB567 /* UserStatItem.swift */,
@@ -396,7 +390,7 @@
 				9A6B1ADE1C9DC36A006D7A7C /* AppDelegate.swift */,
 				9A40115E1C9F11BC0038BC2D /* AppDependencies.swift */,
 				9A3CEE171CAB1D1D00EFC8A7 /* RootWireFrame.swift */,
-				EBBBC1B61CB06D1700034456 /* UITableViewCell+Initialization.swift */,
+				EBBBC1B61CB06D1700034456 /* ViewInitializers.swift */,
 				9A9469B91CADC84D001B6733 /* Assets.xcassets */,
 				9A6B1AEA1C9DC36A006D7A7C /* Info.plist */,
 				9A6B1AE71C9DC36A006D7A7C /* LaunchScreen.storyboard */,
@@ -861,7 +855,6 @@
 				9ADB63641CA54DE100BCC7FF /* Raleway-Bold.ttf in Resources */,
 				9A9469B81CAD96C0001B6733 /* SettingsView.xib in Resources */,
 				9A6B1AE91C9DC36A006D7A7C /* LaunchScreen.storyboard in Resources */,
-				EBBBC1B31CB062B800034456 /* ProfilePunctuationMeaningCell.xib in Resources */,
 				EBBBC1A71CB01F8A00034456 /* PairingView.xib in Resources */,
 				9A40115D1C9F0C0D0038BC2D /* Raleway-Medium.ttf in Resources */,
 				9A9469BA1CADC84D001B6733 /* Assets.xcassets in Resources */,
@@ -945,7 +938,6 @@
 				9A6141991CA9CC38009ACE34 /* UserManager.swift in Sources */,
 				EB6233DB1CB6E61100BFB567 /* UserItemProtocol.swift in Sources */,
 				9A9469A41CAD953C001B6733 /* SettingsLocalDataManager.swift in Sources */,
-				EBBBC1B21CB062B800034456 /* ProfilePunctuationMeaningCell.swift in Sources */,
 				EBBBC1C41CB0861E00034456 /* ActivityItem.swift in Sources */,
 				9A4A0B441CAEFCA4006DA919 /* AIDButton.swift in Sources */,
 				EBBBC1C81CB0863400034456 /* ActivityLocalDataManager.swift in Sources */,
@@ -971,7 +963,7 @@
 				EBBBC1AE1CB0628400034456 /* ProfilePunctuationCell.swift in Sources */,
 				9A61419B1CA9CC62009ACE34 /* User.swift in Sources */,
 				9A9469B51CAD95A8001B6733 /* SettingsWireFrame.swift in Sources */,
-				EBBBC1B71CB06D1700034456 /* UITableViewCell+Initialization.swift in Sources */,
+				EBBBC1B71CB06D1700034456 /* ViewInitializers.swift in Sources */,
 				9A9469AC1CAD9584001B6733 /* SettingsInteractor.swift in Sources */,
 				EB292FDA1CADB26A00D39463 /* PairingAPIDataManager.swift in Sources */,
 				9A3CEE141CAB08CA00EFC8A7 /* ProfileView.swift in Sources */,

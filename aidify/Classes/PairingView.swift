@@ -35,45 +35,6 @@ class PairingView: AIDViewController, PairingViewProtocol
         loadBouncingAnimation()
     }
     
-    private func loadBouncingAnimation() {
-        let moveUpAnimation = CABasicAnimation(keyPath: "position.y")
-        moveUpAnimation.fromValue = pairingImage.layer.position.y
-        moveUpAnimation.toValue = pairingImage.layer.position.y - 15
-        moveUpAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        moveUpAnimation.beginTime = 0
-        moveUpAnimation.duration = 0.3
-        
-        let moveDownAnimation = CASpringAnimation(keyPath: "position.y")
-        moveDownAnimation.fromValue = moveUpAnimation.toValue
-        moveDownAnimation.toValue = pairingImage.layer.position.y + 6
-        moveDownAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        moveDownAnimation.damping = 9.5
-        moveDownAnimation.beginTime = moveUpAnimation.beginTime + moveUpAnimation.duration
-        moveDownAnimation.duration = moveDownAnimation.settlingDuration
-        
-        let moveUpBackAnimation = CABasicAnimation(keyPath: "position.y")
-        moveUpBackAnimation.fromValue = moveDownAnimation.toValue
-        moveUpBackAnimation.toValue = pairingImage.layer.position.y
-        moveUpBackAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        moveUpBackAnimation.beginTime = moveDownAnimation.beginTime + moveDownAnimation.duration
-        moveUpBackAnimation.duration = 0.4
-        
-        let animationGroup = CAAnimationGroup()
-        animationGroup.beginTime = CACurrentMediaTime() + 0.5
-        animationGroup.duration = moveUpAnimation.duration + moveDownAnimation.duration + moveUpBackAnimation.duration
-        animationGroup.fillMode = kCAFillModeBackwards
-        animationGroup.repeatCount = .infinity
-        animationGroup.speed = 1.1
-        animationGroup.animations = [moveUpAnimation, moveDownAnimation, moveUpBackAnimation]
-        pairingImage.layer.addAnimation(animationGroup, forKey: "pairingInit")
-    }
-    
-    private func removeAllAnimations() {
-        pairingImage.layer.removeAllAnimations()
-        pairingLeftSignal.layer.removeAllAnimations()
-        pairingRightSignal.layer.removeAllAnimations()
-    }
-    
     func loadPairingRequestLookNFeel() {
         self.view.backgroundColor = AIDColor.Blue.color()
         self.statusBarColor = AIDColor.DarkBlue.color()
@@ -91,6 +52,10 @@ class PairingView: AIDViewController, PairingViewProtocol
     
     func loadPairingActionLookNFeel() {
         removeAllAnimations()
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.backgroundColor = AIDColor.Blue.color()
+            self.statusBarColor = AIDColor.DarkBlue.color()
+        }
         pairingImage.image = UIImage(named: "location")
         pairingLeftSignal.hidden = false
         pairingRightSignal.hidden = false
@@ -101,6 +66,50 @@ class PairingView: AIDViewController, PairingViewProtocol
         pairingSubtitleLabel.text = "pair your phone with the beacon at your desk"
         loadPairingAnimation()
     }
+    
+    func loadPairingSuccessfulLookNFeel(nearableId: String) {
+        removeAllAnimations()
+        pairingImage.image = UIImage(named: "locationSuccess")
+        pairingTitleLabel.text = "SUCCESSFUL PAIRED"
+        pairingSubtitleLabel.text = "ID: \(nearableId)"
+        pairingLeftSignal.hidden = true
+        pairingRightSignal.hidden = true
+        pairingBase.hidden = false
+        pairingPrimaryButton.hidden = true
+        pairingSecondaryButton.hidden = true
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.backgroundColor = AIDColor.Green.color()
+            self.statusBarColor = AIDColor.DarkGreen.color()
+        }
+    }
+    
+    func loadPairingFailureLookNFeel() {
+        removeAllAnimations()
+        pairingImage.image = UIImage(named: "locationFailure")
+        pairingPrimaryButton.hidden = false
+        pairingSecondaryButton.hidden = false
+        pairingLeftSignal.hidden = true
+        pairingRightSignal.hidden = true
+        pairingBase.hidden = false
+        pairingTitleLabel.text = "PAIRING FAILED"
+        pairingSubtitleLabel.text = "impossible to pair with your beacon desk. Are you in range?"
+        pairingPrimaryButton.setTitle("Pair Again", forState: .Normal)
+        pairingSecondaryButton.setTitle("or skip step", forState: .Normal)
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.view.backgroundColor = AIDColor.Pink.color()
+            self.statusBarColor = AIDColor.DarkPink.color()
+        }
+    }
+    
+    @IBAction func primaryButtonDidPressed(sender: AnyObject) {
+        presenter?.primaryAction()
+    }
+    @IBAction func secondaryButtonDidPressed(sender: AnyObject) {
+        presenter?.secondaryAction()
+    }
+}
+
+extension PairingView {
     
     private func loadPairingAnimation() {
         let expandLeftAnimation = CABasicAnimation(keyPath: "position.x")
@@ -147,44 +156,42 @@ class PairingView: AIDViewController, PairingViewProtocol
         pairingRightSignal.layer.addAnimation(animationRightGroup, forKey: "pairingRightSignal")
     }
     
-    func loadPairingSuccessfulLookNFeel(nearableId: String) {
-        removeAllAnimations()
-        pairingImage.image = UIImage(named: "locationSuccess")
-        pairingTitleLabel.text = "SUCCESSFUL PAIRED"
-        pairingSubtitleLabel.text = "ID: \(nearableId)"
-        pairingLeftSignal.hidden = true
-        pairingRightSignal.hidden = true
-        pairingBase.hidden = false
-        pairingPrimaryButton.hidden = true
-        pairingSecondaryButton.hidden = true
-        UIView.animateWithDuration(0.4) { () -> Void in
-            self.view.backgroundColor = AIDColor.Green.color()
-            self.statusBarColor = AIDColor.DarkGreen.color()
-        }
+    private func loadBouncingAnimation() {
+        let moveUpAnimation = CABasicAnimation(keyPath: "position.y")
+        moveUpAnimation.fromValue = pairingImage.layer.position.y
+        moveUpAnimation.toValue = pairingImage.layer.position.y - 15
+        moveUpAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        moveUpAnimation.beginTime = 0
+        moveUpAnimation.duration = 0.3
+        
+        let moveDownAnimation = CASpringAnimation(keyPath: "position.y")
+        moveDownAnimation.fromValue = moveUpAnimation.toValue
+        moveDownAnimation.toValue = pairingImage.layer.position.y + 6
+        moveDownAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        moveDownAnimation.damping = 9.5
+        moveDownAnimation.beginTime = moveUpAnimation.beginTime + moveUpAnimation.duration
+        moveDownAnimation.duration = 2 //moveDownAnimation.settlingDuration
+        
+        let moveUpBackAnimation = CABasicAnimation(keyPath: "position.y")
+        moveUpBackAnimation.fromValue = moveDownAnimation.toValue
+        moveUpBackAnimation.toValue = pairingImage.layer.position.y
+        moveUpBackAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        moveUpBackAnimation.beginTime = moveDownAnimation.beginTime + moveDownAnimation.duration
+        moveUpBackAnimation.duration = 0.4
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.beginTime = CACurrentMediaTime() + 0.5
+        animationGroup.duration = moveUpAnimation.duration + moveDownAnimation.duration + moveUpBackAnimation.duration
+        animationGroup.fillMode = kCAFillModeBackwards
+        animationGroup.repeatCount = .infinity
+        animationGroup.speed = 1.1
+        animationGroup.animations = [moveUpAnimation, moveDownAnimation, moveUpBackAnimation]
+        pairingImage.layer.addAnimation(animationGroup, forKey: "pairingInit")
     }
     
-    func loadPairingFailureLookNFeel() {
-        removeAllAnimations()
-        pairingImage.image = UIImage(named: "locationFailure")
-        pairingPrimaryButton.hidden = false
-        pairingSecondaryButton.hidden = false
-        pairingLeftSignal.hidden = true
-        pairingRightSignal.hidden = true
-        pairingBase.hidden = false
-        pairingTitleLabel.text = "PAIRING FAILED"
-        pairingSubtitleLabel.text = "impossible to pair with your beacon desk. Are you in range?"
-        pairingPrimaryButton.setTitle("Pair Again", forState: .Normal)
-        pairingSecondaryButton.setTitle("or skip step", forState: .Normal)
-        UIView.animateWithDuration(0.4) { () -> Void in
-            self.view.backgroundColor = AIDColor.Pink.color()
-            self.statusBarColor = AIDColor.DarkPink.color()
-        }
-    }
-    
-    @IBAction func primaryButtonDidPressed(sender: AnyObject) {
-        presenter?.primaryAction()
-    }
-    @IBAction func secondaryButtonDidPressed(sender: AnyObject) {
-        presenter?.secondaryAction()
+    private func removeAllAnimations() {
+        pairingImage.layer.removeAllAnimations()
+        pairingLeftSignal.layer.removeAllAnimations()
+        pairingRightSignal.layer.removeAllAnimations()
     }
 }

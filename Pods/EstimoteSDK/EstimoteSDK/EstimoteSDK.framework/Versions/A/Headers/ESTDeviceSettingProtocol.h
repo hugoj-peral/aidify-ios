@@ -63,6 +63,14 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (NSError *)validateValue;
 
+/**
+ *  Decorator method that should update particular field in settings object
+ *  with proper value it is carrying.
+ *
+ *  @param settings Settings object that should be decorated
+ */
+- (void)updateValueInSettings:(id)settings;
+
 @end
 
 NS_ASSUME_NONNULL_END

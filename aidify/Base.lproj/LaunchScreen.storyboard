@@ -28,10 +28,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.59607843137254901" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="md2-T9-toy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="STD-4V-j3R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="md2-T9-toy" secondAttribute="trailing" constant="51" id="Tto-To-Gw1"/>
                             <constraint firstAttribute="trailing" secondItem="md2-T9-toy" secondAttribute="trailing" constant="71" id="gN2-Yc-u6W"/>
                             <constraint firstItem="md2-T9-toy" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="150" id="h6i-mA-PWj"/>
+                            <constraint firstItem="md2-T9-toy" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="52" id="ylu-Jn-AJ1"/>
                             <constraint firstItem="md2-T9-toy" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="72" id="z2m-qc-5db"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gN2-Yc-u6W"/>
+                                <exclude reference="z2m-qc-5db"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

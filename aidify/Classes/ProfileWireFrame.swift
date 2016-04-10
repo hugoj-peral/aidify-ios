@@ -15,7 +15,7 @@ class ProfileWireFrame: ProfileWireFrameProtocol
     class func presentProfileModule(fromWindow window: AnyObject, rootWireFrame: RootWireFrameProtocol)
     {
         // Generating module components
-        let view: ProfileViewProtocol = ProfileView()
+        let view: ProfileViewProtocol = ProfileView.create()
         let presenter: protocol<ProfilePresenterProtocol, ProfileInteractorOutputProtocol> = ProfilePresenter()
         let interactor: ProfileInteractorInputProtocol = ProfileInteractor()
         let APIDataManager: ProfileAPIDataManagerInputProtocol = ProfileAPIDataManager()

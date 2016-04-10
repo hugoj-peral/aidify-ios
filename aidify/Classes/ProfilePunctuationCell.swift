@@ -14,19 +14,27 @@ class ProfilePunctuationCell: UITableViewCell {
     @IBOutlet weak var profileTitleLabel: UILabel!
     @IBOutlet weak var profileSubtitleLabel: UILabel!
     @IBOutlet weak var profileDisclosureLabel: UILabel!
+    @IBOutlet weak var profileDescriptionLabel: UILabel!
+    @IBOutlet var profileDescriptionViewConstraint: NSLayoutConstraint!
+    @IBOutlet var profileDescriptionBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var profileDescriptionTopConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.profileColorView.layer.cornerRadius = self.profileColorView.frame.size.width / 2.0
         self.profileColorView.layer.borderColor = UIColor.whiteColor().CGColor
         self.profileColorView.layer.borderWidth = 4.0
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.profileDescriptionViewConstraint.constant = 0
+        expandCell(false)
     }
     
+    func expandCell(expand: Bool) {
+        profileDisclosureLabel.text = expand ? "-" : "+"
+        profileDescriptionViewConstraint.active = !expand
+        profileDescriptionBottomConstraint.active = expand
+        profileDescriptionTopConstraint.active = expand
+        profileDescriptionTopConstraint.constant = expand ? 4 : 0
+        profileDescriptionBottomConstraint.constant = expand ? 4 : 0
+        layoutIfNeeded()
+    }
 }

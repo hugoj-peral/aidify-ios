@@ -43,7 +43,6 @@ class ProfileView: AIDViewController, ProfileViewProtocol
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.registerCell(ProfileUserCell.self)
         tableView.registerCell(ProfilePunctuationCell.self)
-        tableView.registerCell(ProfilePunctuationMeaningCell.self)
         addNavigationBarRightButtons()
         addProfileChart()
         addBackgroundImage()
@@ -184,7 +183,7 @@ extension ProfileView: UITableViewDataSource {
         }
         
         let item = stats[indexPath.row]
-        return item.cellDrawer.estimatedHeight()
+        return item.cellDrawer.estimatedHeight(item)
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -205,6 +204,12 @@ extension ProfileView: UITableViewDataSource {
         return max(heightToFill, 0)
     }
     
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = AIDColor.Orange.color()
+        return view
+    }
+    
 }
 
 extension ProfileView: UITableViewDelegate {
@@ -218,6 +223,14 @@ extension ProfileView: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard var stats = stats, item = stats[indexPath.row] as? UserStatItem, let cell = tableView.cellForRowAtIndexPath(indexPath) as? ProfilePunctuationCell else {
+            return
+        }
         
+        item.expanded = !item.expanded
+        self.stats![indexPath.row] = item
+        cell.expandCell(item.expanded)
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }

@@ -15,10 +15,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, ESTUtilitManagerState)
+typedef NS_ENUM(NSInteger, ESTUtilityManagerState)
 {
-    ESTUtilitManagerStateIdle,
-    ESTUtilitManagerStateScanning
+    ESTUtilityManagerStateIdle,
+    ESTUtilityManagerStateScanning
 };
 
 @class ESTUtilityManager;
@@ -64,7 +64,7 @@ typedef NS_ENUM(NSInteger, ESTUtilitManagerState)
  /**
  *  Current state of Utility manager
  */
-@property (nonatomic, assign, readonly) ESTUtilitManagerState state;
+@property (nonatomic, assign, readonly) ESTUtilityManagerState state;
 
 /**
  *  Delegate object.

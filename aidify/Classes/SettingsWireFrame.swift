@@ -13,7 +13,7 @@ class SettingsWireFrame: SettingsWireFrameProtocol
     class func pushSettingsModule(fromView view: AnyObject)
     {
         // Generating module components
-        let settingsView: SettingsViewProtocol = SettingsView()
+        let settingsView: SettingsViewProtocol = SettingsView.create()
         let presenter: protocol<SettingsPresenterProtocol, SettingsInteractorOutputProtocol> = SettingsPresenter()
         let interactor: SettingsInteractorInputProtocol = SettingsInteractor()
         let APIDataManager: SettingsAPIDataManagerInputProtocol = SettingsAPIDataManager()
