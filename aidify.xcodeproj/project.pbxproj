@@ -191,7 +191,6 @@
 		EB6CC5441CB6E323002BEEB3 /* UserActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserActivity.swift; path = Classes/UserActivity.swift; sourceTree = "<group>"; };
 		EB929F4A1CB853FE007D220D /* UIImage+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Blur.swift"; path = "Classes/UIImage+Blur.swift"; sourceTree = "<group>"; };
 		EBBBC1A21CAFE4D200034456 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjCBridge.h; path = Classes/ObjCBridge.h; sourceTree = "<group>"; };
-		EBBBC1A31CAFEFA100034456 /* NearableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NearableManager.swift; path = Classes/NearableManager.swift; sourceTree = "<group>"; };
 		EBBBC1A61CB01F8A00034456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = aidify/Base.lproj/PairingView.xib; sourceTree = SOURCE_ROOT; };
 		EBBBC1A81CB0622300034456 /* ProfileUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUserCell.swift; sourceTree = "<group>"; };
 		EBBBC1A91CB0622300034456 /* ProfileUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileUserCell.xib; sourceTree = "<group>"; };
@@ -392,7 +391,6 @@
 				9A6B1AEA1C9DC36A006D7A7C /* Info.plist */,
 				9A6B1AE71C9DC36A006D7A7C /* LaunchScreen.storyboard */,
 				EBBBC1A21CAFE4D200034456 /* ObjCBridge.h */,
-				EBBBC1A31CAFEFA100034456 /* NearableManager.swift */,
 			);
 			path = aidify;
 			sourceTree = "<group>";
